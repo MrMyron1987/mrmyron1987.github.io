@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2d3436;
-            background-image: url('https://i.ibb.co/NHdVbWs/Backgrund-3.png');
+            background-image: url('https://i.ibb.co/wNhR2RQB/Backgrund-3.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -433,7 +433,12 @@
             color: #1a2a3a;
         }
 
-        .hobbies-toggle {
+        /* New styles for individual hobby buttons */
+        .hobby-item {
+            margin-bottom: 15px;
+        }
+
+        .hobby-toggle {
             background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.5);
             color: #1a2a3a;
@@ -450,57 +455,35 @@
             gap: 10px;
         }
 
-        .hobbies-toggle:hover {
+        .hobby-toggle:hover {
             background: rgba(255, 255, 255, 0.9);
         }
 
-        .hobbies-toggle .arrow {
+        .hobby-toggle .arrow {
             font-size: 1.4rem;
             transition: transform 0.3s ease;
         }
 
-        .hobbies-toggle.active .arrow {
+        .hobby-toggle.active .arrow {
             transform: rotate(90deg);
         }
 
-        .hobbies-content {
-            margin-top: 20px;
+        .hobby-content {
+            margin-top: 10px;
+            margin-bottom: 20px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.4);
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .hobbies-content.hidden {
+        .hobby-content.hidden {
             display: none;
         }
 
-        .hobbies-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .hobbies-content li {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-        }
-
-        .hobbies-content li:last-child {
-            border-bottom: none;
-        }
-
-        .hobby-name {
-            font-weight: 700;
+        .hobby-text {
+            line-height: 1.6;
             color: #1a2a3a;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .hobby-details {
-            color: #1a2a3a;
-            padding-left: 15px;
-            font-size: 0.95rem;
         }
 
         /* Music grid inside hobbies */
@@ -1538,7 +1521,7 @@
         </div>
     </section>
 
-    <!-- ==================== HOBBIES SECTION (collapsible) ==================== -->
+    <!-- ==================== HOBBIES SECTION (collapsible per hobby) ==================== -->
     <section class="hobbies">
         <div class="container">
             <h2>
@@ -1547,154 +1530,229 @@
                 <span class="lang-fin">Harrastukset</span>
                 <span class="lang-nl">Hobby's</span>
             </h2>
-            <button class="hobbies-toggle" id="hobbies-toggle" onclick="toggleHobbies()">
-                <span class="arrow">▶</span> 
-                <span class="lang-en active">Show Hobbies</span>
-                <span class="lang-swe">Visa hobbyer</span>
-                <span class="lang-fin">Näytä harrastukset</span>
-                <span class="lang-nl">Toon hobby's</span>
-            </button>
-            <div class="hobbies-content hidden" id="hobbies-content">
-                <ul>
-                    <!-- PC Gaming -->
-                    <li>
-                        <span class="hobby-name">
-                            <span class="lang-en active">PC Gaming</span>
-                            <span class="lang-swe">PC-spel</span>
-                            <span class="lang-fin">PC-pelit</span>
-                            <span class="lang-nl">PC-gaming</span>
-                        </span>
-                        <span class="hobby-details">
-                            <span class="lang-en active">MMO, FPS, RPG, TRPG</span>
-                            <span class="lang-swe">MMO, FPS, RPG, TRPG</span>
-                            <span class="lang-fin">MMO, FPS, RPG, TRPG</span>
-                            <span class="lang-nl">MMO, FPS, RPG, TRPG</span>
-                        </span>
-                    </li>
-                    <!-- Carpentry -->
-                    <li>
-                        <span class="hobby-name">
-                            <span class="lang-en active">Carpentry</span>
-                            <span class="lang-swe">Snickeri</span>
-                            <span class="lang-fin">Puutyöt</span>
-                            <span class="lang-nl">Timmerwerk</span>
-                        </span>
-                        <span class="hobby-details">
-                            <span class="lang-en active">Green Carpentry, Arts and Crafts, Cabinet Carpentry</span>
-                            <span class="lang-swe">Grönt snickeri, Konsthantverk, Möbelsnickeri</span>
-                            <span class="lang-fin">Vihreä puutyö, Käsityöt, Huonekalupuutyö</span>
-                            <span class="lang-nl">Groen timmerwerk, Kunst en ambacht, Meubelmakerij</span>
-                        </span>
-                    </li>
-                    <!-- Coding -->
-                    <li>
-                        <span class="hobby-name">
-                            <span class="lang-en active">Coding</span>
-                            <span class="lang-swe">Kodning</span>
-                            <span class="lang-fin">Koodaus</span>
-                            <span class="lang-nl">Coderen</span>
-                        </span>
-                        <span class="hobby-details">
-                            <span class="lang-en active">Games, Apps and Websites</span>
-                            <span class="lang-swe">Spel, Appar och Webbplatser</span>
-                            <span class="lang-fin">Pelit, Sovellukset ja Verkkosivustot</span>
-                            <span class="lang-nl">Spellen, Apps en Websites</span>
-                        </span>
-                    </li>
-                    <!-- Fitness training -->
-                    <li>
-                        <span class="hobby-name">
-                            <span class="lang-en active">Fitness training</span>
-                            <span class="lang-swe">Träning</span>
-                            <span class="lang-fin">Kuntoilu</span>
-                            <span class="lang-nl">Fitness</span>
-                        </span>
-                        <span class="hobby-details">
-                            <span class="lang-en active">Strong man</span>
-                            <span class="lang-swe">Starkeman</span>
-                            <span class="lang-fin">Voimamies</span>
-                            <span class="lang-nl">Sterke man</span>
-                        </span>
-                    </li>
-                    <!-- Lifelong learning -->
-                    <li>
-                        <span class="hobby-name">
-                            <span class="lang-en active">Lifelong learning</span>
-                            <span class="lang-swe">Livslångt lärande</span>
-                            <span class="lang-fin">Jatkuva oppiminen</span>
-                            <span class="lang-nl">Levenslang leren</span>
-                        </span>
-                        <span class="hobby-details">
-                            <span class="lang-en active">watching documentaries, Reading scientific papers and philosophy, questioning things in overall to get a better understanding of the world.</span>
-                            <span class="lang-swe">titta på dokumentärer, läsa vetenskapliga artiklar och filosofi, ifrågasätta saker för att få en bättre förståelse av världen.</span>
-                            <span class="lang-fin">dokumenttien katselu, tieteellisten artikkelien ja filosofian lukeminen, asioiden kyseenalaistaminen saadakseni paremman käsityksen maailmasta.</span>
-                            <span class="lang-nl">documentaires kijken, wetenschappelijke artikelen en filosofie lezen, dingen in vraag stellen om de wereld beter te begrijpen.</span>
-                        </span>
-                    </li>
-                </ul>
 
-                <!-- Music subsection with introductory text -->
-                <h3 style="margin: 30px 0 15px; color: #1a2a3a;">🎵 Music</h3>
-                <p style="margin-bottom: 20px; line-height: 1.7;">
-                    <span class="lang-en active">Music has been part of my life since the age of six, when I received a French horn. From ages 6 to 17, I played French horn, trumpet, saxophone, and trombone. When the orchestra I was playing in lost its drummer, I took up drums and was hooked, I still love it. At 17, I co-founded the punk band Vulgaris with friends. We later evolved into Garagem until parting ways when I was 24, after which I continued as a solo artist. Drums also led me to music school, where I graduated as a musician with a focus on music production. I occasionally give drum lessons in my spare time but prefer to keep it as a hobby. Below is a selection of my music.</span>
-                    <span class="lang-swe">Musik har varit en del av mitt liv sedan sex års ålder, då jag fick ett valthorn. Från 6 till 17 år spelade jag valthorn, trumpet, saxofon och trombon. När orkestern jag spelade i förlorade sin trummis, tog jag upp trummorna och fastnade, jag älskar det fortfarande. Vid 17 startade jag punkbandet Vulgaris med vänner. Vi utvecklades senare till Garagem tills vi gick skilda vägar när jag var 24, varefter jag fortsatte som soloartist. Trummorna ledde mig också till musikskola, där jag utexaminerades som musiker med inriktning musikproduktion. Jag ger ibland trumlektioner på fritiden men föredrar att hålla det som en hobby. Nedan är ett urval av min musik.</span>
-                    <span class="lang-fin">Musiikki on ollut osa elämääni kuusivuotiaasta lähtien, kun sain käyrätorven. 6–17-vuotiaana soitin käyrätorvea, trumpettia, saksofonia ja pasuunaa. Kun orkesteri, jossa soitin, menetti rumpalinsa, tartuin rumpuihin ja jäin koukkuun, rakastan niitä yhä. 17-vuotiaana perustin ystävieni kanssa punk-yhtye Vulgariksen. Myöhemmin kehityimme Garagemiksi, kunnes erosimme 24-vuotiaana, minkä jälkeen olen jatkanut soolona. Rummut johtivat minut myös musiikkiopistoon, josta valmistuin muusikoksi painopisteenä musiikkituotanto. Annan satunnaisesti rumputunteja vapaa-ajallani, mutta pidän sen mieluummin harrastuksena. Alla valikoima musiikkiani.</span>
-                    <span class="lang-nl">Muziek is een deel van mijn leven sinds ik zes was, toen ik een hoorn kreeg. Van mijn 6e tot 17e speelde ik hoorn, trompet, saxofoon en trombone. Toen het orkest waarin ik speelde zijn drummer verloor, pakte ik de drums op en raakte verslaafd, ik hou er nog steeds van. Op mijn 17e richtte ik met vrienden de punkband Vulgaris op. Later evolueerden we naar Garagem tot we uit elkaar gingen toen ik 24 was, waarna ik solo verderging. Drums leidden me ook naar de muziekschool, waar ik afstudeerde als muzikant met een focus op muziekproductie. Ik geef af en toe drumles in mijn vrije tijd, maar houd het liever als hobby. Hieronder een selectie van mijn muziek.</span>
-                </p>
-                <div class="music-grid">
-                    <!-- Vulgaris - Burnout city 2006 -->
-                    <div class="music-card">
-                        <strong>Vulgaris</strong><br>
-                        <span class="music-details">
-                            <span>Punk</span>Burnout city (First version)<br>
-                            <small>2006</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=JcYi5r3bdEc" target="_blank" class="music-link">▶ Play</a>
+            <!-- PC Gaming -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">PC-spel</span>
+                        <span class="lang-en active">PC Gaming</span>
+                        <span class="lang-fin">PC-pelaaminen</span>
+                        <span class="lang-nl">PC-gaming</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <span class="lang-swe">Jag är en aktiv PC-spelare med ett brett intresse för olika genrer, inklusive MMO, FPS, RPG och strategispel. Jag spelar regelbundet, oftast några timmar i veckan, vilket inte bara är underhållande utan även bidrar till att utveckla min kreativitet och reaktionsförmåga.<br><br>
+                        I yngre år spelade jag även på en mer konkurrensinriktad nivå inom spelet Continuum, där jag tillsammans med mitt lag representerade Finland internationellt. Även om jag idag inte längre tävlar på elitnivå, ser jag tillbaka på den tiden som mycket givande. Numera spelar jag främst för nöjets skull.<br><br>
+                        Några av mina favoritspel inkluderar Lord of the Rings: Return to Moria, Team Fortress 2, Mount & Blade II: Bannerlord, Railway Empire och Verdun.</span>
+                        <span class="lang-en active">I am an active PC gamer with a broad interest in various genres, including MMO, FPS, RPG, and strategy games. I play regularly, typically a few hours per week, which is not only entertaining but also helps develop creativity and reaction skills.<br><br>
+                        In my younger years, I competed at a higher level in the game Continuum, representing Finland internationally as part of a team. While I no longer compete at an elite level, I look back on that time as very rewarding. Today, I primarily play for enjoyment.<br><br>
+                        Some of my favorite games include Lord of the Rings: Return to Moria, Team Fortress 2, Mount & Blade II: Bannerlord, Railway Empire, and Verdun.</span>
+                        <span class="lang-fin">Olen aktiivinen PC-pelaaja, jolla on laaja kiinnostus eri peligenreihin, kuten MMO-, FPS-, RPG- ja strategiapeleihin. Pelaan säännöllisesti, yleensä muutaman tunnin viikossa, mikä ei ole pelkästään viihdyttävää vaan myös kehittää luovuuttani ja reaktiokykyäni.<br><br>
+                        Nuorempana pelasin kilpailullisesti Continuum-peliä, jossa edustin Suomea kansainvälisellä tasolla osana joukkuetta. Vaikka en enää kilpaile huipputasolla, pidän tuota aikaa erittäin antoisana. Nykyään pelaan pääasiassa omaksi ilokseni.<br><br>
+                        Suosikkipeleihini kuuluvat muun muassa Lord of the Rings: Return to Moria, Team Fortress 2, Mount & Blade II: Bannerlord, Railway Empire ja Verdun.</span>
+                        <span class="lang-nl">Ik ben een actieve PC-gamer met een brede interesse in verschillende genres, waaronder MMO-, FPS-, RPG- en strategiespellen. Ik speel regelmatig, meestal een paar uur per week, wat niet alleen leuk is, maar ook mijn creativiteit en reactievermogen ontwikkelt.<br><br>
+                        In mijn jongere jaren speelde ik competitief in het spel Continuum, waar ik samen met mijn team Finland vertegenwoordigde op internationaal niveau. Hoewel ik tegenwoordig niet meer op elite-niveau speel, kijk ik met veel plezier terug op die periode. Tegenwoordig speel ik vooral voor mijn eigen plezier.<br><br>
+                        Enkele van mijn favoriete spellen zijn Lord of the Rings: Return to Moria, Team Fortress 2, Mount & Blade II: Bannerlord, Railway Empire en Verdun.</span>
                     </div>
-                    <!-- Vulgaris - Burnout city 2010 -->
-                    <div class="music-card">
-                        <strong>Vulgaris</strong><br>
-                        <span class="music-details">
-                            <span>Punk</span> Burnout city (Final Version)<br>
-                            <small>2010</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=ndNnEZM-25U" target="_blank" class="music-link">▶ Play</a>
+                </div>
+            </div>
+
+            <!-- Carpentry -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">Snickeri</span>
+                        <span class="lang-en active">Carpentry</span>
+                        <span class="lang-fin">Puusepäntyöt</span>
+                        <span class="lang-nl">Houtbewerking</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <span class="lang-swe">Snickeri är ett stort intresse som jag utvecklade senare i livet. Trots att jag inte valde snickeri under min yrkesutbildning, där jag istället fokuserade på plåtslageri och svetsning, har det blivit en viktig kreativ outlet för mig. Jag arbetar främst med så kallat “grönt snickeri”, vilket innebär att jag återanvänder och återvinner trä för att ge det nytt liv. Ofta omvandlar jag materialet till både konstverk och funktionella möbler.</span>
+                        <span class="lang-en active">Woodworking is a passion I developed later in life. Although I did not study it formally, instead focusing on sheet metal work and welding, it has become an important creative outlet for me. I mainly work with “green woodworking,” meaning I reuse and recycle wood to give it new life. I often transform materials into both artistic pieces and functional furniture.</span>
+                        <span class="lang-fin">Puusepäntyöt ovat minulle tärkeä harrastus, jonka löysin myöhemmin elämässäni. Vaikka en opiskellut alaa muodollisesti, keskityin sen sijaan peltitöihin ja hitsaukseen, siitä on tullut minulle merkittävä luova ilmaisumuoto. Työskentelen pääasiassa niin sanotun “vihreän puusepäntyön” parissa, mikä tarkoittaa, että hyödynnän kierrätettyä puuta ja annan materiaalille uuden elämän. Muunnan puuta usein sekä taideteoksiksi että käytännöllisiksi huonekaluiksi.</span>
+                        <span class="lang-nl">Houtbewerking is een passie die ik later in mijn leven heb ontwikkeld. Hoewel ik het niet formeel heb gestudeerd, ik richtte me in plaats daarvan op plaatwerk en lassen, is het een belangrijke creatieve uitlaatklep voor mij geworden. Ik werk voornamelijk met zogenaamd “groen houtbewerken”, wat betekent dat ik hout hergebruik en recycle om het een nieuw leven te geven. Ik transformeer het materiaal vaak tot zowel kunstwerken als functionele meubels.</span>
                     </div>
-                    <!-- Garagem - Life is to short -->
-                    <div class="music-card">
-                        <strong>Garagem</strong><br>
-                        <span class="music-details">
-                            <span>Punk</span> Life is to short<br>
-                            <small>2011</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=EWaDjJDfUi4" target="_blank" class="music-link">▶ Play</a>
+                </div>
+            </div>
+
+            <!-- Programming (updated text) -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">Kodning</span>
+                        <span class="lang-en active">Programming</span>
+                        <span class="lang-fin">Ohjelmointi</span>
+                        <span class="lang-nl">Programmeren</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <!-- Swedish updated: added "med kompisarna", removed AI sentence -->
+                        <span class="lang-swe">Kodning har varit en del av mitt liv sedan tidig ålder. Mitt intresse väcktes när min far tog hem en dator där man behövde skriva kod för att kunna använda program och spel. Detta blev startpunkten för ett långvarigt engagemang inom programmering.<br><br>
+                        När Windows blev mer etablerat började jag tillsammans med vänner utveckla Flashspel som vi publicerade på Newgrounds. Jag skapade även en finlandssvensk fansida för Harry Potter med kompisarna, som vi hostade på en egenbyggd server.<br><br>
+                        Senare arbetade jag med programmering av CNC-maskiner, vilket jag fann mycket givande. På senare tid har jag återupptagit mitt intresse för JavaScript och utvecklat ett utbildningsspel med fokus på skogsbruk. Projektet är för närvarande i migreringsfas till servermiljö, där min bror bistår med teknisk expertis.<br><br>
+                        Jag har även återvänt till HTML-utveckling.</span>
+                        <!-- English updated: added "with friends", removed AI sentence -->
+                        <span class="lang-en active">Programming has been part of my life from an early age. My interest began when my father brought home a computer that required manual coding to run programs and games. This sparked a long-lasting passion.<br><br>
+                        As Windows became more widespread, I started developing Flash games with friends and publishing them on Newgrounds. I also created a Finnish-Swedish Harry Potter fan site with friends, which we hosted on a self-built server.<br><br>
+                        Later, I worked with CNC machine programming, which I found very engaging. In recent years, I have returned to JavaScript development and created an educational game focused on forestry. The project is currently in a migration phase to a server environment, where my brother assists with technical aspects.<br><br>
+                        I have also resumed working with HTML.</span>
+                        <!-- Finnish updated: added "kavereiden kanssa", removed AI sentence -->
+                        <span class="lang-fin">Ohjelmointi on ollut osa elämääni varhaisesta iästä lähtien. Kiinnostukseni heräsi, kun isäni toi kotiin tietokoneen, joka vaati koodin kirjoittamista ohjelmien ja pelien käyttämiseksi. Tämä käynnisti pitkäaikaisen kiinnostukseni ohjelmointiin.<br><br>
+                        Kun Windows yleistyi, aloin yhdessä ystävieni kanssa kehittää Flash-pelejä, joita julkaisimme Newgrounds-sivustolla. Loimme myös kavereiden kanssa suomenruotsalaisen Harry Potter -fanisivuston, jota ylläpidimme itse rakennetulla palvelimella.<br><br>
+                        Myöhemmin työskentelin CNC-koneiden ohjelmoinnin parissa, mikä oli erittäin mielenkiintoista. Viime vuosina olen palannut JavaScriptin pariin ja kehittänyt opetuspeliä, joka käsittelee metsätaloutta. Projekti on tällä hetkellä siirtymävaiheessa palvelinympäristöön, jossa veljeni auttaa teknisissä asioissa.<br><br>
+                        Olen myös palannut HTML-kehityksen pariin.</span>
+                        <!-- Dutch updated: added "met vrienden", removed AI sentence -->
+                        <span class="lang-nl">Programmeren maakt al sinds jonge leeftijd deel uit van mijn leven. Mijn interesse begon toen mijn vader een computer mee naar huis bracht waarvoor je code moest invoeren om programma’s en spellen te kunnen gebruiken. Dit vormde het begin van een langdurige passie.<br><br>
+                        Toen Windows populairder werd, begon ik samen met vrienden Flashgames te ontwikkelen die we publiceerden op Newgrounds. Ik maakte ook met vrienden een Fins-Zweedse Harry Potter-fansite, die we hostten op een zelfgebouwde server.<br><br>
+                        Later werkte ik met het programmeren van CNC-machines, wat ik erg interessant vond. In de afgelopen jaren heb ik JavaScript weer opgepakt en een educatief spel ontwikkeld over bosbouw. Het project bevindt zich momenteel in een migratiefase naar een serveromgeving, waarbij mijn broer helpt met de technische aspecten.<br><br>
+                        Ik ben ook opnieuw begonnen met HTML.</span>
                     </div>
-                    <!-- Solo project - War is not hell -->
-                    <div class="music-card">
-                        <strong>Solo project</strong><br>
-                        <span class="music-details">
-                            <span>Death Metal</span> War is not hell<br>
-                            <small>2025</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=szfi02uiLWo" target="_blank" class="music-link">▶ Play</a>
+                </div>
+            </div>
+
+            <!-- Training -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">Träning</span>
+                        <span class="lang-en active">Training</span>
+                        <span class="lang-fin">Liikunta</span>
+                        <span class="lang-nl">Training</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <span class="lang-swe">Fysisk aktivitet har alltid varit en naturlig del av mitt liv. Jag har cyklat sedan tidig ålder och använder fortfarande cykeln som ett återkommande transport- och träningsmedel.<br><br>
+                        Genom åren har jag även utövat boxning, karate och löpning, men har på senare tid funnit ett särskilt intresse för styrketräning. Jag tränar regelbundet på gym, cirka 4–5 gånger i veckan, för att upprätthålla både fysisk och mental hälsa.<br><br>
+                        Jag uppmuntrar även andra att hitta en träningsform som passar dem, då motion har en positiv inverkan på både kropp och sinne.</span>
+                        <span class="lang-en active">Physical activity has always been an integral part of my life. I have been cycling since early childhood and continue to do so regularly.<br><br>
+                        Over the years, I have also practiced boxing, karate, and running, but I have recently developed a strong interest in strength training. I go to the gym 4–5 times per week to maintain both physical and mental well-being.<br><br>
+                        I also encourage others to engage in physical activity, as it benefits both body and mind.</span>
+                        <span class="lang-fin">Liikunta on aina ollut olennainen osa elämääni. Olen pyöräillyt pienestä pitäen ja teen sitä edelleen aktiivisesti.<br><br>
+                        Vuosien varrella olen harrastanut myös nyrkkeilyä, karatea ja juoksua, mutta viime aikoina olen keskittynyt erityisesti voimaharjoitteluun. Käyn kuntosalilla säännöllisesti, noin 4–5 kertaa viikossa, ylläpitääkseni sekä fyysistä että henkistä hyvinvointia.<br><br>
+                        Kannustan myös muita löytämään itselleen sopivan liikuntamuodon, sillä liikunnalla on myönteinen vaikutus sekä kehoon että mieleen.</span>
+                        <span class="lang-nl">Lichaamsbeweging is altijd een belangrijk onderdeel van mijn leven geweest. Ik fiets al sinds jonge leeftijd en doe dit nog steeds regelmatig.<br><br>
+                        Door de jaren heen heb ik ook aan boksen, karate en hardlopen gedaan, maar de laatste tijd heb ik een sterke interesse ontwikkeld in krachttraining. Ik ga regelmatig naar de sportschool, ongeveer 4–5 keer per week, om zowel mijn fysieke als mentale gezondheid te onderhouden.<br><br>
+                        Ik moedig ook anderen aan om een vorm van beweging te vinden die bij hen past, omdat lichaamsbeweging een positief effect heeft op zowel lichaam als geest.</span>
                     </div>
-                    <!-- Solo project - The firth beneath my nails -->
-                    <div class="music-card">
-                        <strong>Solo project</strong><br>
-                        <span class="music-details">
-                            <span>Power metal</span> The dirth beneath my nails<br>
-                            <small>2025</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=zJs82fOhP4w" target="_blank" class="music-link">▶ Play</a>
+                </div>
+            </div>
+
+            <!-- Lifelong Learning (updated: Fincon -> Finncon) -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">Livslångt lärande</span>
+                        <span class="lang-en active">Lifelong Learning</span>
+                        <span class="lang-fin">Elinikäinen oppiminen</span>
+                        <span class="lang-nl">Levenslang leren</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <span class="lang-swe">Jag har ett starkt intresse för kontinuerligt lärande och tar del av ett brett spektrum av dokumentärer och vetenskapliga artiklar, främst inom skogsbruk men även inom psykologi.<br><br>
+                        Läsning är en annan viktig del av min vardag, där jag främst uppskattar fantasy- och science fiction-litteratur. Jag läser regelbundet, ofta en till två böcker per månad, och uppskattar särskilt när en bok är så engagerande att tiden nästan står stilla.<br><br>
+                        Jag deltar även årligen i Finncon, där jag tar del av föreläsningar och paneldiskussioner inom genren.</span>
+                        <span class="lang-en active">I have a strong interest in continuous learning and regularly watch documentaries and read scientific articles, primarily in forestry but also in psychology.<br><br>
+                        Reading is an important part of my daily routine, especially within fantasy and science fiction. I typically read one to two books per month and particularly enjoy when a book is so engaging that I lose track of time.<br><br>
+                        I also attend Finncon annually, where I participate in lectures and panel discussions.</span>
+                        <span class="lang-fin">Minulla on vahva kiinnostus jatkuvaan oppimiseen, ja seuraan aktiivisesti dokumentteja sekä luen tieteellisiä artikkeleita, pääasiassa metsätalouden alalta mutta myös psykologiasta.<br><br>
+                        Lukeminen on tärkeä osa arkeani, erityisesti fantasia- ja tieteiskirjallisuus. Luin yleensä yhdestä kahteen kirjaa kuussa ja nautin erityisesti siitä, kun kirja on niin mukaansatempaava, että ajantaju katoaa.<br><br>
+                        Osallistun myös vuosittain Finncon-tapahtumaan, jossa kuuntelen luentoja ja paneelikeskusteluja.</span>
+                        <span class="lang-nl">Ik heb een sterke interesse in continu leren en kijk veel documentaires en lees wetenschappelijke artikelen, voornamelijk over bosbouw maar ook over psychologie.<br><br>
+                        Lezen is een belangrijk onderdeel van mijn dagelijkse routine, vooral fantasy en sciencefiction. Ik lees meestal één tot twee boeken per maand en geniet er vooral van wanneer een boek zo meeslepend is dat ik de tijd vergeet.<br><br>
+                        Ik bezoek ook jaarlijks Finncon, waar ik lezingen en paneldiscussies bijwoon.</span>
                     </div>
-                    <!-- Solo project - Zealot -->
-                    <div class="music-card">
-                        <strong>Solo project</strong><br>
-                        <span class="music-details">
-                            <span>Techno / Dabb</span> Zealot<br>
-                            <small>2025</small>
-                        </span>
-                        <a href="https://www.youtube.com/watch?v=QX5m-Qloauc" target="_blank" class="music-link">▶ Play</a>
+                </div>
+            </div>
+
+            <!-- Music (new collapsible button) -->
+            <div class="hobby-item">
+                <button class="hobby-toggle" onclick="toggleHobby(this)">
+                    <span class="arrow">▶</span>
+                    <span class="hobby-name-multilang">
+                        <span class="lang-swe">Musik</span>
+                        <span class="lang-en active">Music</span>
+                        <span class="lang-fin">Musiikki</span>
+                        <span class="lang-nl">Muziek</span>
+                    </span>
+                </button>
+                <div class="hobby-content hidden">
+                    <div class="hobby-text">
+                        <!-- Music intro text (multilingual) -->
+                        <p style="margin-bottom: 20px; line-height: 1.7;">
+                            <span class="lang-en active">Music has been part of my life since the age of six, when I received a French horn. From ages 6 to 17, I played French horn, trumpet, saxophone, and trombone. When the orchestra I was playing in lost its drummer, I took up drums and was hooked, I still love it. At 17, I co-founded the punk band Vulgaris with friends. We later evolved into Garagem until parting ways when I was 24, after which I continued as a solo artist. Drums also led me to music school, where I graduated as a musician with a focus on music production. I occasionally give drum lessons in my spare time but prefer to keep it as a hobby. Below is a selection of my music.</span>
+                            <span class="lang-swe">Musik har varit en del av mitt liv sedan sex års ålder, då jag fick ett valthorn. Från 6 till 17 år spelade jag valthorn, trumpet, saxofon och trombon. När orkestern jag spelade i förlorade sin trummis, tog jag upp trummorna och fastnade, jag älskar det fortfarande. Vid 17 startade jag punkbandet Vulgaris med vänner. Vi utvecklades senare till Garagem tills vi gick skilda vägar när jag var 24, varefter jag fortsatte som soloartist. Trummorna ledde mig också till musikskola, där jag utexaminerades som musiker med inriktning musikproduktion. Jag ger ibland trumlektioner på fritiden men föredrar att hålla det som en hobby. Nedan är ett urval av min musik.</span>
+                            <span class="lang-fin">Musiikki on ollut osa elämääni kuusivuotiaasta lähtien, kun sain käyrätorven. 6–17-vuotiaana soitin käyrätorvea, trumpettia, saksofonia ja pasuunaa. Kun orkesteri, jossa soitin, menetti rumpalinsa, tartuin rumpuihin ja jäin koukkuun, rakastan niitä yhä. 17-vuotiaana perustin ystävieni kanssa punk-yhtye Vulgariksen. Myöhemmin kehityimme Garagemiksi, kunnes erosimme 24-vuotiaana, minkä jälkeen olen jatkanut soolona. Rummut johtivat minut myös musiikkiopistoon, josta valmistuin muusikoksi painopisteenä musiikkituotanto. Annan satunnaisesti rumputunteja vapaa-ajallani, mutta pidän sen mieluummin harrastuksena. Alla valikoima musiikkiani.</span>
+                            <span class="lang-nl">Muziek is een deel van mijn leven sinds ik zes was, toen ik een hoorn kreeg. Van mijn 6e tot 17e speelde ik hoorn, trompet, saxofoon en trombone. Toen het orkest waarin ik speelde zijn drummer verloor, pakte ik de drums op en raakte verslaafd, ik hou er nog steeds van. Op mijn 17e richtte ik met vrienden de punkband Vulgaris op. Later evolueerden we naar Garagem tot we uit elkaar gingen toen ik 24 was, waarna ik solo verderging. Drums leidden me ook naar de muziekschool, waar ik afstudeerde als muzikant met een focus op muziekproductie. Ik geef af en toe drumles in mijn vrije tijd, maar houd het liever als hobby. Hieronder een selectie van mijn muziek.</span>
+                        </p>
+                        <!-- Music grid -->
+                        <div class="music-grid">
+                            <!-- Vulgaris - Burnout city 2006 -->
+                            <div class="music-card">
+                                <strong>Vulgaris</strong><br>
+                                <span class="music-details">
+                                    <span>Punk</span>Burnout city (First version)<br>
+                                    <small>2006</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=JcYi5r3bdEc" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                            <!-- Vulgaris - Burnout city 2010 -->
+                            <div class="music-card">
+                                <strong>Vulgaris</strong><br>
+                                <span class="music-details">
+                                    <span>Punk</span> Burnout city (Final Version)<br>
+                                    <small>2010</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=ndNnEZM-25U" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                            <!-- Garagem - Life is to short -->
+                            <div class="music-card">
+                                <strong>Garagem</strong><br>
+                                <span class="music-details">
+                                    <span>Punk</span> Life is to short<br>
+                                    <small>2011</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=EWaDjJDfUi4" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                            <!-- Solo project - War is not hell -->
+                            <div class="music-card">
+                                <strong>Solo project</strong><br>
+                                <span class="music-details">
+                                    <span>Death Metal</span> War is not hell<br>
+                                    <small>2025</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=szfi02uiLWo" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                            <!-- Solo project - The firth beneath my nails -->
+                            <div class="music-card">
+                                <strong>Solo project</strong><br>
+                                <span class="music-details">
+                                    <span>Power metal</span> The dirth beneath my nails<br>
+                                    <small>2025</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=zJs82fOhP4w" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                            <!-- Solo project - Zealot -->
+                            <div class="music-card">
+                                <strong>Solo project</strong><br>
+                                <span class="music-details">
+                                    <span>Techno / Dabb</span> Zealot<br>
+                                    <small>2025</small>
+                                </span>
+                                <a href="https://www.youtube.com/watch?v=QX5m-Qloauc" target="_blank" class="music-link">▶ Play</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1820,10 +1878,9 @@
             });
         }
 
-        function toggleHobbies() {
-            var content = document.getElementById('hobbies-content');
-            var toggleBtn = document.getElementById('hobbies-toggle');
-            var arrow = toggleBtn.querySelector('.arrow');
+        function toggleHobby(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('.arrow');
             content.classList.toggle('hidden');
             arrow.innerHTML = content.classList.contains('hidden') ? '▶' : '▼';
         }
