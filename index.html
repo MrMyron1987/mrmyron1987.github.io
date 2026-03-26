@@ -40,43 +40,49 @@
             z-index: 1;
         }
 
-        /* Language Switcher - neutral mörk bakgrund */
+        /* Language Switcher - förbättrad synlighet och tydlighet */
         .language-switcher {
-            background: rgba(30, 30, 30, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
             padding: 15px 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-bottom: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .lang-btn {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.8);
             color: white;
-            padding: 8px 20px;
-            margin: 0 5px;
+            padding: 10px 24px;
+            margin: 0 6px;
             cursor: pointer;
-            font-size: 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            border-radius: 40px;
+            transition: all 0.25s ease;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: white;
+            color: #1a2a3a;
             border-color: white;
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
 
         .lang-btn.active {
             background: white;
-            color: #333;
+            color: #1a2a3a;
             border-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-weight: 800;
         }
 
         /* Header Section - neutral */
@@ -763,8 +769,8 @@
             }
 
             .lang-btn {
-                padding: 6px 12px;
-                margin: 0 2px;
+                padding: 6px 16px;
+                margin: 0 3px;
                 font-size: 0.9rem;
             }
 
@@ -793,7 +799,7 @@
     </style>
 </head>
 <body>
-    <!-- ==================== LANGUAGE SWITCHER ==================== -->
+    <!-- ==================== LANGUAGE SWITCHER (FÖRBÄTTRAD SYNLIGHET) ==================== -->
     <div class="language-switcher">
         <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
         <button class="lang-btn" onclick="switchLanguage('swe')">SWE</button>
@@ -902,7 +908,6 @@
                     </div>
 
                     <div class="project-grid">
-                        
                         <!-- PROJECT 1 - Forest Owner Game: PICTURE added -->
                         <div class="project-card">
                             <div class="project-img">
@@ -1951,6 +1956,22 @@ Schoolleider</span>
                         <span class="lang-swe">— Patrik Snellman</span>
                         <span class="lang-fin">— Patrik Snellman</span>
                         <span class="lang-nl">— Patrik Snellman</span>
+                    </p>
+                </div>
+
+                <!-- NY REKOMMENDATION: Program Lead, Stora Enso -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        <span class="lang-en active">"Mats is a nice social person who is very professional in his work. He has very good knowledge within forest industry and that in combination with his understanding of IT system and development, is a very good combination. I was Program Lead in a program at Stora Enso and had Mats as a resource in the Program. He had several roles and worked both with requirements, as a business analyst and as a bridge between business and IT. Mats took great responsibility and delivered in time, or..., delivered often much before expected time. I am very satisfied with work Mats did in program."</span>
+                        <span class="lang-swe">EN original text: "Mats är en trevlig social person som är mycket professionell i sitt arbete. Han har mycket god kunskap inom skogsindustrin och det i kombination med hans förståelse för IT-system och utveckling är en mycket bra kombination. Jag var programledare i ett program på Stora Enso och hade Mats som resurs i programmet. Han hade flera roller och arbetade både med krav, som verksamhetsanalytiker och som en bro mellan verksamhet och IT. Mats tog stort ansvar och levererade i tid, eller..., levererade ofta mycket före förväntad tid. Jag är mycket nöjd med det arbete Mats gjorde i programmet."</span>
+                        <span class="lang-fin">EN Alkuperäinen teksti: "Mats on mukava sosiaalinen henkilö, joka on erittäin ammattitaitoinen työssään. Hänellä on erittäin hyvä tietämys metsäteollisuudesta, ja se yhdistettynä hänen ymmärrykseensä IT-järjestelmistä ja kehityksestä on erittäin hyvä yhdistelmä. Olin ohjelmapäällikkönä Stora Ensolla ja minulla oli Mats resurssina ohjelmassa. Hänellä oli useita rooleja ja hän työskenteli sekä vaatimusten parissa, liiketoiminta-analyytikkona että siltana liiketoiminnan ja IT:n välillä. Mats otti suurta vastuuta ja toimitti ajoissa, tai..., toimitti usein paljon ennen odotettua aikaa. Olen erittäin tyytyväinen työhön, jonka Mats teki ohjelmassa."</span>
+                        <span class="lang-nl">EN Originele tekst: "Mats is een aardig sociaal persoon die erg professioneel is in zijn werk. Hij heeft zeer goede kennis van de bosbouwindustrie en dat in combinatie met zijn begrip van IT-systemen en ontwikkeling is een zeer goede combinatie. Ik was Programma Lead in een programma bij Stora Enso en had Mats als een resource in het programma. Hij had verschillende rollen en werkte zowel met requirements, als business analist en als brug tussen business en IT. Mats nam grote verantwoordelijkheid en leverde op tijd, of..., leverde vaak veel eerder dan verwacht. Ik ben zeer tevreden met het werk dat Mats in het programma heeft gedaan."</span>
+                    </p>
+                    <p class="testimonial-author">
+                        <span class="lang-en active">— Robert Halvardes, Project Manager Tactical Planning, Stora Enso</span>
+                        <span class="lang-swe">— Robert Halvardes, Project Manager Tactical Planning, Stora Enso</span>
+                        <span class="lang-fin">— Robert Halvardes, Project Manager Tactical Planning, Stora Enso</span>
+                        <span class="lang-nl">— Robert Halvardes, Project Manager Tactical Planning, Stora Enso</span>
                     </p>
                 </div>
 
