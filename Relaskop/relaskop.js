@@ -1,5 +1,5 @@
 // ============================================================
-// 1. SPRÅKTEXTER (sv, fi, en) – komplett med frågemall
+// 1. SPRÅKTEXTER (sv, fi, en)
 // ============================================================
 const uiTexts = {
     sv: {
@@ -13,7 +13,7 @@ const uiTexts = {
         perHectareLabel: 'Kubik per hektar (m³/ha):',
         totalLabel: 'Totalt på figuren (m³):',
         correct: '✅ Rätt! Båda svaren stämmer.',
-        wrong: (perHectare, total) => `❌ Fel. Rätt svar: per hektar: ${perHectare.toFixed(1)} m³/ha, totalt: ${total} m³.`,
+        wrong: (perHectare, total) => `❌ Fel. Rätt svar: per hektar: ${perHectare.toFixed(1).replace('.', ',')} m³/ha, totalt: ${total.toFixed(1).replace('.', ',')} m³.`,
         alreadyChecked: '⚠️ Du har redan kontrollerat denna fråga. Gå vidare.',
         mustCheck: '🔍 Du måste kontrollera ditt svar först.',
         invalidInput: 'Vänligen fyll i båda fälten med giltiga tal.',
@@ -25,7 +25,7 @@ const uiTexts = {
         treePine: 'tall',
         treeSpruce: 'gran',
         questionTemplate: (spruceCount, pineCount, spruceName, pineName, area, meanHeight) =>
-            `Du har uppmätt i medeltal ${spruceCount} ${spruceName} och ${pineCount} ${pineName} på figuren som är ${area.toFixed(1)} hektar. Medelhöjden är ${meanHeight} m.`,
+            `Du har uppmätt i medeltal ${spruceCount} ${spruceName} och ${pineCount} ${pineName} på figuren som är ${area.toFixed(1).replace('.', ',')} hektar. Medelhöjden är ${meanHeight} m.`,
         tableTitleMixed: '🌲 Tall och gran (blandskog) – Medelhöjd (m)',
         tableTitlePine: '🌲 Tall – Medelhöjd (m)',
         tableTitleSpruce: '🌲 Gran – Medelhöjd (m)',
@@ -43,7 +43,7 @@ const uiTexts = {
         perHectareLabel: 'Kuutiota hehtaarilla (m³/ha):',
         totalLabel: 'Yhteensä kuviolla (m³):',
         correct: '✅ Oikein! Molemmat vastaukset oikein.',
-        wrong: (ph, tot) => `❌ Väärin. Oikeat vastaukset: hehtaaria kohti: ${ph.toFixed(1)} m³/ha, yhteensä: ${tot} m³.`,
+        wrong: (ph, tot) => `❌ Väärin. Oikeat vastaukset: hehtaaria kohti: ${ph.toFixed(1).replace('.', ',')} m³/ha, yhteensä: ${tot.toFixed(1).replace('.', ',')} m³.`,
         alreadyChecked: '⚠️ Olet jo tarkistanut tämän kysymyksen. Siirry eteenpäin.',
         mustCheck: '🔍 Tarkista vastauksesi ensin.',
         invalidInput: 'Täytä molemmat kentät kelvollisilla numeroilla.',
@@ -55,7 +55,7 @@ const uiTexts = {
         treePine: 'mänty',
         treeSpruce: 'kuusi',
         questionTemplate: (spruceCount, pineCount, spruceName, pineName, area, meanHeight) =>
-            `Kuviolla mittasit keskimäärin ${spruceCount} ${spruceName} ja ${pineCount} ${pineName}. Kuvion pinta-ala on ${area.toFixed(1)} ha. Keskipituus on ${meanHeight} m.`,
+            `Kuviolla mittasit keskimäärin ${spruceCount} ${spruceName} ja ${pineCount} ${pineName}. Kuvion pinta-ala on ${area.toFixed(1).replace('.', ',')} ha. Keskipituus on ${meanHeight} m.`,
         tableTitleMixed: '🌲 Mänty ja kuusi (sekametsä) – Keskipituus (m)',
         tableTitlePine: '🌲 Mänty – Keskipituus (m)',
         tableTitleSpruce: '🌲 Kuusi – Keskipituus (m)',
@@ -73,7 +73,7 @@ const uiTexts = {
         perHectareLabel: 'Cubic metres per hectare (m³/ha):',
         totalLabel: 'Total in stand (m³):',
         correct: '✅ Correct! Both answers are right.',
-        wrong: (ph, tot) => `❌ Wrong. Correct answers: per hectare: ${ph.toFixed(1)} m³/ha, total: ${tot} m³.`,
+        wrong: (ph, tot) => `❌ Wrong. Correct answers: per hectare: ${ph.toFixed(1)} m³/ha, total: ${tot.toFixed(1)} m³.`,
         alreadyChecked: '⚠️ You have already checked this question. Move on.',
         mustCheck: '🔍 You must check your answer first.',
         invalidInput: 'Please fill in both fields with valid numbers.',
@@ -95,10 +95,9 @@ const uiTexts = {
 };
 
 // ============================================================
-// 2. DATA FRÅN EXCEL – EXAKT KOPIA
+// 2. DATA FRÅN EXCEL
 // ============================================================
 const basalAreas = [6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40];
-
 const mixedHeights = [6, 8, 10, 12, 14, 16];
 const pineHeights = [18, 20, 22, 24, 26, 28];
 const spruceHeights = [18, 20, 22, 24, 26, 28];
@@ -167,49 +166,42 @@ const spruceVolume = [
 ];
 
 // ============================================================
-// 3. HJÄLPFUNKTIONER FÖR INTERPOLERING OCH FRÅGEGENERERING
+// 3. HJÄLPFUNKTION: HITTA OMGIVANDE INDEX
 // ============================================================
-function getVolumeFromTable(tableData, heights, basalArea, meanHeight) {
-    let g_idx = basalAreas.indexOf(basalArea);
-    let h_idx = heights.indexOf(meanHeight);
-    
-    // Om exakt värde finns, returnera det
-    if (g_idx !== -1 && h_idx !== -1 && tableData[g_idx][h_idx] !== null) {
-        return tableData[g_idx][h_idx];
-    }
-    
-    // Annars hitta omgivande punkter för interpolation
-    let g1_idx = g_idx, g2_idx = g_idx;
-    if (basalArea < basalAreas[0]) { g1_idx = 0; g2_idx = 0; }
-    else if (basalArea > basalAreas[basalAreas.length-1]) { g1_idx = basalAreas.length-1; g2_idx = basalAreas.length-1; }
-    else {
-        for (let i = 0; i < basalAreas.length-1; i++) {
-            if (basalArea >= basalAreas[i] && basalArea <= basalAreas[i+1]) {
-                g1_idx = i; g2_idx = i+1; break;
-            }
+function findSurroundingIndices(value, array) {
+    if (value <= array[0]) return { low: 0, high: 0, exact: value === array[0] };
+    if (value >= array[array.length-1]) return { low: array.length-1, high: array.length-1, exact: value === array[array.length-1] };
+    for (let i = 0; i < array.length-1; i++) {
+        if (value >= array[i] && value <= array[i+1]) {
+            return { low: i, high: i+1, exact: (value === array[i] || value === array[i+1]) };
         }
     }
-    
-    let h1_idx = h_idx, h2_idx = h_idx;
-    if (meanHeight < heights[0]) { h1_idx = 0; h2_idx = 0; }
-    else if (meanHeight > heights[heights.length-1]) { h1_idx = heights.length-1; h2_idx = heights.length-1; }
-    else {
-        for (let i = 0; i < heights.length-1; i++) {
-            if (meanHeight >= heights[i] && meanHeight <= heights[i+1]) {
-                h1_idx = i; h2_idx = i+1; break;
-            }
-        }
+    return { low: 0, high: 0, exact: false };
+}
+
+// ============================================================
+// 4. MANUELL INTERPOLATION (FYRA HÖRN / LINJÄR)
+// ============================================================
+function getVolumeManualInterpolation(tableData, heights, basalArea, meanHeight) {
+    const exactGIdx = basalAreas.indexOf(basalArea);
+    const exactHIdx = heights.indexOf(meanHeight);
+    if (exactGIdx !== -1 && exactHIdx !== -1) {
+        const val = tableData[exactGIdx][exactHIdx];
+        if (val !== null) return val;
     }
+
+    const gSur = findSurroundingIndices(basalArea, basalAreas);
+    const hSur = findSurroundingIndices(meanHeight, heights);
     
-    const h1 = heights[h1_idx], h2 = heights[h2_idx];
-    const g1 = basalAreas[g1_idx], g2 = basalAreas[g2_idx];
-    const v11 = tableData[g1_idx]?.[h1_idx] ?? null;
-    const v12 = tableData[g1_idx]?.[h2_idx] ?? null;
-    const v21 = tableData[g2_idx]?.[h1_idx] ?? null;
-    const v22 = tableData[g2_idx]?.[h2_idx] ?? null;
+    const g1 = gSur.low, g2 = gSur.high;
+    const h1 = hSur.low, h2 = hSur.high;
     
-    if (v11 === null || v12 === null || v21 === null || v22 === null) {
-        // Fallback: hitta närmaste giltiga punkt
+    const v11 = tableData[g1][h1];
+    const v12 = tableData[g1][h2];
+    const v21 = tableData[g2][h1];
+    const v22 = tableData[g2][h2];
+    
+    if ([v11,v12,v21,v22].some(v => v === null)) {
         const points = [];
         for (let gi = 0; gi < basalAreas.length; gi++) {
             for (let hi = 0; hi < heights.length; hi++) {
@@ -226,95 +218,90 @@ function getVolumeFromTable(tableData, heights, basalArea, meanHeight) {
         return nearest.v;
     }
     
-    const t = (meanHeight - h1) / (h2 - h1);
-    const u = (basalArea - g1) / (g2 - g1);
-    const v = (1-t)*(1-u)*v11 + (1-t)*u*v12 + t*(1-u)*v21 + t*u*v22;
-    return Math.round(v * 10) / 10;
-}
-
-function getValidCombinations() {
-    const combinations = [];
+    const gLow = basalAreas[g1], gHigh = basalAreas[g2];
+    const hLow = heights[h1], hHigh = heights[h2];
     
-    // Blandskog (mixed)
-    for (let gi = 0; gi < basalAreas.length; gi++) {
-        for (let hi = 0; hi < mixedHeights.length; hi++) {
-            if (mixedVolume[gi][hi] !== null) {
-                combinations.push({
-                    tableType: 'mixed',
-                    basalArea: basalAreas[gi],
-                    meanHeight: mixedHeights[hi]
-                });
-            }
-        }
+    if (gLow === gHigh && hLow !== hHigh) {
+        const t = (meanHeight - hLow) / (hHigh - hLow);
+        return v11 + t * (v12 - v11);
     }
-    // Tall
-    for (let gi = 0; gi < basalAreas.length; gi++) {
-        for (let hi = 0; hi < pineHeights.length; hi++) {
-            if (pineVolume[gi][hi] !== null) {
-                combinations.push({
-                    tableType: 'pine',
-                    basalArea: basalAreas[gi],
-                    meanHeight: pineHeights[hi]
-                });
-            }
-        }
+    if (hLow === hHigh && gLow !== gHigh) {
+        const u = (basalArea - gLow) / (gHigh - gLow);
+        return v11 + u * (v21 - v11);
     }
-    // Gran
-    for (let gi = 0; gi < basalAreas.length; gi++) {
-        for (let hi = 0; hi < spruceHeights.length; hi++) {
-            if (spruceVolume[gi][hi] !== null) {
-                combinations.push({
-                    tableType: 'spruce',
-                    basalArea: basalAreas[gi],
-                    meanHeight: spruceHeights[hi]
-                });
-            }
-        }
+    if (gLow !== gHigh && hLow !== hHigh) {
+        return (v11 + v12 + v21 + v22) / 4;
     }
-    return combinations;
+    return v11;
 }
 
 // ============================================================
-// 4. GENERERA FRÅGA (säkert inom tabellens gränser)
+// 5. GENERERA FRÅGA
 // ============================================================
-const validCombos = getValidCombinations();
-
 function generateQuestion() {
-    // Välj en slumpmässig giltig kombination
-    const combo = validCombos[Math.floor(Math.random() * validCombos.length)];
-    const basalArea = combo.basalArea;
-    const meanHeight = combo.meanHeight;
-    const tableType = combo.tableType;
-    
-    // Bestäm trädslagsfördelning baserat på tabelltyp
+    let basalArea, meanHeight, tableType, tableData, heights;
     let pineCount, spruceCount;
-    if (tableType === 'pine') {
-        // Talldominerat: minst 70% tall
-        const minPine = Math.ceil(basalArea * 0.7);
-        pineCount = Math.floor(Math.random() * (basalArea - minPine + 1)) + minPine;
-        spruceCount = basalArea - pineCount;
-    } else if (tableType === 'spruce') {
-        // Grandominerat: minst 70% gran
-        const minSpruce = Math.ceil(basalArea * 0.7);
-        spruceCount = Math.floor(Math.random() * (basalArea - minSpruce + 1)) + minSpruce;
-        pineCount = basalArea - spruceCount;
-    } else {
-        // Blandskog: fördelning spelar mindre roll, men håll inom 30-70%
-        const minPine = Math.ceil(basalArea * 0.3);
-        const maxPine = Math.floor(basalArea * 0.7);
-        pineCount = Math.floor(Math.random() * (maxPine - minPine + 1)) + minPine;
-        spruceCount = basalArea - pineCount;
+    let attempts = 0;
+    let valid = false;
+    
+    while (!valid && attempts < 200) {
+        basalArea = Math.floor(Math.random() * 35) + 6;       // 6..40
+        meanHeight = Math.floor(Math.random() * 23) + 6;      // 6..28
+        const total = basalArea;
+        
+        if (meanHeight <= 16) {
+            tableType = 'mixed';
+            tableData = mixedVolume;
+            heights = mixedHeights;
+            const minPine = Math.ceil(total * 0.3);
+            const maxPine = Math.floor(total * 0.7);
+            pineCount = Math.floor(Math.random() * (maxPine - minPine + 1)) + minPine;
+            spruceCount = total - pineCount;
+        } else {
+            const rand = Math.random();
+            if (rand < 0.33) {
+                tableType = 'pine';
+                tableData = pineVolume;
+                heights = pineHeights;
+                const minPine = Math.ceil(total * 0.7);
+                pineCount = Math.floor(Math.random() * (total - minPine + 1)) + minPine;
+                spruceCount = total - pineCount;
+            } else if (rand < 0.66) {
+                tableType = 'spruce';
+                tableData = spruceVolume;
+                heights = spruceHeights;
+                const minSpruce = Math.ceil(total * 0.7);
+                spruceCount = Math.floor(Math.random() * (total - minSpruce + 1)) + minSpruce;
+                pineCount = total - spruceCount;
+            } else {
+                tableType = 'pine';
+                tableData = pineVolume;
+                heights = pineHeights;
+                const minPine = Math.ceil(total * 0.3);
+                const maxPine = Math.floor(total * 0.7);
+                pineCount = Math.floor(Math.random() * (maxPine - minPine + 1)) + minPine;
+                spruceCount = total - pineCount;
+            }
+        }
+        
+        const gSur = findSurroundingIndices(basalArea, basalAreas);
+        const hSur = findSurroundingIndices(meanHeight, heights);
+        if (tableData[gSur.low][hSur.low] !== null && tableData[gSur.low][hSur.high] !== null &&
+            tableData[gSur.high][hSur.low] !== null && tableData[gSur.high][hSur.high] !== null) {
+            valid = true;
+        }
+        attempts++;
+    }
+    // Om ingen giltig hittades, använd en säker fallback
+    if (!valid) {
+        basalArea = 20; meanHeight = 16; tableType = 'mixed';
+        tableData = mixedVolume; heights = mixedHeights;
+        pineCount = 10; spruceCount = 10;
     }
     
-    // Välj rätt tabell för volymberäkning
-    let tableData, heights;
-    if (tableType === 'mixed') { tableData = mixedVolume; heights = mixedHeights; }
-    else if (tableType === 'pine') { tableData = pineVolume; heights = pineHeights; }
-    else { tableData = spruceVolume; heights = spruceHeights; }
-    
-    const volumePerHa = getVolumeFromTable(tableData, heights, basalArea, meanHeight);
+    const volumePerHa = getVolumeManualInterpolation(tableData, heights, basalArea, meanHeight);
     const area = Math.round((Math.random() * 19 + 1.1) * 10) / 10;
-    const totalVolume = Math.round(volumePerHa * area);
+    const totalVolume = Math.round(volumePerHa * area * 10) / 10;
     
     return {
         pineCount, spruceCount, basalArea, meanHeight, area,
@@ -323,7 +310,7 @@ function generateQuestion() {
 }
 
 // ============================================================
-// 5. STATE
+// 6. STATE
 // ============================================================
 let questions = [];
 let currentIndex = 0;
@@ -346,7 +333,7 @@ const resultStats = document.getElementById('resultStats');
 const startGameBtn = document.getElementById('startGameBtn');
 
 // ============================================================
-// 6. UI-TEXTER UPPDATERING
+// 7. UI-TEXTER UPPDATERING
 // ============================================================
 function updateUITexts() {
     const lang = getCurrentLanguage();
@@ -364,7 +351,7 @@ function updateUITexts() {
 }
 
 // ============================================================
-// 7. SPELSTART & RENDERING
+// 8. SPELSTART & RENDERING
 // ============================================================
 function startGame() {
     questions = [];
@@ -399,33 +386,70 @@ function renderQuestion() {
 }
 
 function checkAnswer() {
-    if (answered) { feedbackDiv.classList.remove('hidden'); feedbackDiv.innerHTML = getUIText('alreadyChecked'); feedbackDiv.className = 'feedback wrong'; return; }
-    const perHectareVal = parseFloat(perHectareInput.value.replace(',', '.'));
-    const totalVal = parseFloat(totalInput.value.replace(',', '.'));
-    if (isNaN(perHectareVal) || isNaN(totalVal)) { feedbackDiv.classList.remove('hidden'); feedbackDiv.innerHTML = getUIText('invalidInput'); feedbackDiv.className = 'feedback wrong'; return; }
+    if (answered) {
+        feedbackDiv.classList.remove('hidden');
+        feedbackDiv.innerHTML = getUIText('alreadyChecked');
+        feedbackDiv.className = 'feedback wrong';
+        return;
+    }
+    
+    let perHectareVal = perHectareInput.value.trim().replace(',', '.');
+    let totalVal = totalInput.value.trim().replace(',', '.');
+    if (perHectareVal === '' || totalVal === '') {
+        feedbackDiv.classList.remove('hidden');
+        feedbackDiv.innerHTML = getUIText('invalidInput');
+        feedbackDiv.className = 'feedback wrong';
+        return;
+    }
+    perHectareVal = parseFloat(perHectareVal);
+    totalVal = parseFloat(totalVal);
+    
+    if (isNaN(perHectareVal) || isNaN(totalVal)) {
+        feedbackDiv.classList.remove('hidden');
+        feedbackDiv.innerHTML = getUIText('invalidInput');
+        feedbackDiv.className = 'feedback wrong';
+        return;
+    }
+    
     const q = questions[currentIndex];
     const perHectareCorrect = q.volumePerHa;
     const totalCorrect = q.totalVolume;
+    
     const isPerHectareOk = Math.abs(perHectareVal - perHectareCorrect) < 0.05;
-    const isTotalOk = Math.abs(totalVal - totalCorrect) < 0.5;
+    const isTotalOk = Math.abs(totalVal - totalCorrect) < 0.55;
     const allCorrect = isPerHectareOk && isTotalOk;
+    
     answered = true;
     if (allCorrect) correctCount++;
+    
     feedbackDiv.classList.remove('hidden');
     const lang = getCurrentLanguage();
-    if (allCorrect) { feedbackDiv.innerHTML = getUIText('correct'); feedbackDiv.className = 'feedback correct'; }
-    else { feedbackDiv.innerHTML = getUIText('wrong', perHectareCorrect, totalCorrect); feedbackDiv.className = 'feedback wrong'; }
+    if (allCorrect) {
+        feedbackDiv.innerHTML = getUIText('correct');
+        feedbackDiv.className = 'feedback correct';
+    } else {
+        feedbackDiv.innerHTML = getUIText('wrong', perHectareCorrect, totalCorrect);
+        feedbackDiv.className = 'feedback wrong';
+    }
+    
     checkBtn.disabled = true;
     nextBtn.disabled = false;
 }
 
 function nextQuestion() {
-    if (!answered) { feedbackDiv.classList.remove('hidden'); feedbackDiv.innerHTML = getUIText('mustCheck'); feedbackDiv.className = 'feedback wrong'; return; }
-    currentIndex++; renderQuestion();
+    if (!answered) {
+        feedbackDiv.classList.remove('hidden');
+        feedbackDiv.innerHTML = getUIText('mustCheck');
+        feedbackDiv.className = 'feedback wrong';
+        return;
+    }
+    currentIndex++;
+    renderQuestion();
 }
 
 function showResult() {
-    quizCard.classList.add('hidden'); resultCard.classList.remove('hidden');
+    quizCard.classList.add('hidden');
+    resultCard.classList.remove('hidden');
     const total = questions.length, correct = correctCount, lang = getCurrentLanguage();
     let message = getUIText('resultTitle', correct, total);
     message += `<br>${correct === total ? uiTexts[lang].perfect : uiTexts[lang].good}`;
@@ -443,7 +467,7 @@ function getUIText(key, ...args) {
 }
 
 // ============================================================
-// 8. RENDERA TABELL I MODAL (flerspråkig)
+// 9. RENDERA TABELL I MODAL
 // ============================================================
 function renderTableModal() {
     const table = document.getElementById('relaskopTable');
@@ -523,7 +547,7 @@ function renderTableModal() {
 }
 
 // ============================================================
-// 9. EVENT LISTENERS
+// 10. EVENT LISTENERS
 // ============================================================
 const modal = document.getElementById('tableModal');
 const tableBtn = document.getElementById('tableBtn');
@@ -552,6 +576,6 @@ backFromResultBtn.addEventListener('click', () => {
 });
 
 // ============================================================
-// 10. INIT
+// 11. INIT
 // ============================================================
 updateUITexts();
