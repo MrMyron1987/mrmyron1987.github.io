@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ståndortstyper – Övningar</title>
+    <link rel="stylesheet" href="standorter.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="main-header">
+        <h1 id="pageTitle">🌍 Ståndortstyper på mineraljorder</h1>
+        <button id="backToTestsBtn" class="back-btn">⬅ Tillbaka till testerna</button>
+    </header>
+
+    <main class="quiz-area">
+        <!-- MENY FÖR ATT VÄLJA ÖVNING -->
+        <div id="exerciseMenu" class="exercise-menu">
+            <h2 id="menuTitle">Välj övning</h2>
+            <div class="menu-buttons">
+                <button id="identifyMatrixBtn" class="menu-btn">🔍 Identifiera ståndortstyper på mineraljorder</button>
+                <button id="matchSpeciesBtn" class="menu-btn">🌿 Para ihop rätt växt med rätt ståndort</button>
+            </div>
+        </div>
+
+        <!-- MATRISÖVNING (Identifiera) -->
+        <div id="matrixExercise" class="exercise-container hidden">
+            <button id="backToMenuFromMatrixBtn" class="back-to-menu-btn">⬅ Tillbaka till menyn</button>
+            <div id="matrixContainer" class="matrix-container"></div>
+            <div id="matrixFeedback" class="feedback hidden"></div>
+            <div class="button-group">
+                <button id="checkMatrixBtn" class="primary-btn">✅ Kontrollera</button>
+                <button id="resetMatrixBtn" class="secondary-btn">🔄 Börja om</button>
+            </div>
+        </div>
+
+        <!-- PARA IHOP ÖVNING (Drag & Drop) -->
+        <div id="matchExercise" class="exercise-container hidden">
+            <button id="backToMenuFromMatchBtn" class="back-to-menu-btn">⬅ Tillbaka till menyn</button>
+            
+            <div id="matchGameArea" class="match-game-area">
+                <!-- Lådor för ståndortstyper genereras dynamiskt -->
+            </div>
+            
+            <!-- Källpool för korten -->
+            <div id="sourcePoolContainer" class="source-pool">
+                <h3 id="sourcePoolTitle">🌱 Växter att placera</h3>
+                <div id="sourceCardContainer" class="source-card-container"></div>
+            </div>
+            
+            <div id="matchFeedback" class="feedback hidden"></div>
+            
+            <div class="button-group">
+                <button id="checkMatchBtn" class="primary-btn">✅ Kontrollera</button>
+                <button id="resetMatchBtn" class="secondary-btn">🔄 Börja om</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Mats Lindholm</p>
+    </footer>
+</div>
+
+<script src="standorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(145deg, #eaf7e6 0%, #c8e6c9 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 800px;
+    width: 100%;
+    background: #fef9e8;
+    border-radius: 48px;
+    box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    background: #2c5e2e;
+    color: #f9f1cf;
+    padding: 20px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid #a6c89b;
+}
+
+.main-header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.language-selector {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #e2f0d5;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s;
+    backdrop-filter: blur(4px);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.lang-btn.active {
+    background: #f9f1cf;
+    color: #1e4a1e;
+    border-color: #f9f1cf;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.welcome-content {
+    padding: 40px 30px 45px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-card {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border-radius: 40px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 20, 0, 0.1);
+    border: 1px solid #cfe2b0;
+}
+
+.welcome-card h2 {
+    font-size: 2.2rem;
+    color: #1e4a1e;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.welcome-card p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #2c3e2b;
+    margin-bottom: 35px;
+}
+
+.primary-btn {
+    background: #2e6730;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 60px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 8px 0 #1a3f1c;
+    border: 1px solid #7aac6e;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.primary-btn:hover {
+    background: #1e5120;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 0 #1a3f1c;
+}
+
+.primary-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #1a3f1c;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    background: #e0d5bc;
+    color: #4f5a3c;
+    font-size: 0.9rem;
+    border-top: 2px solid #b1c99e;
+}
+
+/* Responsivt */
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .welcome-card h2 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-card p {
+        font-size: 1rem;
+    }
+    
+    .primary-btn {
+        font-size: 1.2rem;
+        padding: 14px 20px;
+    }
+}
