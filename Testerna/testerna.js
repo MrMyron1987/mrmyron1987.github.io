@@ -27,6 +27,11 @@ const categoryTranslations = {
         fi: "Tiet",
         en: "Forest roads",
     },
+    "Relaskoptabell": {
+        sv: "Relaskoptabell",
+        fi: "Relaskooppitaulukko",
+        en: "Relascope table",
+    },
 };
 
 // Lista över aktiva kategorier (visas i denna ordning efter sortering)
@@ -35,7 +40,8 @@ const allCategoryKeys = [
     "Ståndortstyper på mineraljorder",
     "Växter namn",
     "Koefficient räkning",
-    "Vägar"
+    "Vägar",
+    "Relaskoptabell"
 ];
 
 // ============================================================
@@ -120,6 +126,8 @@ function onCategorySelected(categoryKey) {
         window.location.href = '../Kofficient/kofficient.html';
     } else if (categoryKey === 'Vägar') {
         window.location.href = '../vagarna/vagar.html';
+    } else if (categoryKey === 'Relaskoptabell') {
+        window.location.href = '../Relaskop/relaskop.html';
     }
 }
 

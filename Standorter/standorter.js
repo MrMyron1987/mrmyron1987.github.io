@@ -157,41 +157,131 @@ const regions = ['south', 'ostro', 'north', 'lapp'];
 const categories = ['herbRich', 'mesic', 'subXeric', 'xeric', 'barren'];
 
 // ============================================================
-// 4. DATA FÖR PARA IHOP ÖVNING (Listor med arter per ståndortstyp)
+// 4. DATA FÖR PARA IHOP ÖVNING (med översättningar)
 // ============================================================
 const siteTypeCodes = ['OMT', 'MT', 'VT', 'CT', 'CIT', 'GOMT', 'VMT', 'EVT', 'ECT', 'GMT', 'HMT', 'EMT', 'MCCIT', 'LMT', 'UEMT', 'UVET'];
 
-// Varje lista innehåller de arter som är typiska för ståndortstypen.
-// En art kan finnas i flera listor.
+// Svensk lista (används som intern nyckel)
 const speciesBySiteType = {
     OMT: ['Harsyra', 'Blåbär', 'Lingon', 'Skogsbräken', 'Majbräken', 'Ekorrbär', 'Skogstry', 'Skogsnäva', 'Tandrot', 'Lundviol', 'Lundstarr', 'Vårärt', 'Blåsippa', 'Liljekonvalj', 'Trolldruva', 'Strutbräken', 'Väggmossa', 'Husmossa', 'Kranshakmossa', 'Odon', 'Kruståtel', 'Linnea', 'Vitsippa'],
     GOMT: ['Skogsnäva', 'Harsyra', 'Blåbär', 'Lingon', 'Skogsbräken', 'Majbräken', 'Ekorrbär', 'Lundviol', 'Vårärt', 'Blåsippa', 'Liljekonvalj', 'Trolldruva', 'Strutbräken', 'Väggmossa', 'Husmossa', 'Kranshakmossa', 'Odon', 'Kruståtel'],
     GMT:  ['Skogsnäva', 'Blåbär', 'Lingon', 'Harsyra', 'Ekorrbär', 'Lundviol', 'Vårärt', 'Blåsippa', 'Väggmossa', 'Husmossa', 'Kranshakmossa', 'Kruståtel', 'Odon'],
-
     MT:  ['Blåbär', 'Lingon', 'Skogsnäva', 'Kruståtel', 'Väggmossa', 'Husmossa', 'Björnmossa', 'Kvastmossa', 'Ekbräken', 'Linnea', 'Skogstjärnblomma', 'Vitsippa', 'Harsyra', 'Ekorrbär', 'Odon', 'Revlummer'],
     VMT: ['Lingon', 'Blåbär', 'Skogsnäva', 'Kruståtel', 'Väggmossa', 'Husmossa', 'Kvastmossa', 'Linnea', 'Vitsippa', 'Odon', 'Revlummer'],
     HMT: ['Väggmossa', 'Blåbär', 'Lingon', 'Skogsnäva', 'Kruståtel', 'Husmossa', 'Björnmossa', 'Linnea', 'Odon', 'Revlummer'],
     LMT: ['Skvattram', 'Blåbär', 'Lingon', 'Odon', 'Kråkbär', 'Väggmossa', 'Husmossa', 'Vitmossa', 'Kvastmossa', 'Revlummer'],
-
     VT:  ['Lingon', 'Blåbär', 'Ljung', 'Kråkbär', 'Renlav', 'Bägarlav', 'Väggmossa', 'Kvastmossa', 'Skogsnäva', 'Kruståtel', 'Odon', 'Revlummer', 'Garnlav', 'Islandslav'],
     EVT: ['Kråkbär', 'Lingon', 'Blåbär', 'Ljung', 'Renlav', 'Bägarlav', 'Väggmossa', 'Kvastmossa', 'Skogsnäva', 'Kruståtel', 'Odon', 'Garnlav', 'Islandslav'],
     EMT: ['Kråkbär', 'Blåbär', 'Lingon', 'Ljung', 'Renlav', 'Bägarlav', 'Väggmossa', 'Kvastmossa', 'Skogsnäva', 'Odon', 'Garnlav', 'Islandslav'],
     UEMT:['Odon', 'Kråkbär', 'Blåbär', 'Lingon', 'Skvattram', 'Ljung', 'Renlav', 'Bägarlav', 'Väggmossa', 'Kvastmossa', 'Garnlav', 'Islandslav'],
-
     CT:   ['Ljung', 'Kråkbär', 'Lingon', 'Renlav', 'Bägarlav', 'Garnlav', 'Skägglav', 'Islandslav', 'Odon', 'Blåbär'],
     ECT:  ['Kråkbär', 'Ljung', 'Lingon', 'Renlav', 'Bägarlav', 'Garnlav', 'Skägglav', 'Islandslav', 'Odon'],
     MCCIT:['Blåbär', 'Ljung', 'Renlav', 'Kråkbär', 'Lingon', 'Odon', 'Bägarlav', 'Garnlav', 'Skägglav', 'Islandslav'],
     UVET: ['Odon', 'Lingon', 'Kråkbär', 'Ljung', 'Renlav', 'Bägarlav', 'Garnlav', 'Skägglav', 'Islandslav'],
-
     CIT:  ['Renlav', 'Bägarlav', 'Garnlav', 'Skägglav', 'Islandslav', 'Ljung', 'Kråkbär', 'Lingon', 'Odon']
 };
 
-// Bygg kortleken: för varje art i varje lista skapa ett kortobjekt med endast artnamn och tillhörande kod (för att kunna generera rätt antal kopior)
+// Översättningstabell för arter (svenska -> finska, engelska)
+const speciesTranslations = {
+    sv: {}, // fylls i dynamiskt
+    fi: {
+        'Harsyra': 'Käenkaali',
+        'Blåbär': 'Mustikka',
+        'Lingon': 'Puolukka',
+        'Skogsbräken': 'Metsäimarre',
+        'Majbräken': 'Soreahiirenporras',
+        'Ekorrbär': 'Oravanmarja',
+        'Skogstry': 'Lehtokuusama',
+        'Skogsnäva': 'Metsäkurjenpolvi',
+        'Tandrot': 'Hammasjuuri',
+        'Lundviol': 'Metsäorvokki',
+        'Lundstarr': 'Vuorisara',
+        'Vårärt': 'Kevätlinnunherne',
+        'Blåsippa': 'Sinivuokko',
+        'Liljekonvalj': 'Kielo',
+        'Trolldruva': 'Mustakonnanmarja',
+        'Strutbräken': 'Kotkansiipi',
+        'Väggmossa': 'Seinäsammal',
+        'Husmossa': 'Kynsisammal',
+        'Kranshakmossa': 'Palmusammal',
+        'Odon': 'Juolukka',
+        'Kruståtel': 'Metsälauha',
+        'Linnea': 'Vanamo',
+        'Vitsippa': 'Valkovuokko',
+        'Björnmossa': 'Karhunsammal',
+        'Kvastmossa': 'Kerrossammal',
+        'Ekbräken': 'Metsäimarre',
+        'Skogstjärnblomma': 'Lehtotähtimö',
+        'Revlummer': 'Rönsyliejukko',
+        'Ljung': 'Kanerva',
+        'Kråkbär': 'Variksenmarja',
+        'Renlav': 'Poronjäkälä',
+        'Bägarlav': 'Torvijäkälä',
+        'Garnlav': 'Luppo',
+        'Islandslav': 'Islanninjäkälä',
+        'Skvattram': 'Suopursu',
+        'Vitmossa': 'Rahkasammal',
+        'Skägglav': 'Partajäkälä'
+    },
+    en: {
+        'Harsyra': 'Wood sorrel',
+        'Blåbär': 'Bilberry',
+        'Lingon': 'Lingonberry',
+        'Skogsbräken': 'Oak fern',
+        'Majbräken': 'Lady fern',
+        'Ekorrbär': 'May lily',
+        'Skogstry': 'Fly honeysuckle',
+        'Skogsnäva': 'Wood cranesbill',
+        'Tandrot': 'Toothwort',
+        'Lundviol': 'Wood violet',
+        'Lundstarr': 'Soft-leaved sedge',
+        'Vårärt': 'Spring vetchling',
+        'Blåsippa': 'Liverleaf',
+        'Liljekonvalj': 'Lily of the valley',
+        'Trolldruva': 'Baneberry',
+        'Strutbräken': 'Ostrich fern',
+        'Väggmossa': 'Wall screw-moss',
+        'Husmossa': 'Common haircap',
+        'Kranshakmossa': 'Palm moss',
+        'Odon': 'Bog whortleberry',
+        'Kruståtel': 'Wavy hair-grass',
+        'Linnea': 'Twinflower',
+        'Vitsippa': 'Wood anemone',
+        'Björnmossa': 'Woolly moss',
+        'Kvastmossa': 'Stair-step moss',
+        'Ekbräken': 'Oak fern',
+        'Skogstjärnblomma': 'Greater stitchwort',
+        'Revlummer': 'Running clubmoss',
+        'Ljung': 'Heather',
+        'Kråkbär': 'Crowberry',
+        'Renlav': 'Reindeer lichen',
+        'Bägarlav': 'Pixie cup lichen',
+        'Garnlav': 'Old man\'s beard',
+        'Islandslav': 'Iceland moss',
+        'Skvattram': 'Marsh Labrador tea',
+        'Vitmossa': 'Peat moss',
+        'Skägglav': 'Beard lichen'
+    }
+};
+// svenska översättningen är identitet
+speciesTranslations.sv = Object.fromEntries(Object.keys(speciesTranslations.fi).map(k => [k, k]));
+
+// Hjälpfunktion: översätt ett artnamn (svensk nyckel) till aktuellt språk
+function translateSpecies(speciesSv, lang) {
+    return speciesTranslations[lang]?.[speciesSv] || speciesSv;
+}
+
+// Bygg kortleken med översatta namn
 function buildSpeciesDeck() {
+    const lang = getCurrentLanguage();
     const deck = [];
     for (const [code, speciesList] of Object.entries(speciesBySiteType)) {
-        speciesList.forEach(species => {
-            deck.push({ code, species });
+        speciesList.forEach(speciesSv => {
+            deck.push({
+                code,
+                speciesKey: speciesSv,                     // svensk nyckel för kontroll
+                speciesDisplay: translateSpecies(speciesSv, lang) // visningstext
+            });
         });
     }
     return shuffleArray(deck);
@@ -402,7 +492,7 @@ function resetMatrix() {
 }
 
 // ============================================================
-// 9. PARA IHOP ÖVNING (NY ROBUST LOGIK)
+// 9. PARA IHOP ÖVNING (flerspråkig)
 // ============================================================
 let currentSpeciesDeck = [];
 let matchLocked = false;
@@ -411,7 +501,6 @@ function buildMatchGame() {
     currentSpeciesDeck = buildSpeciesDeck();
     matchLocked = false;
     
-    // Skapa lådor för varje ståndortstyp
     matchGameArea.innerHTML = '';
     siteTypeCodes.forEach(code => {
         const box = document.createElement('div');
@@ -443,15 +532,14 @@ function buildMatchGame() {
         matchGameArea.appendChild(box);
     });
     
-    // Fyll källpoolen med kort
     sourceCardContainer.innerHTML = '';
     currentSpeciesDeck.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'match-card';
         card.id = `species-card-${Date.now()}-${index}`;
         card.setAttribute('draggable', 'true');
-        card.textContent = item.species;          // endast artnamn synligt
-        card.dataset.species = item.species;      // spara artnamn för kontroll
+        card.textContent = item.speciesDisplay;                     // översatt text
+        card.dataset.speciesKey = item.speciesKey;                 // svensk nyckel
         
         card.addEventListener('dragstart', e => {
             if (matchLocked) {
@@ -483,14 +571,13 @@ function checkMatchAnswers() {
     allCards.forEach(card => {
         card.classList.remove('incorrect-highlight');
         const container = card.closest('.card-container');
-        if (!container) return; // kortet är inte placerat i någon låda (kvar i källpoolen)
+        if (!container) return;
         
         const boxCode = container.dataset.code;
-        const speciesName = card.dataset.species || card.textContent.trim();
+        const speciesKey = card.dataset.speciesKey;
         
-        // Kontrollera om arten finns i listan för denna ståndortstyp
         const allowedSpecies = speciesBySiteType[boxCode] || [];
-        if (allowedSpecies.includes(speciesName)) {
+        if (allowedSpecies.includes(speciesKey)) {
             correctCount++;
         } else {
             card.classList.add('incorrect-highlight');
@@ -501,7 +588,6 @@ function checkMatchAnswers() {
     allCards.forEach(card => card.setAttribute('draggable', 'false'));
     
     matchFeedback.classList.remove('hidden');
-    const totalPlaced = document.querySelectorAll('.match-card:is(.card-container .match-card)').length;
     const totalCards = currentSpeciesDeck.length;
     if (correctCount === totalCards) {
         matchFeedback.className = 'feedback correct';

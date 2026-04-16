@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaskoptabell – Spel</title>
+    <link rel="stylesheet" href="relaskop.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="main-header">
+        <h1 id="pageTitle">📊 Relaskoptabell</h1>
+        <div class="header-buttons">
+            <button id="tableBtn" class="table-btn">📋 Tabell</button>
+            <button id="backToTestsBtn" class="back-btn">⬅ Tillbaka till testerna</button>
+        </div>
+    </header>
+
+    <main class="quiz-area">
+        <!-- Introduktionssida -->
+        <div id="introCard" class="intro-card">
+            <div class="intro-content">
+                <p id="introText">Ta fram din relaskoptabell från Tapio och en kalkylator. Du kommer att behöva dem. Lycka till!</p>
+                <button id="startGameBtn" class="primary-btn">🚀 Starta spelet</button>
+            </div>
+        </div>
+
+        <!-- Spelkort (frågor) -->
+        <div id="quizCard" class="question-card hidden">
+            <div class="progress" id="progressIndicator"></div>
+            <div id="questionText" class="question-text"></div>
+            <div class="answer-inputs">
+                <div class="input-group">
+                    <label for="perHectareInput" id="perHectareLabel">Kubik per hektar (m³/ha):</label>
+                    <input type="number" id="perHectareInput" placeholder="t.ex. 99" step="1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="totalInput" id="totalLabel">Totalt på figuren (m³):</label>
+                    <input type="number" id="totalInput" placeholder="t.ex. 1386" step="1" min="0">
+                </div>
+            </div>
+            <div id="feedbackArea" class="feedback hidden"></div>
+            <div class="button-group">
+                <button id="checkBtn" class="primary-btn">✅ Kontrollera</button>
+                <button id="nextBtn" class="primary-btn" disabled>➡️ Nästa</button>
+            </div>
+        </div>
+
+        <!-- Resultatkort -->
+        <div id="resultCard" class="result-card hidden">
+            <div class="result-stats" id="resultStats"></div>
+            <button id="restartBtn" class="primary-btn">🔄 Öva igen</button>
+            <button id="backFromResultBtn" class="secondary-btn">📋 Välj annat test</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Mats Lindholm</p>
+    </footer>
+</div>
+
+<!-- Modal för tabell -->
+<div id="tableModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <div class="table-wrapper">
+            <table id="relaskopTable" class="relaskop-table">
+                <!-- Genereras med JavaScript -->
+            </table>
+        </div>
+        <p class="table-note">Värden i m³/ha (med bark). Grundyta (m²/ha) →, Medelhöjd (m) ↓</p>
+    </div>
+</div>
+
+<script src="relaskop.js"></script>
+</body>
+</html>
