@@ -135,7 +135,7 @@ function onCategorySelected(categoryKey) {
     } else if (categoryKey === 'Relaskoptabell') {
         window.location.href = '../Relaskop/relaskop.html';
     } else if (categoryKey === 'Granskningsinstruktioner frågor') {
-        window.location.href = '../Granskning/granskningsinstruktioner.html';
+        window.location.href = '../Granskningsinstruktioner/granskning.html';
     }
 }
 
