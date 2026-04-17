@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granskningsinstruktioner – Quiz</title>
+    <link rel="stylesheet" href="granskning.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="main-header">
+        <h1 id="pageTitle">📋 Granskningsinstruktioner</h1>
+        <button id="backToTestsBtn" class="back-btn">⬅ Tillbaka till testerna</button>
+    </header>
+
+    <main class="quiz-area">
+        <!-- Frågekort -->
+        <div id="quizCard" class="question-card">
+            <div class="progress" id="progressIndicator"></div>
+            <div id="questionText" class="question-text"></div>
+            <div id="optionsContainer" class="options-container"></div>
+            <div id="feedbackArea" class="feedback hidden"></div>
+            <div class="button-group">
+                <button id="checkBtn" class="primary-btn">✅ Kontrollera</button>
+                <button id="nextBtn" class="primary-btn" disabled>➡️ Nästa</button>
+            </div>
+        </div>
+
+        <!-- Resultatkort -->
+        <div id="resultCard" class="result-card hidden">
+            <div class="result-stats" id="resultStats"></div>
+            <button id="restartBtn" class="primary-btn">🔄 Öva igen</button>
+            <button id="backFromResultBtn" class="secondary-btn">📋 Välj annat test</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Mats Lindholm</p>
+    </footer>
+</div>
+
+<script src="granskning.js"></script>
+</body>
+</html>

@@ -32,6 +32,11 @@ const categoryTranslations = {
         fi: "Relaskooppitaulukko",
         en: "Relascope table",
     },
+    "Granskningsinstruktioner frågor": {
+        sv: "Granskningsinstruktioner frågor",
+        fi: "Tarkastusohjekysymykset",
+        en: "Inspection instructions quiz",
+    },
 };
 
 // Lista över aktiva kategorier (visas i denna ordning efter sortering)
@@ -41,7 +46,8 @@ const allCategoryKeys = [
     "Växter namn",
     "Koefficient räkning",
     "Vägar",
-    "Relaskoptabell"
+    "Relaskoptabell",
+    "Granskningsinstruktioner frågor"
 ];
 
 // ============================================================
@@ -128,6 +134,8 @@ function onCategorySelected(categoryKey) {
         window.location.href = '../vagarna/vagar.html';
     } else if (categoryKey === 'Relaskoptabell') {
         window.location.href = '../Relaskop/relaskop.html';
+    } else if (categoryKey === 'Granskningsinstruktioner frågor') {
+        window.location.href = '../Granskning/granskningsinstruktioner.html';
     }
 }
 
