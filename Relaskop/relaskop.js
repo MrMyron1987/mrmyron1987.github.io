@@ -166,146 +166,199 @@ const spruceVolume = [
 ];
 
 // ============================================================
-// 3. HJÄLPFUNKTION: HITTA OMGIVANDE INDEX
+// 3. HJÄLPFUNKTIONER FÖR INTERPOLATION (KORRIGERAD VERSION)
 // ============================================================
 function findSurroundingIndices(value, array) {
-    if (value <= array[0]) return { low: 0, high: 0, exact: value === array[0] };
-    if (value >= array[array.length-1]) return { low: array.length-1, high: array.length-1, exact: value === array[array.length-1] };
+    if (value <= array[0]) return { low: 0, high: 0 };
+    if (value >= array[array.length-1]) return { low: array.length-1, high: array.length-1 };
     for (let i = 0; i < array.length-1; i++) {
         if (value >= array[i] && value <= array[i+1]) {
-            return { low: i, high: i+1, exact: (value === array[i] || value === array[i+1]) };
+            return { low: i, high: i+1 };
         }
     }
-    return { low: 0, high: 0, exact: false };
+    return { low: 0, high: 0 };
 }
 
-// ============================================================
-// 4. MANUELL INTERPOLATION (FYRA HÖRN / LINJÄR)
-// ============================================================
-function getVolumeManualInterpolation(tableData, heights, basalArea, meanHeight) {
-    const exactGIdx = basalAreas.indexOf(basalArea);
-    const exactHIdx = heights.indexOf(meanHeight);
-    if (exactGIdx !== -1 && exactHIdx !== -1) {
-        const val = tableData[exactGIdx][exactHIdx];
-        if (val !== null) return val;
-    }
-
+function hasValidCorners(tableData, heights, basalArea, meanHeight) {
     const gSur = findSurroundingIndices(basalArea, basalAreas);
     const hSur = findSurroundingIndices(meanHeight, heights);
-    
     const g1 = gSur.low, g2 = gSur.high;
     const h1 = hSur.low, h2 = hSur.high;
-    
+    return tableData[g1][h1] !== null && tableData[g1][h2] !== null &&
+           tableData[g2][h1] !== null && tableData[g2][h2] !== null;
+}
+
+function interpolateInTable(tableData, heights, basalArea, meanHeight) {
+    // Hitta exakta index (om de finns)
+    const gIdx = basalAreas.indexOf(basalArea);
+    const hIdx = heights.indexOf(meanHeight);
+
+    // 1. Båda exakta → tabellvärde direkt
+    if (gIdx !== -1 && hIdx !== -1) {
+        return tableData[gIdx][hIdx];
+    }
+
+    // Ta reda på om värdena är exakta
+    const gExact = (gIdx !== -1);
+    const hExact = (hIdx !== -1);
+
+    // Hitta omgivande index för grundyta (om inte exakt)
+    let g1, g2;
+    if (gExact) {
+        g1 = g2 = gIdx;
+    } else {
+        for (let i = 0; i < basalAreas.length - 1; i++) {
+            if (basalArea >= basalAreas[i] && basalArea <= basalAreas[i + 1]) {
+                g1 = i; g2 = i + 1; break;
+            }
+        }
+    }
+
+    // Hitta omgivande index för höjd (om inte exakt)
+    let h1, h2;
+    if (hExact) {
+        h1 = h2 = hIdx;
+    } else {
+        for (let i = 0; i < heights.length - 1; i++) {
+            if (meanHeight >= heights[i] && meanHeight <= heights[i + 1]) {
+                h1 = i; h2 = i + 1; break;
+            }
+        }
+    }
+
     const v11 = tableData[g1][h1];
     const v12 = tableData[g1][h2];
     const v21 = tableData[g2][h1];
     const v22 = tableData[g2][h2];
-    
-    if ([v11,v12,v21,v22].some(v => v === null)) {
-        const points = [];
-        for (let gi = 0; gi < basalAreas.length; gi++) {
-            for (let hi = 0; hi < heights.length; hi++) {
-                const val = tableData[gi][hi];
-                if (val !== null) points.push({ g: basalAreas[gi], h: heights[hi], v: val });
-            }
-        }
-        let nearest = points[0];
-        let minDist = Math.abs(basalArea - nearest.g) + Math.abs(meanHeight - nearest.h);
-        for (let p of points) {
-            const dist = Math.abs(basalArea - p.g) + Math.abs(meanHeight - p.h);
-            if (dist < minDist) { minDist = dist; nearest = p; }
-        }
-        return nearest.v;
-    }
-    
+
     const gLow = basalAreas[g1], gHigh = basalAreas[g2];
     const hLow = heights[h1], hHigh = heights[h2];
-    
-    if (gLow === gHigh && hLow !== hHigh) {
+
+    // 2. Grundyta exakt (jämn) → höjd udda → vågrät interpolation
+    if (gExact && !hExact) {
         const t = (meanHeight - hLow) / (hHigh - hLow);
         return v11 + t * (v12 - v11);
     }
-    if (hLow === hHigh && gLow !== gHigh) {
+
+    // 3. Höjd exakt (jämn) → grundyta udda → lodrät interpolation
+    if (hExact && !gExact) {
         const u = (basalArea - gLow) / (gHigh - gLow);
         return v11 + u * (v21 - v11);
     }
-    if (gLow !== gHigh && hLow !== hHigh) {
-        return (v11 + v12 + v21 + v22) / 4;
-    }
-    return v11;
+
+    // 4. Båda udda → fyra hörn
+    return (v11 + v12 + v21 + v22) / 4;
 }
 
 // ============================================================
-// 5. GENERERA FRÅGA
+// 4. HUVUDFUNKTION FÖR VOLYMBERÄKNING
+// ============================================================
+function isValidCombination(pineCount, spruceCount, basalArea, meanHeight) {
+    const total = pineCount + spruceCount;
+    const pineRatio = pineCount / total;
+    
+    let dominantTable, dominantHeights;
+    if (pineRatio >= 0.7) {
+        dominantTable = pineVolume;
+        dominantHeights = pineHeights;
+    } else if ((spruceCount / total) >= 0.7) {
+        dominantTable = spruceVolume;
+        dominantHeights = spruceHeights;
+    } else {
+        dominantTable = pineVolume;
+        dominantHeights = pineHeights;
+    }
+
+    if (meanHeight <= 16) {
+        return hasValidCorners(mixedVolume, mixedHeights, basalArea, meanHeight);
+    }
+    else if (meanHeight >= 18) {
+        return hasValidCorners(dominantTable, dominantHeights, basalArea, meanHeight);
+    }
+    else { // mellan 16 och 18
+        if (!hasValidCorners(mixedVolume, mixedHeights, basalArea, 16)) return false;
+        if (!hasValidCorners(dominantTable, dominantHeights, basalArea, 18)) return false;
+        return true;
+    }
+}
+
+function getCombinedVolume(pineCount, spruceCount, basalArea, meanHeight) {
+    const total = pineCount + spruceCount;
+    const pineRatio = pineCount / total;
+    
+    let dominantTable, dominantHeights;
+    if (pineRatio >= 0.7) {
+        dominantTable = pineVolume;
+        dominantHeights = pineHeights;
+    } else if ((spruceCount / total) >= 0.7) {
+        dominantTable = spruceVolume;
+        dominantHeights = spruceHeights;
+    } else {
+        dominantTable = pineVolume;
+        dominantHeights = pineHeights;
+    }
+
+    if (meanHeight <= 16) {
+        return interpolateInTable(mixedVolume, mixedHeights, basalArea, meanHeight);
+    }
+    else if (meanHeight >= 18) {
+        return interpolateInTable(dominantTable, dominantHeights, basalArea, meanHeight);
+    }
+    else {
+        const vol16 = interpolateInTable(mixedVolume, mixedHeights, basalArea, 16);
+        const vol18 = interpolateInTable(dominantTable, dominantHeights, basalArea, 18);
+        const t = (meanHeight - 16) / 2;
+        return vol16 + t * (vol18 - vol16);
+    }
+}
+
+// ============================================================
+// 5. GENERERA FRÅGA (ENDAST GILTIGA KOMBINATIONER)
 // ============================================================
 function generateQuestion() {
-    let basalArea, meanHeight, tableType, tableData, heights;
-    let pineCount, spruceCount;
+    let basalArea, meanHeight, pineCount, spruceCount;
     let attempts = 0;
-    let valid = false;
+    const maxAttempts = 500;
     
-    while (!valid && attempts < 200) {
+    while (attempts < maxAttempts) {
         basalArea = Math.floor(Math.random() * 35) + 6;       // 6..40
         meanHeight = Math.floor(Math.random() * 23) + 6;      // 6..28
         const total = basalArea;
         
         if (meanHeight <= 16) {
-            tableType = 'mixed';
-            tableData = mixedVolume;
-            heights = mixedHeights;
             const minPine = Math.ceil(total * 0.3);
             const maxPine = Math.floor(total * 0.7);
             pineCount = Math.floor(Math.random() * (maxPine - minPine + 1)) + minPine;
             spruceCount = total - pineCount;
         } else {
-            const rand = Math.random();
-            if (rand < 0.33) {
-                tableType = 'pine';
-                tableData = pineVolume;
-                heights = pineHeights;
+            const pineDominant = Math.random() < 0.5;
+            if (pineDominant) {
                 const minPine = Math.ceil(total * 0.7);
                 pineCount = Math.floor(Math.random() * (total - minPine + 1)) + minPine;
                 spruceCount = total - pineCount;
-            } else if (rand < 0.66) {
-                tableType = 'spruce';
-                tableData = spruceVolume;
-                heights = spruceHeights;
+            } else {
                 const minSpruce = Math.ceil(total * 0.7);
                 spruceCount = Math.floor(Math.random() * (total - minSpruce + 1)) + minSpruce;
                 pineCount = total - spruceCount;
-            } else {
-                tableType = 'pine';
-                tableData = pineVolume;
-                heights = pineHeights;
-                const minPine = Math.ceil(total * 0.3);
-                const maxPine = Math.floor(total * 0.7);
-                pineCount = Math.floor(Math.random() * (maxPine - minPine + 1)) + minPine;
-                spruceCount = total - pineCount;
             }
         }
         
-        const gSur = findSurroundingIndices(basalArea, basalAreas);
-        const hSur = findSurroundingIndices(meanHeight, heights);
-        if (tableData[gSur.low][hSur.low] !== null && tableData[gSur.low][hSur.high] !== null &&
-            tableData[gSur.high][hSur.low] !== null && tableData[gSur.high][hSur.high] !== null) {
-            valid = true;
+        if (isValidCombination(pineCount, spruceCount, basalArea, meanHeight)) {
+            const volumePerHa = getCombinedVolume(pineCount, spruceCount, basalArea, meanHeight);
+            const area = Math.round((Math.random() * 19 + 1.1) * 10) / 10;
+            const totalVolume = Math.round(volumePerHa * area * 10) / 10;
+            return {
+                pineCount, spruceCount, basalArea, meanHeight, area,
+                volumePerHa, totalVolume
+            };
         }
         attempts++;
     }
-    // Om ingen giltig hittades, använd en säker fallback
-    if (!valid) {
-        basalArea = 20; meanHeight = 16; tableType = 'mixed';
-        tableData = mixedVolume; heights = mixedHeights;
-        pineCount = 10; spruceCount = 10;
-    }
     
-    const volumePerHa = getVolumeManualInterpolation(tableData, heights, basalArea, meanHeight);
-    const area = Math.round((Math.random() * 19 + 1.1) * 10) / 10;
-    const totalVolume = Math.round(volumePerHa * area * 10) / 10;
-    
+    // Fallback
     return {
-        pineCount, spruceCount, basalArea, meanHeight, area,
-        volumePerHa, totalVolume, tableType
+        pineCount: 10, spruceCount: 10, basalArea: 20, meanHeight: 16, area: 2.0,
+        volumePerHa: 142, totalVolume: 284
     };
 }
 
