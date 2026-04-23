@@ -59,17 +59,17 @@ const questionBank = [
     // 2.1 Hur objektet väljs
     {
         sv: {
-            text: 'Hur väljs de objekt som ska granskas i första hand?',
+            text: 'Hur väljer man ut figurer som ska granskas i fält?',
             options: ['Alla objekt granskas', 'Genom slumpmässigt urval eller efter prövning', 'Endast efter anmälan från markägaren'],
             correct: 1
         },
         fi: {
-            text: 'Miten tarkastettavat kohteet valitaan ensisijaisesti?',
+            text: 'Miten valitset kentällä tutkittavat luvut?',
             options: ['Kaikki kohteet tarkastetaan', 'Satunnaisotannalla tai harkinnanvaraisesti', 'Vain maanomistajan ilmoituksesta'],
             correct: 1
         },
         en: {
-            text: 'How are the objects to be inspected primarily selected?',
+            text: 'How do you select figures to be examined in the field?',
             options: ['All objects are inspected', 'By random sampling or discretionary selection', 'Only upon notification by the landowner'],
             correct: 1
         }
@@ -77,35 +77,35 @@ const questionBank = [
     // 2.3 Tidpunkt för granskningarna
     {
         sv: {
-            text: 'När ska granskningar enligt finansieringslagen i regel utföras?',
-            options: ['Före planen görs upp', 'Efter planen gjorts eller arbetet utförts, men före sista utbetalningen', 'När som helst under projektets gång'],
+            text: 'När ska en fältgranskning av ett genomfört kemera- eller beskogningsprojekt i regel utföras?',
+            options: ['Innan arbetet påbörjas', 'Efter att arbetet är slutfört, men innan den sista utbetalningen görs', 'När som helst, så länge det sker före projektets slutdatum'],
             correct: 1
         },
         fi: {
-            text: 'Milloin rahoituslain mukaiset tarkastukset on pääsääntöisesti tehtävä?',
-            options: ['Ennen suunnitelman laatimista', 'Suunnitelman tai työn valmistuttua, mutta ennen viimeistä maksatusta', 'Milloin tahansa hankkeen aikana'],
+            text: 'Milloin toteutetun kemera- tai metsityslain hankkeen maastotarkastus on pääsääntöisesti tehtävä?',
+            options: ['Ennen työn aloittamista', 'Työn valmistuttua, mutta ennen viimeisen maksuerän suorittamista', 'Milloin tahansa, kunhan se tapahtuu ennen hankkeen päättymispäivää'],
             correct: 1
         },
         en: {
-            text: 'When should inspections under the Financing Act generally be carried out?',
-            options: ['Before the plan is drawn up', 'After the plan or work is completed, but before the final payment', 'At any time during the project'],
+            text: 'When should a field inspection of a completed Kemera or afforestation project generally be carried out?',
+            options: ['Before the work begins', 'After the work is finished, but before the final payment is made', 'At any time, as long as it is before the project end date'],
             correct: 1
         }
     },
     // 2.4 Kvalitetskontroll
     {
         sv: {
-            text: 'Vem utför årligen en kvalitetskontroll av Skogscentralens granskningsverksamhet?',
+            text: 'Vem kontrollerar årligen kvaliteten på de fältgranskningar som Skogscentralen utför enligt skogslagen och finansieringslagen?',
             options: ['Jord- och skogsbruksministeriet', 'Livsmedelssverket', 'Finlands skogscentral'],
             correct: 1
         },
         fi: {
-            text: 'Kuka suorittaa vuosittain Metsäkeskuksen tarkastustoiminnan laadunvalvonnan?',
+            text: 'Kuka tarkastaa vuosittain Metsäkeskuksen metsälain ja rahoituslain mukaisten maastotarkastusten laadun?',
             options: ['Maa- ja metsätalousministeriö', 'Ruokavirasto', 'Suomen metsäkeskus'],
             correct: 1
         },
         en: {
-            text: 'Who carries out an annual quality control of the Finnish Forest Centre\'s inspection activities?',
+            text: 'Who annually checks the quality of the field inspections carried out by the Finnish Forest Centre under the Forest Act and the Financing Act?',
             options: ['Ministry of Agriculture and Forestry', 'Finnish Food Authority', 'Finnish Forest Centre'],
             correct: 1
         }
@@ -113,17 +113,17 @@ const questionBank = [
     // 3.3 Bedömningsskala
     {
         sv: {
-            text: 'Vilken bedömningsskala används i allmänhet vid granskning av objekt (med vissa undantag)?',
+            text: 'Vilken bedömningsskala används i allmänhet vid fältgranskning av skogsbruksåtgärder (med vissa undantag)?',
             options: ['1–5', 'Tregradig: Rätt/God, Godkänt/kräver anmärkning, Bristfällig/felaktig', 'Endast Godkänd eller Underkänd'],
             correct: 1
         },
         fi: {
-            text: 'Mitä arviointiasteikkoa käytetään yleisesti kohteiden tarkastuksessa (joitakin poikkeuksia lukuun ottamatta)?',
+            text: 'Mitä arviointiasteikkoa käytetään yleisesti metsänhoitotoimenpiteiden maastotarkastuksissa (joitakin poikkeuksia lukuun ottamatta)?',
             options: ['1–5', 'Kolmiportainen: Oikein/Hyvä, Hyväksyttävä/Huomautettavaa, Puutteellinen/Virheellinen', 'Vain Hyväksytty tai Hylätty'],
             correct: 1
         },
         en: {
-            text: 'Which assessment scale is generally used in object inspections (with some exceptions)?',
+            text: 'Which assessment scale is generally used in field inspections of forestry operations (with some exceptions)?',
             options: ['1–5', 'Three-tier: Correct/Good, Acceptable/remark required, Deficient/incorrect', 'Only Pass or Fail'],
             correct: 1
         }
@@ -131,17 +131,17 @@ const questionBank = [
     // 3.5 Mätning av provytor
     {
         sv: {
-            text: 'Hur många provytor ska man alltid mäta som minimum vid systematisk mätning, även på små figurer?',
+            text: 'Hur många provytor måste man minst mäta vid en systematisk mätning, även på små figurer?',
             options: ['3', '5', '10'],
             correct: 1
         },
         fi: {
-            text: 'Kuinka monta koealaa on aina mitattava vähintään systemaattisessa mittauksessa, myös pienillä kuvioilla?',
+            text: 'Kuinka monta koealaa on vähintään mitattava systemaattisessa mittauksessa, pienilläkin kuvioilla?',
             options: ['3', '5', '10'],
             correct: 1
         },
         en: {
-            text: 'How many sample plots must always be measured as a minimum in systematic measurement, even on small stands?',
+            text: 'What is the minimum number of sample plots that must be measured in a systematic measurement, even on small stands?',
             options: ['3', '5', '10'],
             correct: 1
         }
@@ -149,17 +149,17 @@ const questionBank = [
     // 3.10 Stenighetsklass
     {
         sv: {
-            text: 'När aktiveras bedömningen av stenighetsklass på datasamlaren?',
+            text: 'När ska man bedöma stenighetsklass i fältgranskningen?',
             options: ['Alltid', 'När jordarten är stenig (klass 30,31,32,40,50)', 'När jordarten är stenig (klass 20,21,22,25,29)'],
             correct: 1
         },
         fi: {
-            text: 'Milloin kivisyysluokan arviointi aktivoituu maastotallentimessa?',
+            text: 'Milloin kivisyysluokka on arvioitava maastotarkastuksessa?',
             options: ['Aina', 'Kun maalaji on kivinen (luokat 30,31,32,40,50)', 'Kun maalaji on kivinen (luokat 20,21,22,25,29)'],
             correct: 1
         },
         en: {
-            text: 'When is the assessment of stoniness class activated on the data logger?',
+            text: 'When must the stoniness class be assessed in a field inspection?',
             options: ['Always', 'When the soil type is stony (classes 30,31,32,40,50)', 'When the soil type is stony (classes 20,21,22,25,29)'],
             correct: 1
         }
@@ -239,18 +239,18 @@ const questionBank = [
     // 4.9 Övervakning av skogslagen
     {
         sv: {
-            text: 'Vad händer om man misstänker att plantbeståndet inte uppfyller minimikraven i skogslagen och tidsfristen snart löper ut?',
-            options: ['Man räknar även kompletterande trädslags plantor', 'Man förlänger tidsfristen automatiskt', 'Man röjer beståndet'],
+            text: 'Vad ska granskaren göra om det misstänks att plantbeståndet inte når upp till skogslagens minimikrav, och den lagstadgade tidsfristen för att anlägga ny skog snart går ut?',
+            options: ['Räkna in alla godkända plantor, även de av kompletterande trädslag, för att se om totalantalet uppfyller lagkravet.', 'Man förlänger tidsfristen automatiskt med skogscentralen', 'Man röjer beståndet'],
             correct: 0
         },
         fi: {
-            text: 'Mitä tehdään, jos epäillään, ettei taimikko täytä metsälain vähimmäisvaatimuksia ja määräaika on umpeutumassa?',
-            options: ['Lasketaan mukaan myös täydentävien puulajien taimet', 'Määräaikaa pidennetään automaattisesti', 'Metsikkö raivataan'],
+            text: 'Mitä tarkastajan tulee tehdä, jos epäillään, ettei taimikko täytä metsälain vähimmäisvaatimuksia ja metsänuudistamisen lakisääteinen määräaika on umpeutumassa?',
+            options: ['Laske kaikki hyväksytyt taimet, mukaan lukien täydentävien puulajien taimet, nähdäksesi, täyttääkö kokonaismäärä lakisääteiset vaatimukset.', 'Metsähallitus pidentää määräaikaa automaattisesti', 'Metsikkö raivataan'],
             correct: 0
         },
         en: {
-            text: 'What is done if it is suspected that the seedling stand does not meet the minimum requirements of the Forest Act and the deadline is about to expire?',
-            options: ['Seedlings of supplementary tree species are also counted', 'The deadline is automatically extended', 'Brush cut the stand'],
+            text: 'What must the inspector do if it is suspected that the seedling stand does not meet the Forest Acts minimum requirements and the statutory deadline for establishing a new forest is about to expire?',
+            options: ['Count all approved saplings, including those of complementary tree species, to see if the total number meets the legal requirement.', 'The deadline is automatically extended by the forestry authority.', 'Brush cut the stand'],
             correct: 0
         }
     },
@@ -311,36 +311,37 @@ const questionBank = [
     // 5.9 Bedömning av kvaliteten på vägprojekt
     {
         sv: {
-            text: 'Vad är minimibredden för körbanan på en basväg (undantagsvis på raksträckor)?',
+            text: 'Hur bred måste skogsbilvägen vara om vägen är rak?',
             options: ['3,0 m', '3,6 m', '4,0 m'],
             correct: 1
         },
         fi: {
-            text: 'Mikä on perustien ajouran vähimmäisleveys (poikkeuksellisesti suorilla osuuksilla)?',
+            text: 'Kuinka leveä metsäautotien pitää olla, jos tie on suora?',
             options: ['3,0 m', '3,6 m', '4,0 m'],
             correct: 1
         },
         en: {
-            text: 'What is the minimum width of the carriageway on a basic forest road (exceptionally on straight sections)?',
+            text: 'How wide does the forest road have to be if the road is straight?',
             options: ['3.0 m', '3.6 m', '4.0 m'],
             correct: 1
         }
     },
+    // (F.d. avstånd vändplaner - nu mötesplatser)
     {
         sv: {
-            text: 'Hur långt rekommenderas avståndet vara mellan vändplaner på en skogsväg?',
-            options: ['200–400 m', '500–800 m', '1000–2000 m'],
-            correct: 2
+            text: 'Hur långt avstånd ska det minst vara mellan mötesplatser på en skogsbilväg?',
+            options: ['400 m', '600 m', '800 m'],
+            correct: 1
         },
         fi: {
-            text: 'Kuinka pitkä on suositeltu etäisyys kääntöpaikkojen välillä metsätiellä?',
-            options: ['200–400 m', '500–800 m', '1000–2000 m'],
-            correct: 2
+            text: 'Kuinka pitkä välimatka on vähintään oltava metsätien kohtaamispaikkojen välillä?',
+            options: ['400 m', '600 m', '800 m'],
+            correct: 1
         },
         en: {
-            text: 'What is the recommended distance between turnarounds on a forest road?',
-            options: ['200–400 m', '500–800 m', '1000–2000 m'],
-            correct: 2
+            text: 'What is the minimum distance required between passing places on a forest road?',
+            options: ['400 m', '600 m', '800 m'],
+            correct: 1
         }
     },
     // 6.1 Lag om bekämpning av skogsskador
@@ -364,34 +365,35 @@ const questionBank = [
     // 6.3 Bekämpning av rotticka
     {
         sv: {
-            text: 'Hur många stubbar bör man mäta vid en fältgranskning av stubbehandling?',
+            text: 'Vid fältgranskning av stubbehandling mot rotticka under pågående arbete, hur många stubbar ska mätas?',
             options: ['Minst 20 st', 'Minst 50 st', 'Minst 100 st'],
             correct: 1
         },
         fi: {
-            text: 'Kuinka monta kantoa tulisi mitata kantokäsittelyn maastotarkastuksessa?',
+            text: 'Kuinka monta kantoa on mitattava juurikäävän torjunnan maastotarkastuksessa työn aikana?',
             options: ['Vähintään 20 kpl', 'Vähintään 50 kpl', 'Vähintään 100 kpl'],
             correct: 1
         },
         en: {
-            text: 'How many stumps should be measured during a field inspection of stump treatment?',
+            text: 'During a field inspection of stump treatment against root rot while work is in progress, how many stumps should be measured?',
             options: ['At least 20', 'At least 50', 'At least 100'],
             correct: 1
         }
     },
+    // Andel otillräckligt täckta stubbar (förtydligad)
     {
         sv: {
-            text: 'Vid vilken andel otillräckligt täckta stubbar bedöms arbetsresultatet som felaktigt/odugligt?',
+            text: 'Enligt instruktionen, vid vilken andel stubbar med otillräcklig täckning (under 90 %) bedöms bekämpningsarbetet mot rotticka som felaktigt?',
             options: ['0–9 %', '10–29 %', '30 % eller fler'],
             correct: 2
         },
         fi: {
-            text: 'Millä puutteellisesti peitettyjen kantojen osuudella työtulos arvioidaan virheelliseksi/kelvottomaksi?',
+            text: 'Ohjeen mukaan, millä puutteellisesti peitettyjen (alle 90 %) kantojen osuudella juurikäävän torjuntatyö arvioidaan virheelliseksi?',
             options: ['0–9 %', '10–29 %', '30 % tai enemmän'],
             correct: 2
         },
         en: {
-            text: 'At what proportion of insufficiently covered stumps is the work result assessed as incorrect/unusable?',
+            text: 'According to the instructions, at what proportion of stumps with insufficient coverage (under 90%) is the root rot control work assessed as incorrect?',
             options: ['0–9%', '10–29%', '30% or more'],
             correct: 2
         }
