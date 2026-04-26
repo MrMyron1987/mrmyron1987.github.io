@@ -314,7 +314,7 @@ langItems.forEach(item => {
 
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
-        window.location.href = 'Startsidan/tester.html';
+        window.location.href = 'Testerna.html';
     });
 }
 
