@@ -355,7 +355,7 @@ document.getElementById('restartTreeBtn').addEventListener('click', () => {
 });
 
 document.getElementById('backFromResultBtn').addEventListener('click', () => {
-    window.location.href = 'tester.html';
+    window.location.href = '../Testerna/testerna.html';
 });
 
 // ============================================================
