@@ -314,7 +314,7 @@ langItems.forEach(item => {
 
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
-        alert(`[PLACEHOLDER] Här öppnas testvyn. (Språk: ${currentLang})`);
+        window.location.href = 'tester.html';
     });
 }
 
