@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
     /* Bakgrundsbild – byt ut mot direktlänken om bilden inte syns */
-    background: url('https://ibb.co/8DrHygSv') no-repeat center center fixed;
+    background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
