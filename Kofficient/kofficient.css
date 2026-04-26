@@ -1,3 +1,77 @@
+/* ============================================================
+   CSS-VARIABLER – ändra här för att styra färger & transparens
+   ============================================================ */
+:root {
+    /* App-container – beige med opacitet */
+    --app-bg-r: 254;
+    --app-bg-g: 249;
+    --app-bg-b: 232;
+    --app-bg-opacity: 0.6;
+
+    /* Header – solid mörkgrön */
+    --header-bg: #2c5e2e;
+    --header-text: #f9f1cf;
+    --header-border: #a6c89b;
+
+    /* Tillbaka-knapp */
+    --back-btn-bg: #a0763a;
+    --back-btn-hover-bg: rgba(184, 134, 74, 0.6);
+    --back-btn-shadow: #6b4f2c;
+    --back-btn-border: #dbb47a;
+
+    /* Progress & frågetext-bakgrund */
+    --progress-bg: #d9e6c3;
+    --progress-text: #1e3a1e;
+
+    /* Inputfält */
+    --input-bg: #fef9ef;
+    --input-border: #8fbc6e;
+    --input-focus-border: #2c6e2a;
+    --input-disabled-bg: #e9e2d2;
+
+    /* Feedback */
+    --feedback-bg: #f0e7cf;
+    --feedback-correct-bg: #d9f0cf;
+    --feedback-wrong-bg: #ffe0cf;
+    --feedback-border-left: #7b9f5a;
+    --feedback-border-left-correct: #2c7a2a;
+    --feedback-border-left-wrong: #c94f4f;
+
+    /* Primärknapp */
+    --primary-btn-bg: #2e6730;
+    --primary-btn-hover: #1e5120;
+    --primary-btn-disabled: #a3b99a;
+    --primary-btn-shadow: #1a3f1c;
+    --primary-btn-border: #7aac6e;
+    --primary-btn-disabled-shadow: #6e8a63;
+
+    /* Sekundärknapp */
+    --secondary-btn-bg: #8f6e3b;
+    --secondary-btn-hover: #a5814a;
+    --secondary-btn-shadow: #5f4a2a;
+    --secondary-btn-border: #c4a56e;
+
+    /* Resultatkort */
+    --result-card-bg: rgba(255, 255, 255, 0.87);
+    --result-stats-bg: #e2eace;
+
+    /* Footer */
+    --footer-bg: #e0d5bc;
+    --footer-text: #4f5a3c;
+    --footer-border: #b1c99e;
+
+    /* Övrigt */
+    --card-border: #cfe2b0;
+    --box-shadow-light: rgba(0, 20, 0, 0.08);
+    --box-shadow-medium: rgba(0, 20, 0, 0.2);
+    --text-dark: #1e3a1e;
+    --text-muted: #3d5e2b;
+    --question-bg: #f5f0e0;
+}
+
+/* ============================================================
+   GLOBALA REGLER
+   ============================================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +80,8 @@
 
 body {
     font-family: 'Segoe UI', system-ui, sans-serif;
-    background: linear-gradient(145deg, #eaf7e6 0%, #c8e6c9 100%);
+    background: url('https://i.ibb.co/3y6nZffL/Bakgrundsbild-till-matematik.png') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,33 +89,45 @@ body {
     padding: 20px;
 }
 
+/* ============================================================
+   HUVUDCONTAINER
+   ============================================================ */
 .app-container {
     max-width: 800px;
     width: 100%;
-    background: #fef9e8;
+    background: rgba(var(--app-bg-r), var(--app-bg-g), var(--app-bg-b), var(--app-bg-opacity));
     border-radius: 48px;
-    box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
+    box-shadow: 0 20px 35px var(--box-shadow-medium);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ============================================================
+   HEADER
+   ============================================================ */
 .main-header {
-    background: #2c5e2e;
-    color: #f9f1cf;
+    background: var(--header-bg);
+    color: var(--header-text);
     padding: 18px 28px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 4px solid #a6c89b;
+    border-bottom: 4px solid var(--header-border);
 }
 
 .main-header h1 {
     font-size: 1.8rem;
     font-weight: 700;
+    margin: 0;
 }
 
+/* ============================================================
+   TILLBAKA-KNAPP
+   ============================================================ */
 .back-btn {
-    background: #a0763a;
+    background: var(--back-btn-bg);
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -48,56 +135,85 @@ body {
     border-radius: 40px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 3px 0 #6b4f2c;
     transition: 0.15s;
+    box-shadow: 0 3px 0 var(--back-btn-shadow);
+    border: 1px solid var(--back-btn-border);
 }
 
 .back-btn:hover {
-    background: #b8864a;
+    background: var(--back-btn-hover-bg);
     transform: translateY(-2px);
-    box-shadow: 0 5px 0 #6b4f2c;
+    box-shadow: 0 5px 0 var(--back-btn-shadow);
 }
 
+/* ============================================================
+   QUIZOMRÅDE
+   ============================================================ */
 .quiz-area {
     padding: 30px 28px 40px;
+    flex: 1;
 }
 
-.question-card, .result-card {
-    background: #ffffffdd;
+/* ============================================================
+   FRÅGEKORT – helt transparent
+   ============================================================ */
+.question-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* ============================================================
+   RESULTATKORT
+   ============================================================ */
+.result-card {
+    background: var(--result-card-bg);
     backdrop-filter: blur(2px);
     border-radius: 40px;
     padding: 25px 25px 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    border: 1px solid #cfe2b0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    text-align: center;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* ============================================================
+   PROGRESS-INDIKATOR
+   ============================================================ */
 .progress {
     font-size: 1rem;
-    background: #d9e6c3;
+    background: var(--progress-bg);
     display: inline-block;
     padding: 6px 20px;
     border-radius: 30px;
     margin-bottom: 20px;
     font-weight: 600;
-    color: #1e3a1e;
+    color: var(--progress-text);
 }
 
+/* ============================================================
+   FRÅGETEXT
+   ============================================================ */
 .question-text {
     font-size: 1.4rem;
     line-height: 1.5;
     margin: 15px 0 25px;
     color: #1a3b1a;
     font-weight: 600;
-    background: #f5f0e0;
+    background: var(--question-bg);
     padding: 20px;
     border-radius: 30px;
     border-left: 8px solid #5f7e4e;
 }
 
+/* ============================================================
+   INPUT-FÄLT
+   ============================================================ */
 .answer-inputs {
     display: flex;
     flex-direction: column;
@@ -113,7 +229,7 @@ body {
 
 .input-group label {
     font-weight: 700;
-    color: #1e4a1e;
+    color: var(--text-dark);
     font-size: 1.1rem;
     margin-left: 8px;
 }
@@ -122,37 +238,48 @@ body {
     padding: 14px 18px;
     font-size: 1.2rem;
     border-radius: 50px;
-    border: 2px solid #8fbc6e;
-    background: #fef9ef;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
     transition: 0.15s;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #2c6e2a;
-    box-shadow: 0 0 0 3px rgba(44,110,42,0.2);
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(44, 110, 42, 0.2);
 }
 
+.input-group input:disabled {
+    background: var(--input-disabled-bg);
+    opacity: 0.8;
+}
+
+/* ============================================================
+   FEEDBACK-RUTA
+   ============================================================ */
 .feedback {
-    background: #f0e7cf;
+    background: var(--feedback-bg);
     padding: 15px 20px;
     border-radius: 32px;
     margin: 20px 0;
     font-weight: 500;
-    border-left: 8px solid #7b9f5a;
+    border-left: 8px solid var(--feedback-border-left);
     line-height: 1.5;
 }
 
 .feedback.correct {
-    background: #d9f0cf;
-    border-left-color: #2c7a2a;
+    background: var(--feedback-correct-bg);
+    border-left-color: var(--feedback-border-left-correct);
 }
 
 .feedback.wrong {
-    background: #ffe0cf;
-    border-left-color: #c94f4f;
+    background: var(--feedback-wrong-bg);
+    border-left-color: var(--feedback-border-left-wrong);
 }
 
+/* ============================================================
+   KNAPPGRUPP
+   ============================================================ */
 .button-group {
     display: flex;
     gap: 18px;
@@ -160,8 +287,11 @@ body {
     margin-top: 10px;
 }
 
+/* ============================================================
+   PRIMÄRKNAPP
+   ============================================================ */
 .primary-btn {
-    background: #2e6730;
+    background: var(--primary-btn-bg);
     border: none;
     padding: 14px 24px;
     font-size: 1.2rem;
@@ -170,32 +300,35 @@ body {
     color: white;
     cursor: pointer;
     transition: 0.15s;
-    box-shadow: 0 5px 0 #1a3f1c;
-    border: 1px solid #7aac6e;
+    box-shadow: 0 5px 0 var(--primary-btn-shadow);
+    border: 1px solid var(--primary-btn-border);
     flex: 1;
     text-align: center;
 }
 
 .primary-btn:hover:not(:disabled) {
-    background: #1e5120;
+    background: var(--primary-btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 7px 0 #1a3f1c;
+    box-shadow: 0 7px 0 var(--primary-btn-shadow);
 }
 
 .primary-btn:active:not(:disabled) {
     transform: translateY(3px);
-    box-shadow: 0 2px 0 #1a3f1c;
+    box-shadow: 0 2px 0 var(--primary-btn-shadow);
 }
 
 .primary-btn:disabled {
-    background: #a3b99a;
-    box-shadow: 0 5px 0 #6e8a63;
+    background: var(--primary-btn-disabled);
+    box-shadow: 0 5px 0 var(--primary-btn-disabled-shadow);
     cursor: not-allowed;
     opacity: 0.6;
 }
 
+/* ============================================================
+   SEKUNDÄRKNAPP
+   ============================================================ */
 .secondary-btn {
-    background: #8f6e3b;
+    background: var(--secondary-btn-bg);
     border: none;
     padding: 14px 24px;
     font-size: 1.1rem;
@@ -204,42 +337,47 @@ body {
     color: white;
     cursor: pointer;
     transition: 0.15s;
-    box-shadow: 0 4px 0 #5f4a2a;
-    border: 1px solid #c4a56e;
+    box-shadow: 0 4px 0 var(--secondary-btn-shadow);
+    border: 1px solid var(--secondary-btn-border);
     margin-top: 20px;
     width: 100%;
 }
 
 .secondary-btn:hover {
-    background: #a5814a;
+    background: var(--secondary-btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 #5f4a2a;
+    box-shadow: 0 6px 0 var(--secondary-btn-shadow);
 }
 
-.result-card {
-    text-align: center;
-}
-
+/* ============================================================
+   RESULTATSTATS
+   ============================================================ */
 .result-stats {
-    background: #e2eace;
+    background: var(--result-stats-bg);
     border-radius: 40px;
     padding: 30px 20px;
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 30px;
-    color: #1e3a1e;
+    color: var(--text-dark);
     line-height: 1.5;
 }
 
+/* ============================================================
+   FOOTER (solid, ej genomskinlig)
+   ============================================================ */
 footer {
     text-align: center;
     padding: 18px;
-    background: #e0d5bc;
-    color: #4f5a3c;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     font-size: 0.9rem;
-    border-top: 2px solid #b1c99e;
+    border-top: 2px solid var(--footer-border);
 }
 
+/* ============================================================
+   RESPONSIVITET
+   ============================================================ */
 @media (max-width: 600px) {
     .main-header {
         flex-direction: column;
