@@ -1,3 +1,6 @@
+/* ============================================================
+   GLOBALA REGLER
+   ============================================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,36 +9,41 @@
 
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
-    /* Bakgrundsbild – byt ut mot direktlänken om bilden inte syns */
+    /* Fast skogsbakgrund som täcker hela skärmen */
     background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    overflow: hidden;              /* förhindrar scrollning på hela sidan */
+    justify-content: center;        /* håller .app-container centrerad */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;               /* ingen scrollning på hela sidan */
 }
 
+/* ============================================================
+   HUVUDCONTAINER
+   ============================================================ */
 .app-container {
-    max-width: 950px;
+    max-width: 1200px;              /* bredare än tidigare */
     width: 100%;
-    height: calc(100vh - 40px);   /* hela skärmhöjden minus padding */
-    background: #fef9e8;
-    border-radius: 48px;
-    box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
-    overflow: hidden;
+    height: 100vh;                  /* från topp till botten */
+    background-color: rgba(254, 249, 232, 0.4);  /* beige med 40% genomskinlighet */
     display: flex;
     flex-direction: column;
 }
 
-/* ========== HEADER ========== */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .main-header {
     background: #2c5e2e;
     color: #f9f1cf;
     padding: 20px 28px;
     border-bottom: 4px solid #a6c89b;
-    flex-shrink: 0;               /* låses fast i toppen */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;                /* får inte krympa */
 }
 
 .main-header h1 {
@@ -48,9 +56,44 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
-/* ========== TABBAR ========== */
+/* ============================================================
+   SPRÅKKNAPPAR (SV / FIN / EN)
+   ============================================================ */
+.lang-bar {
+    display: flex;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #e2f0d5;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.15s;
+    backdrop-filter: blur(4px);
+    line-height: 1.2;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.lang-btn.active {
+    background: #f9f1cf;
+    color: #1e4a1e;
+    border-color: #f9f1cf;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   FLIKMENY (GENOMSKINLIG)
+   ============================================================ */
 .tabs-nav {
-    background: #d4c9a8;
+    background: rgba(212, 201, 168, 0.8);
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -58,11 +101,11 @@ body {
     border-bottom: 3px solid #5f7a4c;
     position: relative;
     z-index: 2;
-    flex-shrink: 0;               /* hålls på plats */
+    flex-shrink: 0;
 }
 
 .tab {
-    background: #c8b892;
+    background: rgba(200, 184, 146, 0.2);
     border: 2px solid #5f7a4c;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
@@ -79,12 +122,12 @@ body {
 }
 
 .tab:hover {
-    background: #d9cfa0;
+    background: rgba(217, 207, 160, 0.7);
 }
 
 .tab.active {
-    background: #fef9e8;
-    border-bottom: 2px solid #fef9e8;
+    background: rgba(254, 249, 232, 0.85);
+    border-bottom: 2px solid rgba(254, 249, 232, 0.85);
     margin-bottom: -3px;
     padding-bottom: 13px;
     z-index: 3;
@@ -93,63 +136,15 @@ body {
     color: #1e3a1e;
 }
 
-/* ========== SPRÅK-DROPDOWN ========== */
-.tab-dropdown-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: calc(100% - 2px);
-    left: 0;
-    background: #fef9e8;
-    border: 2px solid #5f7a4c;
-    border-radius: 0 8px 8px 8px;
-    list-style: none;
-    padding: 6px 0;
-    margin: 0;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,20,0,0.15);
-    z-index: 10;
-}
-
-.tab-dropdown-wrapper.open .lang-dropdown {
-    display: block;
-}
-
-.lang-dropdown li {
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: #2c3e2b;
-    transition: background 0.15s;
-}
-
-.lang-dropdown li:hover {
-    background: #eaf1db;
-}
-
-.lang-dropdown li.selected::before {
-    content: "✓ ";
-    font-weight: bold;
-    color: #1e4a1e;
-}
-
-.lang-flag {
-    margin-right: 6px;
-}
-
-/* ========== INNEHÅLLSOMRÅDE ========== */
+/* ============================================================
+   INNEHÅLLSOMRÅDE
+   ============================================================ */
 .tab-content-wrapper {
-    background: #fef9e8;
+    background: #fef9e8 (217, 207, 160, 0.8);
     padding: 32px 28px 40px;
-    overflow-y: auto;            /* Scrollning inuti flikarna */
-    flex: 1 1 0;                 /* tar resten av höjden */
+    overflow-y: auto;              /* egen scrollbar för flikarnas innehåll */
+    flex: 1 1 0;
     border-top: 2px solid transparent;
-    position: relative;
-    z-index: 1;
 }
 
 .tab-panel {
@@ -160,40 +155,40 @@ body {
     display: block;
 }
 
-/* ========== START-SIDAN ========== */
-.welcome-message {
-    font-size: 1.3rem;
-    line-height: 1.6;
+/* ============================================================
+   KORT (används av Start, Kunskapstester, Nyheter, Jobb)
+   ============================================================ */
+.welcome-message,
+.test-intro p,
+.news-intro {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border: 1px solid #cfe2b0;
+    box-shadow: 0 8px 16px rgba(0, 20, 0, 0.2);
+    border-radius: 24px;
+    padding: 30px 24px;
     color: #2c3e2b;
     text-align: center;
     max-width: 650px;
     margin: 0 auto;
-    background: #ffffffdd;
-    backdrop-filter: blur(2px);
-    border-radius: 24px;
-    padding: 30px 24px;
-    border: 1px solid #cfe2b0;
-    box-shadow: 0 8px 16px rgba(0, 20, 0, 0.08);
+    font-size: 1.2rem;
+    line-height: 1.7;
 }
 
-/* ========== KUNSKAPSTESTER ========== */
-.test-intro {
+/* Specifika storlekar för olika texter */
+.welcome-message {
+    font-size: 1.3rem;
     max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
+}
+
+.news-intro {
+    margin-bottom: 28px;
+    max-width: 700px;
+    font-size: 1.15rem;
 }
 
 .test-intro p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: #2c3e2b;
     margin-bottom: 30px;
-    background: #ffffffdd;
-    backdrop-filter: blur(2px);
-    border-radius: 24px;
-    padding: 30px 24px;
-    border: 1px solid #cfe2b0;
-    box-shadow: 0 8px 16px rgba(0, 20, 0, 0.08);
 }
 
 .test-btn-wrapper {
@@ -201,6 +196,9 @@ body {
     justify-content: center;
 }
 
+/* ============================================================
+   PRIMÄRKNAPP (t.ex. "Gå till testerna")
+   ============================================================ */
 .primary-btn {
     background: #2e6730;
     border: none;
@@ -227,23 +225,9 @@ body {
     box-shadow: 0 3px 0 #1a3f1c;
 }
 
-/* ========== INTROTEXT (NYHETER & JOBB) ========== */
-.news-intro {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: #3a4d38;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 28px auto;
-    background: #ffffffdd;
-    backdrop-filter: blur(2px);
-    border-radius: 20px;
-    padding: 20px 24px;
-    border: 1px solid #cfe2b0;
-    box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
-}
-
-/* ========== NYHETER & JOBB ========== */
+/* ============================================================
+   NYHETS- & JOBBKORT
+   ============================================================ */
 .news-container {
     max-width: 700px;
     margin: 0 auto;
@@ -293,7 +277,9 @@ body {
     margin-top: 6px;
 }
 
-/* ========== FOOTER ========== */
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
     text-align: center;
     padding: 16px;
@@ -304,7 +290,9 @@ footer {
     flex-shrink: 0;
 }
 
-/* ========== RESPONSIVITET ========== */
+/* ============================================================
+   RESPONSIVITET (mindre skärmar)
+   ============================================================ */
 @media (max-width: 700px) {
     .main-header h1 {
         font-size: 2rem;

@@ -1,5 +1,6 @@
 // ============================================================
-// 1. ÖVERSÄTTNINGAR
+// 1. ÖVERSÄTTNINGAR – alla texter på tre språk
+//    Notera: HTML innehåller fallback-texter, men JS uppdaterar dem dynamiskt.
 // ============================================================
 const translations = {
     sv: {
@@ -8,12 +9,10 @@ const translations = {
         tabJobb: "Jobb",
         tabKunskapstester: "Kunskapstester",
         tabNyheter: "Nyheter",
-        tabSprak: "Språk",
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         welcomeMsg: "Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.",
 
-        // Nyheter
         newsIntro: "Här har vi samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera via deras prenumerationslänkar.",
         skogscentralenTitle: "Skogscentralen",
         skogscentralenDesc: "Finlands nationella skogsmyndighet. Ansvarar för genomförandet av Finlands skogspolitik och erbjuder rådgivning, utbildning och finansieringsstöd för skogsägare.",
@@ -29,11 +28,9 @@ const translations = {
         skogsstyrelsenDesc: "Sveriges nationella skogsmyndighet. Arbetar för hållbart skogsbruk, rådgivning, tillsyn av Skogsvårdslagen och hanterar statliga stöd för skogsbruket.",
         skogsstyrelsenLangNote: "Webbplatsen finns på svenska och finska.",
 
-        // Kunskapstester
         testIntroText: "Välkommen och testa dina skogskunskaper. Klicka in dig på sidan och välj ett ämne du vill testa dina kunskaper på. Det finns allt från indikationsväxter, skoglig matematik och vägar. Med andra ord, allt inom skogsbruk.",
         goToTests: "🌿 Gå till testerna",
 
-        // Jobb
         jobbIntro: "Här hittar du både företag och webbplatser inom skogsbruk från Finland och Sverige, samt direktlänkar till deras rekryteringssidor.",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.",
@@ -78,12 +75,10 @@ const translations = {
         tabJobb: "Työpaikat",
         tabKunskapstester: "Tietotestit",
         tabNyheter: "Uutiset",
-        tabSprak: "Kieli",
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         welcomeMsg: "Tervetuloa tälle sivustolle, se on vielä rakenteilla, mutta katsele ympärillesi.",
 
-        // Nyheter
         newsIntro: "Tälle sivulle olemme koonneet tärkeimmät metsäalan verkkosivustot, jotka julkaisevat uutisia metsäalalta. Jos pidät sisällöstä, voit aloittaa tilauksen heidän tilauslinkkiensä kautta.",
         skogscentralenTitle: "Metsäkeskus",
         skogscentralenDesc: "Suomen kansallinen metsäviranomainen, joka vastaa metsäpolitiikan toimeenpanosta ja tarjoaa neuvontaa, koulutusta ja rahoitustukea metsänomistajille.",
@@ -99,11 +94,9 @@ const translations = {
         skogsstyrelsenDesc: "Ruotsin kansallinen metsäviranomainen. Edistää kestävää metsätaloutta, tarjoaa neuvontaa, valvoo metsälakia ja hallinnoi valtion tukia.",
         skogsstyrelsenLangNote: "Verkkosivusto on ruotsiksi ja suomeksi.",
 
-        // Kunskapstester
         testIntroText: "Tervetuloa testaamaan metsätietouttasi. Verkkosivustollamme voit valita itseäsi kiinnostavan aiheen, jonka osaamista haluat testata. Valikoimasta löytyy aiheita kuten indikaattorikasvit, metsämatematiikka ja metsätiet – toisin sanoen kaikkea metsänhoitoon liittyvää.",
         goToTests: "🌿 Siirry testeihin",
 
-        // Jobb
         jobbIntro: "Täältä löydät sekä metsäalan yrityksiä että verkkosivustoja Suomesta ja Ruotsista, sekä suorat linkit heidän rekrytointisivuilleen.",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa. Täällä julkaistaan avoimia työpaikkoja koko metsäsektorilta.",
@@ -148,12 +141,10 @@ const translations = {
         tabJobb: "Jobs",
         tabKunskapstester: "Knowledge Tests",
         tabNyheter: "News",
-        tabSprak: "Language",
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         welcomeMsg: "Welcome to this website, it is still under construction but feel free to look around.",
 
-        // Nyheter
         newsIntro: "Here we have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing via their subscription links.",
         skogscentralenTitle: "Skogscentralen",
         skogscentralenDesc: "Finland's national forest authority. Responsible for implementing Finland's forest policy and offers advice, training and financial support for forest owners.",
@@ -169,11 +160,9 @@ const translations = {
         skogsstyrelsenDesc: "Sweden's national forest authority. Promotes sustainable forestry, provides advice, enforces the Forestry Act and handles state subsidies for forestry.",
         skogsstyrelsenLangNote: "The website is available in Swedish and Finnish.",
 
-        // Kunskapstester
         testIntroText: "Welcome and test your forest knowledge. Enter the page and choose a topic you want to test your knowledge on. There is everything from indicator plants, forest mathematics to forest roads – in other words, everything within forestry.",
         goToTests: "🌿 Go to tests",
 
-        // Jobb
         jobbIntro: "Here you will find both companies and websites within forestry from Finland and Sweden, along with direct links to their recruitment pages.",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland. Open positions across the entire forest sector are published here.",
@@ -219,20 +208,19 @@ let currentLang = 'sv';
 // ============================================================
 // 2. DOM-REFERENSER
 // ============================================================
-const tabbuttons = document.querySelectorAll('.tab');
-const dropdownWrapper = document.querySelector('.tab-dropdown-wrapper');
-const langDropdown = document.querySelector('.lang-dropdown');
-const langItems = document.querySelectorAll('.lang-dropdown li');
+const tabButtons = document.querySelectorAll('.tab');
+const langButtons = document.querySelectorAll('.lang-btn');
 const goToTestsBtn = document.getElementById('goToTestsBtn');
 const allPanels = document.querySelectorAll('.tab-panel');
 
 // ============================================================
-// 3. UPPDATERA SPRÅK
+// 3. UPPDATERA SPRÅK – slår upp översättningar och uppdaterar UI
 // ============================================================
 function updateLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
 
+    // Alla element med data-translate-attribut
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (t[key] !== undefined) {
@@ -243,12 +231,13 @@ function updateLanguage(lang) {
     document.title = t.pageTitle;
     document.documentElement.lang = lang;
 
-    langItems.forEach(item => {
-        const itemLang = item.getAttribute('data-lang');
-        if (itemLang === lang) {
-            item.classList.add('selected');
+    // Markera aktiv språkknapp
+    langButtons.forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === lang) {
+            btn.classList.add('active');
         } else {
-            item.classList.remove('selected');
+            btn.classList.remove('active');
         }
     });
 
@@ -256,10 +245,10 @@ function updateLanguage(lang) {
 }
 
 // ============================================================
-// 4. FLIKBYTE
+// 4. FLIKBYTE – visar rätt panel och aktiverar flik-knapp
 // ============================================================
 function setActiveTab(tabId) {
-    tabbuttons.forEach(btn => {
+    tabButtons.forEach(btn => {
         const btnTab = btn.getAttribute('data-tab');
         if (btnTab === tabId) {
             btn.classList.add('active');
@@ -281,37 +270,28 @@ function setActiveTab(tabId) {
 // 5. EVENT LISTENERS
 // ============================================================
 
-tabbuttons.forEach(btn => {
-    const tabType = btn.getAttribute('data-tab');
-    if (tabType === 'sprak') return;
+// Klick på tabbar
+tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        setActiveTab(tabType);
-    });
-});
-
-const sprakTab = document.querySelector('.tab[data-tab="sprak"]');
-sprakTab.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdownWrapper.classList.toggle('open');
-});
-
-document.addEventListener('click', (e) => {
-    if (!dropdownWrapper.contains(e.target)) {
-        dropdownWrapper.classList.remove('open');
-    }
-});
-
-langItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-        const lang = item.getAttribute('data-lang');
-        if (lang && translations[lang]) {
-            currentLang = lang;
-            updateLanguage(lang);
-            dropdownWrapper.classList.remove('open');
+        const tabType = btn.getAttribute('data-tab');
+        if (tabType && tabType !== 'sprak') {
+            setActiveTab(tabType);
         }
     });
 });
 
+// Klick på språkknappar
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const lang = e.currentTarget.getAttribute('data-lang');
+        if (lang && translations[lang]) {
+            currentLang = lang;
+            updateLanguage(lang);
+        }
+    });
+});
+
+// Navigering till testerna
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
         window.location.href = '/Testerna/testerna.html';
@@ -319,7 +299,7 @@ if (goToTestsBtn) {
 }
 
 // ============================================================
-// 6. INIT
+// 6. INIT – startar sidan med rätt språk och flik
 // ============================================================
 function initialize() {
     const savedLang = localStorage.getItem('preferredLanguage');
@@ -329,7 +309,7 @@ function initialize() {
         currentLang = 'sv';
     }
     updateLanguage(currentLang);
-    setActiveTab('start');
+    setActiveTab('start');   // Start-fliken visas först
 }
 
 initialize();
