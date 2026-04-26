@@ -23,7 +23,6 @@
             min-height: 100vh;
         }
 
-        /* Ta bort alla gröna bakgrunder och mönster */
         body::before {
             display: none;
         }
@@ -40,7 +39,6 @@
             z-index: 1;
         }
 
-        /* Language Switcher - förbättrad synlighet och tydlighet */
         .language-switcher {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
@@ -85,7 +83,6 @@
             font-weight: 800;
         }
 
-        /* Header Section - neutral */
         .header {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(3px);
@@ -112,7 +109,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Profile Picture */
         .profile-img {
             width: 200px;
             height: 200px;
@@ -130,7 +126,6 @@
             transform: scale(1.05);
         }
 
-        /* About Section - 90% transparent vit låda */
         .about {
             padding: 60px 0;
         }
@@ -147,7 +142,7 @@
         .about h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
-            color: #1a2a3a;  
+            color: #1a2a3a;
             text-shadow: none;
         }
 
@@ -155,11 +150,10 @@
             max-width: 900px;
             margin: auto;
             font-size: 1.1rem;
-            color: #1a2a3a;  
+            color: #1a2a3a;
             text-shadow: none;
         }
 
-        /* Projects Section */
         .projects {
             padding: 60px 0;
         }
@@ -227,7 +221,6 @@
             margin-top: 30px;
         }
 
-        /* Project cards - 60% transparenta */
         .project-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(5px);
@@ -262,14 +255,14 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        /* Ensure images inside project-img fill the area without distortion */
+
         .project-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-        /* Style for clickable links inside project-img (keep emoji centered and clickable) */
+
         .project-img a {
             display: flex;
             align-items: center;
@@ -315,10 +308,9 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid #1a2a3a;
         }
 
-        /* CV Section - ALLT i en 60% transparent låda */
         .cv {
             padding: 60px 0;
         }
@@ -440,7 +432,6 @@
             border-bottom: 2px solid #1a2a3a;
         }
 
-        /* Hide months and years in work experience and education */
         .cv .cv-item .date {
             display: none;
         }
@@ -462,7 +453,6 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -486,7 +476,6 @@
             color: #1a2a3a;
         }
 
-        /* Hobbies Section (collapsible) */
         .hobbies {
             padding: 60px 0;
         }
@@ -507,7 +496,6 @@
             color: #1a2a3a;
         }
 
-        /* New styles for individual hobby buttons */
         .hobby-item {
             margin-bottom: 15px;
         }
@@ -560,7 +548,6 @@
             color: #1a2a3a;
         }
 
-        /* Music grid inside hobbies */
         .music-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -621,7 +608,6 @@
             border-color: #1a2a3a;
         }
 
-        /* Testimonials Section */
         .testimonials {
             padding: 60px 0;
         }
@@ -679,7 +665,6 @@
             padding-top: 15px;
         }
 
-        /* Contact Section - bara text, ingen grön */
         .contact {
             padding: 60px 0;
             text-align: center;
@@ -721,7 +706,6 @@
             border-bottom: 1px solid white;
         }
 
-        /* Footer */
         .footer {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
@@ -734,7 +718,6 @@
             border-top: none;
         }
 
-        /* Language visibility */
         .lang-en, .lang-swe, .lang-fin, .lang-nl {
             display: none;
         }
@@ -743,7 +726,6 @@
             display: inline;
         }
 
-        /* För rubriker och blockelement */
         h1 .lang-en.active, h1 .lang-swe.active, h1 .lang-fin.active, h1 .lang-nl.active,
         h2 .lang-en.active, h2 .lang-swe.active, h2 .lang-fin.active, h2 .lang-nl.active,
         h3 .lang-en.active, h3 .lang-swe.active, h3 .lang-fin.active, h3 .lang-nl.active,
@@ -754,7 +736,6 @@
             display: inline;
         }
 
-        /* För projektkortens rubriker */
         .project-info h3 .lang-en.active,
         .project-info h3 .lang-swe.active,
         .project-info h3 .lang-fin.active,
@@ -762,7 +743,6 @@
             display: block;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -799,7 +779,6 @@
     </style>
 </head>
 <body>
-    <!-- ==================== LANGUAGE SWITCHER (FÖRBÄTTRAD SYNLIGHET) ==================== -->
     <div class="language-switcher">
         <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
         <button class="lang-btn" onclick="switchLanguage('swe')">SWE</button>
@@ -807,13 +786,10 @@
         <button class="lang-btn" onclick="switchLanguage('nl')">NL</button>
     </div>
 
-    <!-- ==================== HEADER SECTION ==================== -->
     <div class="header">
         <div class="container">
-            <!-- PROFILE PICTURE - Din bild -->
             <img src="https://i.ibb.co/KxQXD4R3/Min.jpg" alt="Mats Lindholm - Profile picture" class="profile-img">
             
-            <!-- NAME -->
             <h1>
                 <span class="lang-en active">Mats Lindholm</span>
                 <span class="lang-swe">Mats Lindholm</span>
@@ -821,7 +797,6 @@
                 <span class="lang-nl">Mats Lindholm</span>
             </h1>
             
-            <!-- TITLE -->
             <p>
                 <span class="lang-en active">Forest Industry Specialist and Forestry IT</span>
                 <span class="lang-swe">Skogsbruksspecialist och Skoglig IT</span>
@@ -831,7 +806,6 @@
         </div>
     </div>
 
-    <!-- ==================== ABOUT ME SECTION ==================== -->
     <section class="about">
         <div class="container">
             <h2>
@@ -868,7 +842,6 @@
         </div>
     </section>
 
-    <!-- ==================== PROJECTS SECTION ==================== -->
     <section class="projects">
         <div class="container">
             <div class="projects-section">
@@ -882,7 +855,6 @@
                     <span class="toggle-btn">▶</span>
                 </div>
                 <div class="section-content hidden" id="projects-content">
-                    <!-- New intro text box (styled like about section) -->
                     <div class="project-intro">
                         <p>
                             <span class="lang-en active">Forest engineer with a strong interest in digital solutions. I have proactively developed IT skills and worked practically to help organizations digitalize and improve their operations, including by developing websites, internal systems, and streamlining routines and processes. I am passionate about creating user-friendly applications that solve real problems in the forestry sector.<br><br>
@@ -909,35 +881,35 @@
 
                     <div class="project-grid">
 
-                        <!-- PROJECT 1  - Forest Education Game: No Picture -->
-                         <div class="project-card"> 
+                        <!-- PROJECT 1 - Uppdaterad skoglig webbplats -->
+                        <div class="project-card"> 
                             <div class="project-img">
-                            <a href="Startsidan/startsida.html" target="_blank" rel="noopener noreferrer">
-                                <img src ="https://i.ibb.co/Nnf1wvyK/Skogsm-nniska.png" alt="Skogsmänniska">
+                                <a href="Startsidan/startsida.html" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://i.ibb.co/Nnf1wvyK/Skogsm-nniska.png" alt="Skogsmänniska">
                                 </a>
                             </div>
                             <div class="project-info">
                                 <h3>
-                                    <span class="lang-en active">Test Your Forest Knowledge</span>
-                                    <span class="lang-swe">Testa dina skogskunskaper</span>
-                                    <span class="lang-fin">Testaa metsätietosi</span>
-                                    <span class="lang-nl">Test je boskennis</span>
+                                    <span class="lang-en active">Comprehensive Forest Portal</span>
+                                    <span class="lang-swe">Skoglig Hemsida</span>
+                                    <span class="lang-fin">Metsäportaali</span>
+                                    <span class="lang-nl">Bosbouw Portaal</span>
                                 </h3>
                                 <p>
-                                    <span class="lang-en active">This website is primarily created for forestry experts and students, but it is also suitable for biologists and anyone interested in forests and nature. Click on the image to access the game.</span>
-                                    <span class="lang-swe">Den här webbplatsen är främst skapad för skogsexperter och skogsstuderande, men passar även biologer och andra som är intresserade av skog och natur. Klicka på bilden för att komma till spelet.</span>
-                                    <span class="lang-fin">Tämä verkkosivusto on ensisijaisesti tarkoitettu metsäalan asiantuntijoille ja opiskelijoille, mutta se sopii myös biologeille ja kaikille metsistä ja luonnosta kiinnostuneille. Napsauta kuvaa siirtyäksesi peliin.</span>
-                                    <span class="lang-nl">Deze website is in de eerste plaats gemaakt voor bosbouwexperts en studenten, maar is ook geschikt voor biologen en iedereen die geïnteresseerd is in bossen en natuur. Klik op de afbeelding om naar het spel te gaan.</span>
+                                    <span class="lang-en active">A growing forest website where you can test your knowledge, find study materials on forestry, explore forest-related jobs, and much more. Click on the image to visit the site.</span>
+                                    <span class="lang-swe">En växande skoglig hemsida där du kan testa dina kunskaper, hitta studiematerial inom skogsbruk, utforska jobb i skogen och mycket mer. Klicka på bilden för att besöka sidan.</span>
+                                    <span class="lang-fin">Laajeneva metsäaiheinen verkkosivusto, jossa voit testata tietosi, löytää opiskelumateriaalia metsätaloudesta, tutustua metsäalan töihin ja paljon muuta. Napsauta kuvaa siirtyäksesi sivustolle.</span>
+                                    <span class="lang-nl">Een groeiende bosbouwsite waar je je kennis kunt testen, studiemateriaal over bosbouw kunt vinden, bosgerelateerde banen kunt verkennen en nog veel meer. Klik op de afbeelding om de site te bezoeken.</span>
                                 </p>
                                 <div class="project-tags">
-                                    <span>Forest</span>
-                                    <span>Nature</span>
-                                    <span>Education</span>
+                                    <span class="lang-en active">Forestry</span><span class="lang-swe">Skogsbruk</span><span class="lang-fin">Metsätalous</span><span class="lang-nl">Bosbouw</span>
+                                    <span class="lang-en active">Education</span><span class="lang-swe">Utbildning</span><span class="lang-fin">Koulutus</span><span class="lang-nl">Onderwijs</span>
+                                    <span class="lang-en active">Jobs</span><span class="lang-swe">Jobb</span><span class="lang-fin">Työpaikat</span><span class="lang-nl">Banen</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PROJECT 2 - Forest Owner Game: PICTURE added -->
+                        <!-- PROJECT 2 - Educational Forest Game -->
                         <div class="project-card">
                             <div class="project-img">
                                 <img src="https://i.ibb.co/4wFfNDV8/The-forestry-game.png" alt="Educational Forest Game">
@@ -957,13 +929,13 @@
                                 </p>
                                 <div class="project-tags">
                                     <span>JavaScript</span>
-                                    <span>Game Design</span>
-                                    <span>Education</span>
+                                    <span class="lang-en active">Game Design</span><span class="lang-swe">Speldesign</span><span class="lang-fin">Pelisuunnittelu</span><span class="lang-nl">Spelontwerp</span>
+                                    <span class="lang-en active">Education</span><span class="lang-swe">Utbildning</span><span class="lang-fin">Koulutus</span><span class="lang-nl">Onderwijs</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PROJECT 3 - CRM System: PICTURE added -->
+                        <!-- PROJECT 3 - CRM System -->
                         <div class="project-card">
                             <div class="project-img">
                                 <img src="https://i.ibb.co/sdKnrddk/CRM-picture.png" alt="CRM System - Stora Enso Skog">
@@ -983,12 +955,12 @@
                                 </p>
                                 <div class="project-tags">
                                     <span>CRM</span>
-                                    <span>Documentation</span>
+                                    <span class="lang-en active">Documentation</span><span class="lang-swe">Dokumentation</span><span class="lang-fin">Dokumentointi</span><span class="lang-nl">Documentatie</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PROJECT 4 - Forest Owners Website: LINK added (emoji wrapped in link) -->
+                        <!-- PROJECT 4 - Forest Owners Website -->
                         <div class="project-card">
                             <div class="project-img">
                                 <a href="https://storaensoskog.se/mina-sidor/" target="_blank" rel="noopener noreferrer">🌳</a>
@@ -1007,14 +979,14 @@
                                     <span class="lang-nl">Leiding geven aan het creëren van documentatie, conceptuele ideeën en bedrijfslogica voor de speciale website voor boseigenaren bij Stora Enso Skog. Dit platform heeft als doel boseigenaren intuïtieve tools en informatie te bieden om hun bosbezit te beheren en samen te werken met Stora Enso.</span>
                                 </p>
                                 <div class="project-tags">
-                                    <span>UX Design</span>
-                                    <span>Business Logic</span>
-                                    <span>Forest Owners</span>
+                                    <span class="lang-en active">UX Design</span><span class="lang-swe">UX-design</span><span class="lang-fin">UX-suunnittelu</span><span class="lang-nl">UX-ontwerp</span>
+                                    <span class="lang-en active">Business Logic</span><span class="lang-swe">Affärslogik</span><span class="lang-fin">Liiketoimintalogiikka</span><span class="lang-nl">Bedrijfslogica</span>
+                                    <span class="lang-en active">Forest Owners</span><span class="lang-swe">Skogsägare</span><span class="lang-fin">Metsänomistajat</span><span class="lang-nl">Boseigenaren</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PROJECT 5 - Wood Purchasing App: PICTURE added -->
+                        <!-- PROJECT 5 - Wood Purchasing App -->
                         <div class="project-card">
                             <div class="project-img">
                                 <img src="https://i.ibb.co/5hnfjDjf/k-papp.png" alt="Wood Purchasing App - Stora Enso Skog">
@@ -1033,14 +1005,14 @@
                                     <span class="lang-nl">Optimaliseerde het ontwerp van de houtinkoop-app om de gebruiksvriendelijkheid te verbeteren en gebruikersstromen te stroomlijnen. Implementeerde ontbrekende functionaliteiten en logica en verbeterde de upload- en downloadprestaties. Na de lancering nam het aantal gebruikers toe.</span>
                                 </p>
                                 <div class="project-tags">
-                                    <span>Mobile App</span>
-                                    <span>System Analysis</span>
-                                    <span>Forestry</span>
+                                    <span class="lang-en active">Mobile App</span><span class="lang-swe">Mobilapp</span><span class="lang-fin">Mobiilisovellus</span><span class="lang-nl">Mobiele app</span>
+                                    <span class="lang-en active">System Analysis</span><span class="lang-swe">Systemanalys</span><span class="lang-fin">Järjestelmäanalyysi</span><span class="lang-nl">Systeemanalyse</span>
+                                    <span class="lang-en active">Forestry</span><span class="lang-swe">Skogsbruk</span><span class="lang-fin">Metsätalous</span><span class="lang-nl">Bosbouw</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PROJECT 6 - eMetsä Website: LINK added (emoji wrapped in link) -->
+                        <!-- PROJECT 6 - eMetsä Website -->
                         <div class="project-card">
                             <div class="project-img">
                                 <a href="https://emetsa.fi/" target="_blank" rel="noopener noreferrer">🌲</a>
@@ -1059,35 +1031,9 @@
                                     <span class="lang-nl">Werkte als concept- en logicaontwerper voor het eMetsä website project bij Stora Enso Metsä. Verantwoordelijk voor het definiëren van de gebruikersreis, informatiearchitectuur en bedrijfsregels die de digitale dienst voor boseigenaren in Finland beheren.</span>
                                 </p>
                                 <div class="project-tags">
-                                    <span>Concept Design</span>
-                                    <span>Information Architecture</span>
+                                    <span class="lang-en active">Concept Design</span><span class="lang-swe">Konceptdesign</span><span class="lang-fin">Konseptisuunnittelu</span><span class="lang-nl">Conceptontwerp</span>
+                                    <span class="lang-en active">Information Architecture</span><span class="lang-swe">Informationsarkitektur</span><span class="lang-fin">Tietoarkkitehtuuri</span><span class="lang-nl">Informatiearchitectuur</span>
                                     <span>eMetsä</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- PROJECT 7 - Stockfors Business Processes: PICTURE added -->
-                        <div class="project-card">
-                            <div class="project-img">
-                                <img src="https://i.ibb.co/N6qg4LqT/Dokument-process.png" alt="Business Processes - Stockfors">
-                            </div>
-                            <div class="project-info">
-                                <h3>
-                                    <span class="lang-en active">Business Processes - Stockfors</span>
-                                    <span class="lang-swe">Affärsprocesser - Stockfors</span>
-                                    <span class="lang-fin">Liiketoimintaprosessit - Stockfors</span>
-                                    <span class="lang-nl">Bedrijfsprocessen - Stockfors</span>
-                                </h3>
-                                <p>
-                                    <span class="lang-en active">Developing comprehensive business documentation, internal processes, and operational routines for Stockfors. This project involves analyzing current workflows, identifying optimization opportunities, and creating structured documentation to standardize operations across the organization.</span>
-                                    <span class="lang-swe">Utvecklar omfattande affärsdokumentation, interna processer och operativa rutiner för Stockfors. Detta projekt innefattar att analysera nuvarande arbetsflöden, identifiera optimeringsmöjligheter och skapa strukturerad dokumentation för att standardisera verksamheten över hela organisationen.</span>
-                                    <span class="lang-fin">Kehitän kattavaa liiketoimintadokumentaatiota, sisäisiä prosesseja ja toimintarutiineja Stockforsille. Tämä projekti sisältää nykyisten työnkulkujen analysoinnin, optimointimahdollisuuksien tunnistamisen ja jäsennellyn dokumentaation luomisen toiminnan standardisoimiseksi koko organisaatiossa.</span>
-                                    <span class="lang-nl">Ontwikkel uitgebreide bedrijfsdocumentatie, interne processen en operationele routines voor Stockfors. Dit project omvat het analyseren van huidige workflows, identificeren van optimalisatiemogelijkheden en creëren van gestructureerde documentatie om operaties te standaardiseren in de hele organisatie.</span>
-                                </p>
-                                <div class="project-tags">
-                                    <span>Business Processes</span>
-                                    <span>Documentation</span>
-                                    <span>Optimization</span>
                                 </div>
                             </div>
                         </div>
@@ -1097,7 +1043,6 @@
         </div>
     </section>
 
-    <!-- ==================== CV SECTION ==================== -->
     <section class="cv">
         <div class="container">
             <h2>
@@ -1108,7 +1053,6 @@
             </h2>
             <div class="cv-container">
                 
-                <!-- WORK EXPERIENCE (collapsible) -->
                 <div class="cv-section" id="work-section">
                     <div class="section-header" onclick="toggleSection('work-content', this.querySelector('.toggle-btn'))">
                         <h3>
@@ -1120,7 +1064,35 @@
                         <span class="toggle-btn">▶</span>
                     </div>
                     <div class="section-content hidden" id="work-content">
-                        <!-- Stockfors -->
+                        <!-- NY: Skogsprogrammsexpert - Sitowise -->
+                        <div class="cv-item">
+                            <h4>
+                                <span class="lang-en active">Forest Program Expert</span>
+                                <span class="lang-swe">Skogsprogrammsexpert</span>
+                                <span class="lang-fin">Metsäjärjestelmäasiantuntija</span>
+                                <span class="lang-nl">Bossysteemexpert</span>
+                            </h4>
+                            <div class="company">Sitowise</div>
+                            <div class="date">
+                                <span class="lang-en active">2026</span>
+                                <span class="lang-swe">2026</span>
+                                <span class="lang-fin">2026</span>
+                                <span class="lang-nl">2026</span>
+                                -
+                                <span class="lang-en active">Ongoing</span>
+                                <span class="lang-swe">Pågående</span>
+                                <span class="lang-fin">Jatkuva</span>
+                                <span class="lang-nl">Lopend</span>
+                            </div>
+                            <p>
+                                <span class="lang-en active">Expert in various forest programs and digital solutions. Develops innovative digital tools to streamline forestry operations, with a strong focus on Nature Tech.</span>
+                                <span class="lang-swe">Expert inom olika skogsprogram och digitala lösningar. Utvecklar innovativa digitala verktyg för att effektivisera skogsbruket, med fokus på Nature Tech.</span>
+                                <span class="lang-fin">Asiantuntija erilaisissa metsäohjelmissa ja digitaalisissa ratkaisuissa. Kehittää innovatiivisia digitaalisia työkaluja metsätalouden tehostamiseen, keskittyen luontoteknologiaan.</span>
+                                <span class="lang-nl">Expert in diverse bosprogramma's en digitale oplossingen. Ontwikkelt innovatieve digitale tools om bosbouwactiviteiten te stroomlijnen, met een sterke focus op Nature Tech.</span>
+                            </p>
+                        </div>
+
+                        <!-- Stockfors - uppdaterad text -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Forest Expert</span>
@@ -1148,7 +1120,7 @@
                             </p>
                         </div>
 
-                        <!-- TK-Skog -->
+                        <!-- Resterande arbetslivserfarenheter (oförändrade) -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Business Developer</span>
@@ -1177,7 +1149,6 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Metsä - Forest Mentor -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Forest Mentor</span>
@@ -1206,7 +1177,9 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Skog - Key User -->
+                        <!-- ... (resterande arbetserfarenheter och utbildning oförändrade här nedan) ... -->
+                        <!-- Jag inkluderar hela resten av HTML-koden för fullständighet -->
+
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Key User</span>
@@ -1235,7 +1208,6 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Metsä - Concept Designer -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Concept & Logic Designer</span>
@@ -1264,7 +1236,6 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Metsä - Timber Buyer -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Timber Buyer</span>
@@ -1293,7 +1264,6 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Skog - Production Leader -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Production Leader</span>
@@ -1322,7 +1292,6 @@
                             </p>
                         </div>
 
-                        <!-- Kopparfors Skogar -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Forest Planner</span>
@@ -1351,7 +1320,6 @@
                             </p>
                         </div>
 
-                        <!-- Stora Enso Skog - Summer Job -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Forest Planner</span>
@@ -1380,8 +1348,6 @@
                             </p>
                         </div>
 
-                        <!-- ===== NEW WORK EXPERIENCES ADDED ===== -->
-                        <!-- Swemab - CNC programmer -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">CNC programmer</span>
@@ -1399,15 +1365,12 @@
                             </p>
                         </div>
 
-                        <!-- Itella/Posti - Postman -->
                         <div class="cv-item">
                             <h4>
-                                <span class="lang-en active">
-School clerk</span>
+                                <span class="lang-en active">School clerk</span>
                                 <span class="lang-swe">Skolföreståndare</span>
                                 <span class="lang-fin">Koulunjohtaja</span>
-                                <span class="lang-nl">
-Schoolleider</span>
+                                <span class="lang-nl">Schoolleider</span>
                             </h4>
                             <div class="company">Lärkkulla Folkakademi</div>
                             <div class="date">–</div>
@@ -1419,7 +1382,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Aho-Laser - CNC programmer -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">CNC programmer</span>
@@ -1451,7 +1413,6 @@ Schoolleider</span>
                         <span class="toggle-btn">▶</span>
                     </div>
                     <div class="section-content hidden" id="education-content">
-                        <!-- Master's Degree -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Master of Natural Resources Management</span>
@@ -1469,7 +1430,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Exchange Studies -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Exchange Student - International Timber Trade</span>
@@ -1487,7 +1447,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Bachelor's Degree -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Bachelor of Natural Resources</span>
@@ -1505,7 +1464,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Lappfjärd Folkhögskola -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Music Production</span>
@@ -1528,7 +1486,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Lärkkulla Folkakademi -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Musician</span>
@@ -1551,7 +1508,6 @@ Schoolleider</span>
                             </p>
                         </div>
 
-                        <!-- Västra Nylands Folkhögskola -->
                         <div class="cv-item">
                             <h4>
                                 <span class="lang-en active">Thinnsmith and welder</span>
@@ -1589,7 +1545,6 @@ Schoolleider</span>
                     </div>
                     <div class="section-content hidden" id="skills-content">
                         <div class="skills-grid">
-                            <!-- Languages -->
                             <div>
                                 <h4>
                                     <span class="lang-en active">Languages</span>
@@ -1649,7 +1604,6 @@ Schoolleider</span>
                                 </ul>
                             </div>
                             
-                            <!-- Software -->
                             <div>
                                 <h4>
                                     <span class="lang-en active">Software</span>
@@ -1667,7 +1621,6 @@ Schoolleider</span>
                                 </ul>
                             </div>
                             
-                            <!-- ERP and GIS -->
                             <div>
                                 <h4>
                                     <span class="lang-en active">ERP and GIS</span>
@@ -1690,7 +1643,6 @@ Schoolleider</span>
         </div>
     </section>
 
-    <!-- ==================== HOBBIES SECTION (collapsible per hobby) ==================== -->
     <section class="hobbies">
         <div class="container">
             <h2>
@@ -1700,7 +1652,6 @@ Schoolleider</span>
                 <span class="lang-nl">Hobby's</span>
             </h2>
 
-            <!-- PC Gaming -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1729,7 +1680,6 @@ Schoolleider</span>
                 </div>
             </div>
 
-            <!-- Carpentry -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1750,7 +1700,6 @@ Schoolleider</span>
                 </div>
             </div>
 
-            <!-- Programming (updated text) -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1763,22 +1712,18 @@ Schoolleider</span>
                 </button>
                 <div class="hobby-content hidden">
                     <div class="hobby-text">
-                        <!-- Swedish updated: added "med kompisarna", removed AI sentence -->
                         <span class="lang-swe">Kodning har varit en del av mitt liv sedan tidig ålder. Mitt intresse väcktes när min far tog hem en dator där man behövde skriva kod för att kunna använda program och spel. Detta blev startpunkten för ett långvarigt engagemang inom programmering.<br><br>
                         När Windows blev mer etablerat började jag tillsammans med vänner utveckla Flashspel som vi publicerade på Newgrounds. Jag skapade även en finlandssvensk fansida för Harry Potter med kompisarna, som vi hostade på en egenbyggd server.<br><br>
                         Senare arbetade jag med programmering av CNC-maskiner, vilket jag fann mycket givande. På senare tid har jag återupptagit mitt intresse för JavaScript och utvecklat ett utbildningsspel med fokus på skogsbruk. Projektet är för närvarande i migreringsfas till servermiljö, där min bror bistår med teknisk expertis.<br><br>
                         Jag har även återvänt till HTML-utveckling.</span>
-                        <!-- English updated: added "with friends", removed AI sentence -->
                         <span class="lang-en active">Programming has been part of my life from an early age. My interest began when my father brought home a computer that required manual coding to run programs and games. This sparked a long-lasting passion.<br><br>
                         As Windows became more widespread, I started developing Flash games with friends and publishing them on Newgrounds. I also created a Finnish-Swedish Harry Potter fan site with friends, which we hosted on a self-built server.<br><br>
                         Later, I worked with CNC machine programming, which I found very engaging. In recent years, I have returned to JavaScript development and created an educational game focused on forestry. The project is currently in a migration phase to a server environment, where my brother assists with technical aspects.<br><br>
                         I have also resumed working with HTML.</span>
-                        <!-- Finnish updated: added "kavereiden kanssa", removed AI sentence -->
                         <span class="lang-fin">Ohjelmointi on ollut osa elämääni varhaisesta iästä lähtien. Kiinnostukseni heräsi, kun isäni toi kotiin tietokoneen, joka vaati koodin kirjoittamista ohjelmien ja pelien käyttämiseksi. Tämä käynnisti pitkäaikaisen kiinnostukseni ohjelmointiin.<br><br>
                         Kun Windows yleistyi, aloin yhdessä ystävieni kanssa kehittää Flash-pelejä, joita julkaisimme Newgrounds-sivustolla. Loimme myös kavereiden kanssa suomenruotsalaisen Harry Potter -fanisivuston, jota ylläpidimme itse rakennetulla palvelimella.<br><br>
                         Myöhemmin työskentelin CNC-koneiden ohjelmoinnin parissa, mikä oli erittäin mielenkiintoista. Viime vuosina olen palannut JavaScriptin pariin ja kehittänyt opetuspeliä, joka käsittelee metsätaloutta. Projekti on tällä hetkellä siirtymävaiheessa palvelinympäristöön, jossa veljeni auttaa teknisissä asioissa.<br><br>
                         Olen myös palannut HTML-kehityksen pariin.</span>
-                        <!-- Dutch updated: added "met vrienden", removed AI sentence -->
                         <span class="lang-nl">Programmeren maakt al sinds jonge leeftijd deel uit van mijn leven. Mijn interesse begon toen mijn vader een computer mee naar huis bracht waarvoor je code moest invoeren om programma’s en spellen te kunnen gebruiken. Dit vormde het begin van een langdurige passie.<br><br>
                         Toen Windows populairder werd, begon ik samen met vrienden Flashgames te ontwikkelen die we publiceerden op Newgrounds. Ik maakte ook met vrienden een Fins-Zweedse Harry Potter-fansite, die we hostten op een zelfgebouwde server.<br><br>
                         Later werkte ik met het programmeren van CNC-machines, wat ik erg interessant vond. In de afgelopen jaren heb ik JavaScript weer opgepakt en een educatief spel ontwikkeld over bosbouw. Het project bevindt zich momenteel in een migratiefase naar een serveromgeving, waarbij mijn broer helpt met de technische aspecten.<br><br>
@@ -1787,7 +1732,6 @@ Schoolleider</span>
                 </div>
             </div>
 
-            <!-- Training -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1816,7 +1760,6 @@ Schoolleider</span>
                 </div>
             </div>
 
-            <!-- Lifelong Learning (updated: Fincon -> Finncon) -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1845,7 +1788,6 @@ Schoolleider</span>
                 </div>
             </div>
 
-            <!-- Music (new collapsible button) -->
             <div class="hobby-item">
                 <button class="hobby-toggle" onclick="toggleHobby(this)">
                     <span class="arrow">▶</span>
@@ -1858,16 +1800,13 @@ Schoolleider</span>
                 </button>
                 <div class="hobby-content hidden">
                     <div class="hobby-text">
-                        <!-- Music intro text (multilingual) -->
                         <p style="margin-bottom: 20px; line-height: 1.7;">
                             <span class="lang-en active">Music has been part of my life since the age of six, when I received a French horn. From ages 6 to 17, I played French horn, trumpet, saxophone, and trombone. When the orchestra I was playing in lost its drummer, I took up drums and was hooked, I still love it. At 17, I co-founded the punk band Vulgaris with friends. We later evolved into Garagem until parting ways when I was 24, after which I continued as a solo artist. <br><br> Drums also led me to music school, where I graduated as a musician with a focus on music production. I occasionally give drum lessons in my spare time but prefer to keep it as a hobby. Below is a selection of my music.</span>
                             <span class="lang-swe">Musik har varit en del av mitt liv sedan sex års ålder, då jag fick ett valthorn. Från 6 till 17 år spelade jag valthorn, trumpet, saxofon och trombon. När orkestern jag spelade i förlorade sin trummis, tog jag upp trummorna och fastnade, jag älskar det fortfarande. Vid 17 startade jag punkbandet Vulgaris med vänner. Vi utvecklades senare till Garagem tills vi gick skilda vägar när jag var 24, varefter jag fortsatte som soloartist.<br><br> Trummorna ledde mig också till musikskola, där jag utexaminerades som musiker med inriktning musikproduktion. Jag ger ibland trumlektioner på fritiden men föredrar att hålla det som en hobby. Nedan är ett urval av min musik.</span>
                             <span class="lang-fin">Musiikki on ollut osa elämääni kuusivuotiaasta lähtien, kun sain käyrätorven. 6–17-vuotiaana soitin käyrätorvea, trumpettia, saksofonia ja pasuunaa. Kun orkesteri, jossa soitin, menetti rumpalinsa, tartuin rumpuihin ja jäin koukkuun, rakastan niitä yhä. 17-vuotiaana perustin ystävieni kanssa punk-yhtye Vulgariksen. Myöhemmin kehityimme Garagemiksi, kunnes erosimme 24-vuotiaana, minkä jälkeen olen jatkanut soolona. <br><br>Rummut johtivat minut myös musiikkiopistoon, josta valmistuin muusikoksi painopisteenä musiikkituotanto. Annan satunnaisesti rumputunteja vapaa-ajallani, mutta pidän sen mieluummin harrastuksena. Alla valikoima musiikkiani.</span>
                             <span class="lang-nl">Muziek is een deel van mijn leven sinds ik zes was, toen ik een hoorn kreeg. Van mijn 6e tot 17e speelde ik hoorn, trompet, saxofoon en trombone. Toen het orkest waarin ik speelde zijn drummer verloor, pakte ik de drums op en raakte verslaafd, ik hou er nog steeds van. Op mijn 17e richtte ik met vrienden de punkband Vulgaris op. Later evolueerden we naar Garagem tot we uit elkaar gingen toen ik 24 was, waarna ik solo verderging.<br><br> Drums leidden me ook naar de muziekschool, waar ik afstudeerde als muzikant met een focus op muziekproductie. Ik geef af en toe drumles in mijn vrije tijd, maar hou het liever als hobby. Hieronder een selectie van mijn muziek.</span>
                         </p>
-                        <!-- Music grid -->
                         <div class="music-grid">
-                            <!-- Vulgaris - Burnout city 2006 -->
                             <div class="music-card">
                                 <strong>Vulgaris</strong><br>
                                 <span class="music-details">
@@ -1876,7 +1815,6 @@ Schoolleider</span>
                                 </span>
                                 <a href="https://www.youtube.com/watch?v=JcYi5r3bdEc" target="_blank" class="music-link">▶ Play</a>
                             </div>
-                            <!-- Vulgaris - Burnout city 2010 -->
                             <div class="music-card">
                                 <strong>Vulgaris</strong><br>
                                 <span class="music-details">
@@ -1885,7 +1823,6 @@ Schoolleider</span>
                                 </span>
                                 <a href="https://www.youtube.com/watch?v=ndNnEZM-25U" target="_blank" class="music-link">▶ Play</a>
                             </div>
-                            <!-- Garagem - Life is to short -->
                             <div class="music-card">
                                 <strong>Garagem</strong><br>
                                 <span class="music-details">
@@ -1894,7 +1831,6 @@ Schoolleider</span>
                                 </span>
                                 <a href="https://www.youtube.com/watch?v=EWaDjJDfUi4" target="_blank" class="music-link">▶ Play</a>
                             </div>
-                            <!-- Solo project - War is not hell -->
                             <div class="music-card">
                                 <strong>Solo project</strong><br>
                                 <span class="music-details">
@@ -1903,7 +1839,6 @@ Schoolleider</span>
                                 </span>
                                 <a href="https://www.youtube.com/watch?v=szfi02uiLWo" target="_blank" class="music-link">▶ Play</a>
                             </div>
-                            <!-- Solo project - The firth beneath my nails -->
                             <div class="music-card">
                                 <strong>Solo project</strong><br>
                                 <span class="music-details">
@@ -1912,7 +1847,6 @@ Schoolleider</span>
                                 </span>
                                 <a href="https://www.youtube.com/watch?v=zJs82fOhP4w" target="_blank" class="music-link">▶ Play</a>
                             </div>
-                            <!-- Solo project - Zealot -->
                             <div class="music-card">
                                 <strong>Solo project</strong><br>
                                 <span class="music-details">
@@ -1928,7 +1862,6 @@ Schoolleider</span>
         </div>
     </section>
 
-    <!-- ==================== TESTIMONIALS SECTION ==================== -->
     <section class="testimonials">
         <div class="container">
             <h2>
@@ -1940,7 +1873,6 @@ Schoolleider</span>
             
             <div class="testimonials-grid">
                 
-                <!-- Hilma Nilsson, Stora Enso Skog -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         <span class="lang-en active">"Mats is a versatile and adaptable professional who integrates well in a variety of social and professional contexts, both formal and informal. He shows strong ownership of his tasks and consistently strives to exceed expectations. He possesses broad competence, with forestry as his primary area of expertise, further strengthened by his knowledge of IT systems and development projects."</span>
@@ -1956,7 +1888,6 @@ Schoolleider</span>
                     </p>
                 </div>
 
-                <!-- Toni Koivumäki, TK-Skog -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         <span class="lang-en active">FIN, Original text: "If more people like you were in the right places, not only companies but also society would function considerably more smoothly. You know what you're doing and you do it really well."</span>
@@ -1972,7 +1903,6 @@ Schoolleider</span>
                     </p>
                 </div>
 
-                <!-- Patrik Snellman -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         <span class="lang-en active">SWE Original text: "You're what we'd call someone who 'throws things at the wall and sees what sticks'. You're not afraid to try new things, to try to understand something and take risks. That's what I appreciate about you and look up to you for."</span>
@@ -1988,7 +1918,6 @@ Schoolleider</span>
                     </p>
                 </div>
 
-                <!-- NY REKOMMENDATION: Program Lead, Stora Enso -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         <span class="lang-en active">"Mats is a nice social person who is very professional in his work. He has very good knowledge within forest industry and that in combination with his understanding of IT system and development, is a very good combination. I was Program Lead in a program at Stora Enso and had Mats as a resource in the Program. He had several roles and worked both with requirements, as a business analyst and as a bridge between business and IT. Mats took great responsibility and delivered in time, or..., delivered often much before expected time. I am very satisfied with work Mats did in program."</span>
@@ -2008,7 +1937,6 @@ Schoolleider</span>
         </div>
     </section>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
     <section class="contact">
         <div class="container">
             <h2>
@@ -2023,14 +1951,12 @@ Schoolleider</span>
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
     <div class="footer">
         <div class="container">
             <p>© 2026 Mats Lindholm. All rights reserved.</p>
         </div>
     </div>
 
-    <!-- ==================== LANGUAGE SWITCHING AND TOGGLE SCRIPT ==================== -->
     <script>
         function switchLanguage(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => {
