@@ -6,17 +6,21 @@
 
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
-    background: linear-gradient(145deg, #eaf7e6 0%, #c8e6c9 100%);
+    /* Bakgrundsbild – byt ut mot direktlänken om bilden inte syns */
+    background: url('https://ibb.co/8DrHygSv') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    overflow: hidden;              /* förhindrar scrollning på hela sidan */
 }
 
 .app-container {
     max-width: 950px;
     width: 100%;
+    height: calc(100vh - 40px);   /* hela skärmhöjden minus padding */
     background: #fef9e8;
     border-radius: 48px;
     box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
@@ -31,6 +35,7 @@ body {
     color: #f9f1cf;
     padding: 20px 28px;
     border-bottom: 4px solid #a6c89b;
+    flex-shrink: 0;               /* låses fast i toppen */
 }
 
 .main-header h1 {
@@ -53,6 +58,7 @@ body {
     border-bottom: 3px solid #5f7a4c;
     position: relative;
     z-index: 2;
+    flex-shrink: 0;               /* hålls på plats */
 }
 
 .tab {
@@ -139,7 +145,8 @@ body {
 .tab-content-wrapper {
     background: #fef9e8;
     padding: 32px 28px 40px;
-    flex: 1;
+    overflow-y: auto;            /* Scrollning inuti flikarna */
+    flex: 1 1 0;                 /* tar resten av höjden */
     border-top: 2px solid transparent;
     position: relative;
     z-index: 1;
@@ -294,6 +301,7 @@ footer {
     color: #4f5a3c;
     font-size: 0.9rem;
     border-top: 2px solid #b1c99e;
+    flex-shrink: 0;
 }
 
 /* ========== RESPONSIVITET ========== */
