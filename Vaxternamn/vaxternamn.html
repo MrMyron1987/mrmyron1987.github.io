@@ -13,7 +13,64 @@
         <button id="backToTestsBtn" class="back-btn">⬅ Tillbaka till testerna</button>
     </header>
 
+    <main class="quiz-area"><!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Växter namn</title>
+    <link rel="stylesheet" href="vaxternamn.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="main-header">
+        <h1 id="pageTitle">🌿 Växter namn</h1>
+        <button id="backToTestsBtn" class="back-btn">⬅ Tillbaka till testerna</button>
+    </header>
+
     <main class="quiz-area">
+        <!-- KATEGORIMENY -->
+        <div id="categoryMenu" class="category-menu">
+            <h2 id="categoryTitle">Välj en växtgrupp</h2>
+            <div class="category-grid" id="categoryGrid"></div>
+        </div>
+
+        <!-- Frågekort (döljs initialt) -->
+        <div id="quizCard" class="question-card hidden">
+            <div class="progress" id="progressIndicator"></div>
+            
+            <div class="plant-display">
+                <span id="plantDisplayName"></span>
+                <span id="plantDisplayLanguage"></span>
+            </div>
+            
+            <div id="plantInputsArea" class="plant-inputs"></div>
+            
+            <!-- Feedbackruta skapas dynamiskt av JS -->
+            
+            <div class="button-group">
+                <button id="plantCheckBtn" class="primary-btn">✅ Kontrollera</button>
+                <button id="plantNextBtn" class="primary-btn" disabled>➡️ Nästa</button>
+            </div>
+            <button id="abortQuizBtn" class="secondary-btn" style="margin-top: 20px;">📋 Byt kategori</button>
+        </div>
+
+        <!-- Resultatkort -->
+        <div id="resultCard" class="result-card hidden">
+            <div class="result-stats" id="resultStats"></div>
+            <button id="restartPlantBtn" class="primary-btn">🔄 Öva igen</button>
+            <button id="backToCategoriesBtn" class="secondary-btn">📋 Välj annan kategori</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Mats Lindholm</p>
+    </footer>
+</div>
+
+<script src="vaxternamn.js"></script>
+</body>
+</html>
         <!-- KATEGORIMENY -->
         <div id="categoryMenu" class="category-menu">
             <h2 id="categoryTitle">Välj en växtgrupp</h2>

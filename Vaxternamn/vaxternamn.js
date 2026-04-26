@@ -101,7 +101,7 @@ const uiTexts = {
 };
 
 // ============================================================
-// 2. DATABAS – VÄXTER PER KATEGORI (med fullständiga översättningar)
+// 2. DATABAS – VÄXTER PER KATEGORI (oförändrad)
 // ============================================================
 const CATEGORY_DATA = {
     vascular: [
@@ -189,7 +189,6 @@ const CATEGORY_DATA = {
     ]
 };
 
-// Kategorinycklar för att generera meny
 const categoryKeys = [
     { key: 'vascular', nameKey: 'catVascular' },
     { key: 'dwarfShrubs', nameKey: 'catDwarfShrubs' },
@@ -244,11 +243,24 @@ const progressEl = document.getElementById('progressIndicator');
 const plantDisplayName = document.getElementById('plantDisplayName');
 const plantDisplayLanguage = document.getElementById('plantDisplayLanguage');
 const plantInputsArea = document.getElementById('plantInputsArea');
-const plantFeedback = document.getElementById('plantFeedbackArea');
 const plantCheckBtn = document.getElementById('plantCheckBtn');
 const plantNextBtn = document.getElementById('plantNextBtn');
 const resultStats = document.getElementById('resultStats');
 const abortQuizBtn = document.getElementById('abortQuizBtn');
+
+// Dynamisk feedback
+let plantFeedback = null;
+
+function getPlantFeedbackElement() {
+    if (!plantFeedback) {
+        plantFeedback = document.createElement('div');
+        plantFeedback.id = 'plantFeedbackArea';
+        plantFeedback.className = 'feedback hidden';
+        const buttonGroup = quizCard.querySelector('.button-group');
+        quizCard.insertBefore(plantFeedback, buttonGroup);
+    }
+    return plantFeedback;
+}
 
 // ============================================================
 // 5. UPPDATERA UI-TEXTER
@@ -344,9 +356,10 @@ function renderPlantQuestion() {
         plantInputsArea.appendChild(row);
     });
     
-    plantFeedback.classList.add('hidden');
-    plantFeedback.innerHTML = '';
-    plantFeedback.className = 'feedback';
+    const fb = getPlantFeedbackElement();
+    fb.classList.add('hidden');
+    fb.innerHTML = '';
+    fb.className = 'feedback';
     plantCheckBtn.disabled = false;
     plantNextBtn.disabled = true;
     plantAnsweredLocked = false;
@@ -356,10 +369,12 @@ function renderPlantQuestion() {
 // 9. KONTROLLERA SVAR
 // ============================================================
 function checkPlantAnswer() {
+    const fb = getPlantFeedbackElement();
+    
     if (plantAnsweredLocked) {
-        plantFeedback.classList.remove('hidden');
-        plantFeedback.innerHTML = getUIText('alreadyChecked');
-        plantFeedback.className = 'feedback wrong';
+        fb.classList.remove('hidden');
+        fb.innerHTML = getUIText('alreadyChecked');
+        fb.className = 'feedback wrong';
         return;
     }
     
@@ -381,19 +396,19 @@ function checkPlantAnswer() {
     plantAnsweredLocked = true;
     if (allCorrect) plantQuizCorrectCount++;
     
-    plantFeedback.classList.remove('hidden');
+    fb.classList.remove('hidden');
     const lang = getCurrentLanguage();
     if (allCorrect) {
-        plantFeedback.innerHTML = getUIText('correctAll');
-        plantFeedback.className = 'feedback correct';
+        fb.innerHTML = getUIText('correctAll');
+        fb.className = 'feedback correct';
     } else {
         let msg = `${getUIText('wrongHeader')}<br>`;
         const langNames = uiTexts[lang];
         wrongFields.forEach(wf => {
             msg += `${langNames['lang' + wf.lang.charAt(0).toUpperCase() + wf.lang.slice(1)]}: ${wf.correct}<br>`;
         });
-        plantFeedback.innerHTML = msg;
-        plantFeedback.className = 'feedback wrong';
+        fb.innerHTML = msg;
+        fb.className = 'feedback wrong';
     }
     
     inputs.forEach(input => input.disabled = true);
@@ -405,10 +420,11 @@ function checkPlantAnswer() {
 // 10. NÄSTA FRÅGA
 // ============================================================
 function nextPlantQuestion() {
+    const fb = getPlantFeedbackElement();
     if (!plantAnsweredLocked) {
-        plantFeedback.classList.remove('hidden');
-        plantFeedback.innerHTML = getUIText('mustCheck');
-        plantFeedback.className = 'feedback wrong';
+        fb.classList.remove('hidden');
+        fb.innerHTML = getUIText('mustCheck');
+        fb.className = 'feedback wrong';
         return;
     }
     plantQuizIndex++;
@@ -456,7 +472,8 @@ plantNextBtn.addEventListener('click', nextPlantQuestion);
 
 document.getElementById('restartPlantBtn').addEventListener('click', () => {
     if (currentCategoryData.length > 0) {
-        startCategory(Object.keys(CATEGORY_DATA).find(key => CATEGORY_DATA[key] === currentCategoryData));
+        const catKey = Object.keys(CATEGORY_DATA).find(key => CATEGORY_DATA[key] === currentCategoryData);
+        if (catKey) startCategory(catKey);
     }
 });
 

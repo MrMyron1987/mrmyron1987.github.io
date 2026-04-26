@@ -5,7 +5,7 @@ const uiTexts = {
     sv: {
         pageTitle: '🌳 Trädslag och buskar',
         backBtn: '⬅ Tillbaka till testerna',
-        progress: (current, total) => `Träd ${current} / ${total}`,
+        progress: (current, total) => `Fråga ${current} / ${total}`,
         checkBtn: '✅ Kontrollera',
         nextBtn: '➡️ Nästa',
         correctAll: '✅ Rätt! Alla namn är korrekta.',
@@ -29,7 +29,7 @@ const uiTexts = {
     fi: {
         pageTitle: '🌳 Puu- ja pensaslajit',
         backBtn: '⬅ Takaisin testeihin',
-        progress: (c, t) => `Puu ${c} / ${t}`,
+        progress: (c, t) => `Kysymys ${c} / ${t}`,
         checkBtn: '✅ Tarkista',
         nextBtn: '➡️ Seuraava',
         correctAll: '✅ Oikein! Kaikki nimet ovat oikein.',
@@ -53,7 +53,7 @@ const uiTexts = {
     en: {
         pageTitle: '🌳 Tree and shrub species',
         backBtn: '⬅ Back to tests',
-        progress: (c, t) => `Tree ${c} / ${t}`,
+        progress: (c, t) => `Question ${c} / ${t}`,
         checkBtn: '✅ Check',
         nextBtn: '➡️ Next',
         correctAll: '✅ Correct! All names are right.',
@@ -77,33 +77,35 @@ const uiTexts = {
 };
 
 // ============================================================
-// 2. DATABAS – TRÄDSLAG & BUSKAR
+// 2. DATABAS – TRÄDSLAG & BUSKAR (oförändrad)
 // ============================================================
 const SPECIES_DATA = [
-    { sv: "Gran",        fi: "Kuusi",         en: "Spruce",           la: "Picea abies" },
-    { sv: "Tall",        fi: "Mänty",         en: "Pine",             la: "Pinus sylvestris" },
+    { sv: "Gran",        fi: "Kuusi",         en: "Norway spruce",    la: "Picea abies" },
+    { sv: "Tall",        fi: "Mänty",         en: "Scots pine",       la: "Pinus sylvestris" },
     { sv: "Vårtbjörk",   fi: "Rauduskoivu",   en: "Silver birch",     la: "Betula pendula" },
     { sv: "Glasbjörk",   fi: "Hieskoivu",     en: "Downy birch",      la: "Betula pubescens" },
     { sv: "Gråal",       fi: "Harmaaleppä",   en: "Grey alder",       la: "Alnus incana" },
     { sv: "Klibbal",     fi: "Tervaleppä",    en: "Common alder",     la: "Alnus glutinosa" },
-    { sv: "Ek",          fi: "Tammi",         en: "Oak",              la: "Quercus robur" },
-    { sv: "En",          fi: "Kataja",        en: "Juniper",          la: "Juniperus communis" },
-    { sv: "Lärk",        fi: "Lehtikuusi",    en: "Larch",            la: "Larix decidua" },
-    { sv: "Skogslind",   fi: "Metsälehmus",   en: "Lime",             la: "Tilia cordata" },
-    { sv: "Skogsalm",    fi: "Vuorijalava",   en: "Elm",              la: "Ulmus glabra" },
-    { sv: "Ask",         fi: "Saarni",        en: "Ash",              la: "Fraxinus excelsior" },
+    { sv: "Ek",          fi: "Tammi",         en: "Pedunculate oak",  la: "Quercus robur" },
+    { sv: "En",          fi: "Kataja",        en: "Common juniper",   la: "Juniperus communis" },
+    { sv: "Lärk",        fi: "Lehtikuusi",    en: "European larch",   la: "Larix decidua" },
+    { sv: "Skogslind",   fi: "Metsälehmus",   en: "Small-leaved lime",la: "Tilia cordata" },
+    { sv: "Skogsalm",    fi: "Vuorijalava",   en: "Wych elm",         la: "Ulmus glabra" },
+    { sv: "Ask",         fi: "Saarni",        en: "European ash",     la: "Fraxinus excelsior" },
     { sv: "Hassel",      fi: "Pähkinäpensas", en: "Common hazel",     la: "Corylus avellana" },
-    { sv: "Lönn",        fi: "Vaahtera",      en: "Maple",            la: "Acer platanoides" },
+    { sv: "Lönn",        fi: "Metsävaahtera", en: "Norway maple",     la: "Acer platanoides" },
     { sv: "Hägg",        fi: "Tuomi",         en: "Bird cherry",      la: "Prunus padus" },
     { sv: "Rönn",        fi: "Pihlaja",       en: "Rowan",            la: "Sorbus aucuparia" },
     { sv: "Oxel",        fi: "Ruotsinpihlaja",en: "Swedish whitebeam",la: "Sorbus intermedia" },
     { sv: "Sälg",        fi: "Raita",         en: "Goat willow",      la: "Salix caprea" },
-    { sv: "Asp",         fi: "Haapa",         en: "Aspen",            la: "Populus tremula" },
+    { sv: "Asp",         fi: "Haapa",         en: "European aspen",   la: "Populus tremula" },
     { sv: "Olvon",       fi: "Koiranheisi",   en: "Guelder rose",     la: "Viburnum opulus" },
     { sv: "Skvattram",   fi: "Suopursu",      en: "Marsh Labrador tea", la: "Rhododendron tomentosum" },
     { sv: "Skogstry",    fi: "Lehtokuusama",  en: "Fly honeysuckle",  la: "Lonicera xylosteum" },
     { sv: "Hallon",      fi: "Vadelma",       en: "Raspberry",        la: "Rubus idaeus" },
-    { sv: "Odon",        fi: "juolukka",      en: "Bog whortleberry", la: "Vaccinium uliginosum" },
+    { sv: "Blåbär",      fi: "Mustikka",      en: "Bilberry",         la: "Vaccinium myrtillus" },
+    { sv: "Lingon",      fi: "Puolukka",      en: "Lingonberry",      la: "Vaccinium vitis-idaea" },
+    { sv: "Hjorton",     fi: "Lakka",         en: "Cloudberry",       la: "Rubus chamaemorus" }
 ];
 
 // ============================================================
@@ -151,13 +153,25 @@ const progressEl = document.getElementById('progressIndicator');
 const treeDisplayName = document.getElementById('treeDisplayName');
 const treeDisplayLanguage = document.getElementById('treeDisplayLanguage');
 const treeInputsArea = document.getElementById('treeInputsArea');
-const treeFeedback = document.getElementById('treeFeedbackArea');
 const treeCheckBtn = document.getElementById('treeCheckBtn');
 const treeNextBtn = document.getElementById('treeNextBtn');
 const resultStats = document.getElementById('resultStats');
 
+let treeFeedback = null;
+
+function getFeedbackElement() {
+    if (!treeFeedback) {
+        treeFeedback = document.createElement('div');
+        treeFeedback.id = 'treeFeedbackArea';
+        treeFeedback.className = 'feedback hidden';
+        const buttonGroup = quizCard.querySelector('.button-group');
+        quizCard.insertBefore(treeFeedback, buttonGroup);
+    }
+    return treeFeedback;
+}
+
 // ============================================================
-// 5. UPPDATERA UI-TEXTER (titel, knappar etc.)
+// 5. UPPDATERA UI-TEXTER
 // ============================================================
 function updateUITexts() {
     const lang = getCurrentLanguage();
@@ -230,9 +244,11 @@ function renderTreeQuestion() {
         treeInputsArea.appendChild(row);
     });
     
-    treeFeedback.classList.add('hidden');
-    treeFeedback.innerHTML = '';
-    treeFeedback.className = 'feedback';
+    const fb = getFeedbackElement();
+    fb.classList.add('hidden');
+    fb.innerHTML = '';
+    fb.className = 'feedback';
+    
     treeCheckBtn.disabled = false;
     treeNextBtn.disabled = true;
     treeAnsweredLocked = false;
@@ -242,10 +258,12 @@ function renderTreeQuestion() {
 // 8. KONTROLLERA SVAR
 // ============================================================
 function checkTreeAnswer() {
+    const fb = getFeedbackElement();
+    
     if (treeAnsweredLocked) {
-        treeFeedback.classList.remove('hidden');
-        treeFeedback.innerHTML = getUIText('alreadyChecked');
-        treeFeedback.className = 'feedback wrong';
+        fb.classList.remove('hidden');
+        fb.innerHTML = getUIText('alreadyChecked');
+        fb.className = 'feedback wrong';
         return;
     }
     
@@ -267,19 +285,19 @@ function checkTreeAnswer() {
     treeAnsweredLocked = true;
     if (allCorrect) treeQuizCorrectCount++;
     
-    treeFeedback.classList.remove('hidden');
+    fb.classList.remove('hidden');
     const lang = getCurrentLanguage();
     if (allCorrect) {
-        treeFeedback.innerHTML = getUIText('correctAll');
-        treeFeedback.className = 'feedback correct';
+        fb.innerHTML = getUIText('correctAll');
+        fb.className = 'feedback correct';
     } else {
         let msg = `${getUIText('wrongHeader')}<br>`;
         const langNames = uiTexts[lang];
         wrongFields.forEach(wf => {
             msg += `${langNames['lang' + wf.lang.charAt(0).toUpperCase() + wf.lang.slice(1)]}: ${wf.correct}<br>`;
         });
-        treeFeedback.innerHTML = msg;
-        treeFeedback.className = 'feedback wrong';
+        fb.innerHTML = msg;
+        fb.className = 'feedback wrong';
     }
     
     inputs.forEach(input => input.disabled = true);
@@ -291,10 +309,11 @@ function checkTreeAnswer() {
 // 9. NÄSTA FRÅGA
 // ============================================================
 function nextTreeQuestion() {
+    const fb = getFeedbackElement();
     if (!treeAnsweredLocked) {
-        treeFeedback.classList.remove('hidden');
-        treeFeedback.innerHTML = getUIText('mustCheck');
-        treeFeedback.className = 'feedback wrong';
+        fb.classList.remove('hidden');
+        fb.innerHTML = getUIText('mustCheck');
+        fb.className = 'feedback wrong';
         return;
     }
     treeQuizIndex++;
@@ -325,8 +344,7 @@ function showResult() {
 // 11. EVENT LISTENERS
 // ============================================================
 document.getElementById('backToTestsBtn').addEventListener('click', () => {
-    // Gå tillbaka till testerna – relativ sökväg upp en nivå
-    window.location.href = '../Testerna/testerna.html';
+    window.location.href = 'tester.html';
 });
 
 treeCheckBtn.addEventListener('click', checkTreeAnswer);
@@ -337,7 +355,7 @@ document.getElementById('restartTreeBtn').addEventListener('click', () => {
 });
 
 document.getElementById('backFromResultBtn').addEventListener('click', () => {
-    window.location.href = '../Testerna/testerna.html';
+    window.location.href = 'tester.html';
 });
 
 // ============================================================

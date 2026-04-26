@@ -17,7 +17,460 @@ body {
 .app-container {
     max-width: 850px;
     width: 100%;
-    background: #fef9e8;
+    background: #fef9e8;/* ============================================================
+   CSS-VARIABLER – ändra här för att styra färger & transparens
+   ============================================================ */
+:root {
+    /* App-container – beige med opacitet */
+    --app-bg-r: 254;
+    --app-bg-g: 249;
+    --app-bg-b: 232;
+    --app-bg-opacity: 0.6;
+
+    /* Header – solid mörkgrön */
+    --header-bg: #2c5e2e;
+    --header-text: #f9f1cf;
+    --header-border: #a6c89b;
+
+    /* Tillbaka-knapp */
+    --back-btn-bg: #a0763a;
+    --back-btn-hover-bg: rgba(184, 134, 74, 0.6);
+    --back-btn-shadow: #6b4f2c;
+    --back-btn-border: #dbb47a;
+
+    /* Progress & plant-display */
+    --progress-bg: #d9e6c3;
+    --progress-text: #1e3a1e;
+
+    /* Kategoriknappar */
+    --cat-btn-bg: rgba(255, 255, 255, 0.87);
+    --cat-btn-border: #8fbc6e;
+    --cat-btn-hover-bg: #e1f0d5;
+    --cat-btn-hover-border: #3c7e3a;
+    --cat-btn-shadow: #7a9e63;
+    --cat-btn-hover-shadow: #5f7e4e;
+
+    /* Inputfält */
+    --input-bg: #fef9ef;
+    --input-border: #8fbc6e;
+    --input-focus-border: #2c6e2a;
+    --input-disabled-bg: #e9e2d2;
+
+    /* Feedback */
+    --feedback-bg: #f0e7cf;
+    --feedback-correct-bg: #d9f0cf;
+    --feedback-wrong-bg: #ffe0cf;
+    --feedback-border-left: #7b9f5a;
+    --feedback-border-left-correct: #2c7a2a;
+    --feedback-border-left-wrong: #c94f4f;
+
+    /* Primärknapp */
+    --primary-btn-bg: #2e6730;
+    --primary-btn-hover: #1e5120;
+    --primary-btn-disabled: #a3b99a;
+    --primary-btn-shadow: #1a3f1c;
+    --primary-btn-border: #7aac6e;
+
+    /* Sekundärknapp */
+    --secondary-btn-bg: #8f6e3b;
+    --secondary-btn-hover: #a5814a;
+    --secondary-btn-shadow: #5f4a2a;
+    --secondary-btn-border: #c4a56e;
+
+    /* Resultatkort */
+    --result-card-bg: rgba(255, 255, 255, 0.87);
+    --result-stats-bg: #e2eace;
+
+    /* Footer */
+    --footer-bg: #e0d5bc;
+    --footer-text: #4f5a3c;
+    --footer-border: #b1c99e;
+
+    /* Övrigt */
+    --card-border: #cfe2b0;
+    --box-shadow-light: rgba(0, 20, 0, 0.08);
+    --box-shadow-medium: rgba(0, 20, 0, 0.2);
+    --text-dark: #1e3a1e;
+}
+
+/* ============================================================
+   GLOBALA REGLER
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+    background: url('https://i.ibb.co/xKkrPV8m/bakgrundsbild-till-testerna-1.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ============================================================
+   HUVUDCONTAINER
+   ============================================================ */
+.app-container {
+    max-width: 850px;
+    width: 100%;
+    background: rgba(var(--app-bg-r), var(--app-bg-g), var(--app-bg-b), var(--app-bg-opacity));
+    border-radius: 48px;
+    box-shadow: 0 20px 35px var(--box-shadow-medium);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.main-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 18px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid var(--header-border);
+}
+
+.main-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ============================================================
+   TILLBAKA-KNAPP
+   ============================================================ */
+.back-btn {
+    background: var(--back-btn-bg);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 3px 0 var(--back-btn-shadow);
+    border: 1px solid var(--back-btn-border);
+}
+
+.back-btn:hover {
+    background: var(--back-btn-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--back-btn-shadow);
+}
+
+/* ============================================================
+   QUIZOMRÅDE
+   ============================================================ */
+.quiz-area {
+    padding: 30px 28px 40px;
+    flex: 1;
+}
+
+/* ============================================================
+   KATEGORIMENY
+   ============================================================ */
+.category-menu {
+    text-align: center;
+}
+
+.category-menu h2 {
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.cat-btn {
+    background: var(--cat-btn-bg);
+    border: 2px solid var(--cat-btn-border);
+    border-radius: 60px;
+    padding: 20px 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    box-shadow: 0 5px 0 var(--cat-btn-shadow);
+    backdrop-filter: blur(2px);
+}
+
+.cat-btn:hover {
+    background: var(--cat-btn-hover-bg);
+    border-color: var(--cat-btn-hover-border);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 var(--cat-btn-hover-shadow);
+}
+
+/* ============================================================
+   FRÅGEKORT – helt transparent
+   ============================================================ */
+.question-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* ============================================================
+   RESULTATKORT
+   ============================================================ */
+.result-card {
+    background: var(--result-card-bg);
+    backdrop-filter: blur(2px);
+    border-radius: 40px;
+    padding: 25px 25px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================================
+   PROGRESS-INDIKATOR
+   ============================================================ */
+.progress {
+    font-size: 1rem;
+    background: var(--progress-bg);
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--progress-text);
+}
+
+/* ============================================================
+   PLANT-DISPLAY
+   ============================================================ */
+.plant-display {
+    background: var(--progress-bg);
+    border-radius: 40px;
+    padding: 25px 20px;
+    margin: 10px 0 30px;
+    text-align: center;
+    border: 2px solid #5f7e4e;
+}
+
+#plantDisplayName {
+    font-size: 2.4rem;
+    font-weight: 700;
+    display: block;
+    color: var(--text-dark);
+    word-break: break-word;
+}
+
+#plantDisplayLanguage {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-top: 10px;
+    display: block;
+}
+
+/* ============================================================
+   INPUT-FÄLT
+   ============================================================ */
+.plant-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.plant-input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.plant-input-row label {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-left: 8px;
+}
+
+.plant-input-row input {
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    transition: 0.15s;
+}
+
+.plant-input-row input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(44, 110, 42, 0.2);
+}
+
+.plant-input-row input:disabled {
+    background: var(--input-disabled-bg);
+    opacity: 0.8;
+}
+
+/* ============================================================
+   FEEDBACK-RUTA
+   ============================================================ */
+.feedback {
+    background: var(--feedback-bg);
+    padding: 15px 20px;
+    border-radius: 32px;
+    margin: 20px 0;
+    font-weight: 500;
+    border-left: 8px solid var(--feedback-border-left);
+    line-height: 1.5;
+}
+
+.feedback.correct {
+    background: var(--feedback-correct-bg);
+    border-left-color: var(--feedback-border-left-correct);
+}
+
+.feedback.wrong {
+    background: var(--feedback-wrong-bg);
+    border-left-color: var(--feedback-border-left-wrong);
+}
+
+/* ============================================================
+   KNAPPGRUPP
+   ============================================================ */
+.button-group {
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* ============================================================
+   PRIMÄRKNAPP
+   ============================================================ */
+.primary-btn {
+    background: var(--primary-btn-bg);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 5px 0 var(--primary-btn-shadow);
+    border: 1px solid var(--primary-btn-border);
+    flex: 1;
+    text-align: center;
+}
+
+.primary-btn:hover:not(:disabled) {
+    background: var(--primary-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 var(--primary-btn-shadow);
+}
+
+.primary-btn:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--primary-btn-shadow);
+}
+
+.primary-btn:disabled {
+    background: var(--primary-btn-disabled);
+    box-shadow: 0 5px 0 #6e8a63;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ============================================================
+   SEKUNDÄRKNAPP
+   ============================================================ */
+.secondary-btn {
+    background: var(--secondary-btn-bg);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 4px 0 var(--secondary-btn-shadow);
+    border: 1px solid var(--secondary-btn-border);
+    width: 100%;
+}
+
+.secondary-btn:hover {
+    background: var(--secondary-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--secondary-btn-shadow);
+}
+
+/* ============================================================
+   RESULTATSTATS
+   ============================================================ */
+.result-stats {
+    background: var(--result-stats-bg);
+    border-radius: 40px;
+    padding: 30px 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER (solid, ej genomskinlig)
+   ============================================================ */
+footer {
+    text-align: center;
+    padding: 18px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    border-top: 2px solid var(--footer-border);
+}
+
+/* ============================================================
+   RESPONSIVITET
+   ============================================================ */
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    #plantDisplayName {
+        font-size: 1.8rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
     border-radius: 48px;
     box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
     overflow: hidden;

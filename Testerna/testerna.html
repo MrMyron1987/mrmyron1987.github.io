@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Välj test – Skogskunskap</title>
+    <!-- Google Fonts: Great Vibes för calligraphy-rubrik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="testerna.css">
 </head>
 <body>
+
 <div class="app-container">
+
+    <!-- ===================== HEADER ===================== -->
     <header class="main-header">
-        <h1>🌲 Välj ett test</h1>
-        <button id="backToStartBtn" class="back-home-btn">🏠 Till startsidan</button>
+        <h1 data-translate="pageHeader">🌲 Välj ett test</h1>
+        <button id="backToStartBtn" class="back-home-btn" data-translate="backBtn">🏠 Till startsidan</button>
     </header>
 
+    <!-- ===================== INNEHÅLL ===================== -->
     <main class="categories-content">
-        <div id="categoriesList" class="categories-list">
+        <div id="categoriesList" class="categories-grid">
             <!-- Dynamiskt ifyllt av JS -->
         </div>
     </main>
 
+    <!-- ===================== FOOTER ===================== -->
     <footer>
         <p>© Mats Lindholm</p>
     </footer>

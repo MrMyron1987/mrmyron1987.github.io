@@ -39,17 +39,16 @@ const categoryTranslations = {
     }
 };
 
-// Förlängda beskrivningar
 const categoryDescriptions = {
     "Granskningsinstruktioner frågor": {
-        sv: 'I detta test följer vi <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Skogscentralens granskningsinstruktioner</a> och ställer frågor kring dem. Testet innehåller bland annat flervalsfrågor om skogsbrukets kvalitetskrav, naturvård och planering. Klicka på knappen nedan för att starta direkt.',
-        fi: 'Tässä testissä noudatamme <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Metsäkeskuksen tarkastusohjeita</a> ja esitämme niihin liittyviä kysymyksiä. Testi sisältää monivalintakysymyksiä metsänhoidon laatuvaatimuksista, luonnonhoidosta ja suunnittelusta. Aloita napsauttamalla alta.',
-        en: 'This test follows <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Swedish inspection guidelines</a> and <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Finnish inspection guidelines</a>. It includes multiple-choice questions on quality requirements, nature conservation, and planning. Please note there is no English version. Click the button below to begin.'
+        sv: 'I detta test följer vi <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Skogscentralens granskningsinstruktioner</a> och ställer frågor kring dem. Testet innehåller bland annat flervalsfrågor om skogsbrukets kvalitetskrav och naturvård. Klicka på knappen nedan för att starta direkt.',
+        fi: 'Tässä testissä noudatamme <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Metsäkeskuksen tarkastusohjeita</a> ja esitämme niihin liittyviä kysymyksiä. Testi sisältää monivalintakysymyksiä metsänhoidon laatuvaatimuksista ja luonnonhoidosta. Aloita napsauttamalla alta.',
+        en: 'This test follows <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Swedish inspection guidelines</a> and <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Finnish inspection guidelines</a>. It includes multiple-choice questions on quality requirements and nature conservation. Please note there is no English version. Click the button below to begin.'
     },
     "Koefficient räkning": {
-        sv: "Här testar du dina matematiska kunskaper i koefficientberäkning för provytor med radierna 3,99 och 5,64 meter. Du får räkna ut olika omvandlingstal och tolka resultaten korrekt. Klicka på knappen för att starta testet.",
-        fi: "Tässä testaat matemaattisia taitojasi muuntokertoimen laskennassa 3,99 ja 5,64 metrin koealoilla. Saat laskea erilaisia muuntolukuja ja tulkita tulokset oikein. Aloita napsauttamalla alla olevaa painiketta.",
-        en: "Here you can test your mathematical skills with coefficient calculations for sample plots of 3.99 and 5.64 meters. You will compute various conversion factors and interpret the outcomes. Press the button to begin the test."
+        sv: "Här testar du dina matematiska kunskaper i koefficientberäkning för provytor med radierna 3,99 och 5,64 meter. Du får räkna ut olika omvandlingstal. Klicka på knappen för att starta testet.",
+        fi: "Tässä testaat matemaattisia taitojasi muuntokertoimen laskennassa 3,99 ja 5,64 metrin koealoilla. Saat laskea erilaisia muuntolukuja. Aloita napsauttamalla alla olevaa painiketta.",
+        en: "Here you can test your mathematical skills with coefficient calculations for sample plots of 3.99 and 5.64 meters. You will compute various conversion factors. Press the button to begin the test."
     },
     "Relaskoptabell": {
         sv: "Här kan du testa dina kunskaper i grundyta med hjälp av Tapios relaskoptabell. Tabellen finns tillgänglig direkt på denna sida så att du enkelt kan använda den under testets gång. Klicka på knappen när du är redo.",
@@ -62,9 +61,9 @@ const categoryDescriptions = {
         en: "Test your knowledge of site type identification and matching the correct indicator species to the correct habitat. You'll encounter species typical of mesic and dry sites and pick the right soil type. Click the button below to start."
     },
     "Trädslag och buskars namn": {
-        sv: "Här kan du testa dina språkliga kunskaper om träd och buskar. Fyra språk – finska, svenska, engelska och latin – blandas för en riktig utmaning. Se hur många du kan namnge korrekt! Tryck på knappen för att börja.",
-        fi: "Täällä voit testata kielitaitoasi puiden ja pensaiden nimissä. Neljä kieltä – suomi, ruotsi, englanti ja latina – on sekoitettu todellisen haasteen saavuttamiseksi. Katso kuinka monta osaat nimetä oikein! Aloita painikkeesta.",
-        en: "Test your linguistic skills with tree and shrub names in four languages – Finnish, Swedish, English, and Latin – all mixed together for a real challenge. See how many you can name correctly! Press the button to get started."
+        sv: "Här kan du testa dina språkliga kunskaper om träd och buskar. Fyra språk – finska, svenska, engelska och latin, blandas för en riktig utmaning. Se hur många du kan namnge korrekt! Tryck på knappen för att börja.",
+        fi: "Täällä voit testata kielitaitoasi puiden ja pensaiden nimissä. Neljä kieltä – suomi, ruotsi, englanti ja latina, on sekoitettu todellisen haasteen saavuttamiseksi. Katso kuinka monta osaat nimetä oikein! Aloita painikkeesta.",
+        en: "Test your linguistic skills with tree and shrub names in four languages – Finnish, Swedish, English, and Latin, all mixed together for a real challenge. See how many you can name correctly! Press the button to get started."
     },
     "Vägar": {
         sv: 'Här testar du dina kunskaper om skogsbilvägar. All information bygger på <a href="https://metsanhoidonsuositukset.fi/sv" target="_blank">Rekommendationer för skogsvård</a>. Du får frågor om vägdimensionering, bärighet och underhåll. Klicka på knappen för att påbörja testet.',
@@ -78,7 +77,6 @@ const categoryDescriptions = {
     }
 };
 
-// Lista över aktiva kategorier (fast ordning)
 const allCategoryKeys = [
     "Trädslag och buskars namn",
     "Ståndortstyper på mineraljorder",
@@ -106,13 +104,12 @@ function getDescription(key, lang) {
 }
 
 // ============================================================
-// 3. RENDERA LISTA (beskrivning först, knapp sist)
+// 3. RENDERA GRID
 // ============================================================
 function renderCategoryList() {
     const lang = getCurrentLanguage();
     const list = document.getElementById('categoriesList');
     
-    // Sortera alfabetiskt efter visningsnamnet på aktuellt språk
     const items = allCategoryKeys.map(key => ({
         key: key,
         display: translateCategory(key, lang)
@@ -127,7 +124,7 @@ function renderCategoryList() {
         const card = document.createElement('div');
         card.className = 'test-item';
 
-        // 1. Beskrivning först
+        // Beskrivning först
         if (descText) {
             const desc = document.createElement('p');
             desc.className = 'cat-desc';
@@ -135,7 +132,7 @@ function renderCategoryList() {
             card.appendChild(desc);
         }
 
-        // 2. Knapp sist (längst ner)
+        // Knapp sist
         const btn = document.createElement('button');
         btn.className = 'cat-btn';
         btn.textContent = item.display;
@@ -149,25 +146,30 @@ function renderCategoryList() {
 }
 
 function updateUILanguage(lang) {
+    // Sidtitel
     const titles = {
         sv: 'Välj test – Skogskunskap',
         fi: 'Valitse testi – Metsätieto',
         en: 'Select test – Forestry knowledge'
     };
+    document.title = titles[lang] || titles.sv;
+
+    // Header-rubrik
     const headers = {
         sv: '🌲 Välj ett test',
         fi: '🌲 Valitse testi',
         en: '🌲 Select a test'
     };
+    document.querySelector('.main-header h1').textContent = headers[lang] || headers.sv;
+
+    // Tillbaka-knapp
     const backTexts = {
         sv: '🏠 Till startsidan',
         fi: '🏠 Etusivulle',
         en: '🏠 Back to start'
     };
-    
-    document.title = titles[lang] || titles.sv;
-    document.querySelector('.main-header h1').textContent = headers[lang] || headers.sv;
     document.getElementById('backToStartBtn').textContent = backTexts[lang] || backTexts.sv;
+
     document.documentElement.lang = lang;
 }
 
