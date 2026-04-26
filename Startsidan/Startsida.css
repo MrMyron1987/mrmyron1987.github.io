@@ -9,25 +9,24 @@
 
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
-    /* Fast skogsbakgrund som täcker hela skärmen */
     background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
-    justify-content: center;        /* håller .app-container centrerad */
+    justify-content: center;
     margin: 0;
     padding: 0;
-    overflow: hidden;               /* ingen scrollning på hela sidan */
+    overflow: hidden;
 }
 
 /* ============================================================
    HUVUDCONTAINER
    ============================================================ */
 .app-container {
-    max-width: 1200px;              /* bredare än tidigare */
+    max-width: 1200px;
     width: 100%;
-    height: 100vh;                  /* från topp till botten */
-    background-color: rgba(254, 249, 232, 0.4);  /* beige med 40% genomskinlighet */
+    height: 100vh;
+    background-color: rgba(254, 249, 232, 0.4);
     display: flex;
     flex-direction: column;
 }
@@ -43,7 +42,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-shrink: 0;                /* får inte krympa */
+    flex-shrink: 0;
 }
 
 .main-header h1 {
@@ -142,7 +141,7 @@ body {
 .tab-content-wrapper {
     background: #fef9e8 (217, 207, 160, 0.8);
     padding: 32px 28px 40px;
-    overflow-y: auto;              /* egen scrollbar för flikarnas innehåll */
+    overflow-y: auto;
     flex: 1 1 0;
     border-top: 2px solid transparent;
 }
@@ -156,7 +155,7 @@ body {
 }
 
 /* ============================================================
-   KORT (används av Start, Kunskapstester, Nyheter, Jobb)
+   KORT (används av Start, Kunskapstester, samt introtexter)
    ============================================================ */
 .welcome-message,
 .test-intro p,
@@ -175,7 +174,6 @@ body {
     line-height: 1.7;
 }
 
-/* Specifika storlekar för olika texter */
 .welcome-message {
     font-size: 1.3rem;
     max-width: 650px;
@@ -183,8 +181,10 @@ body {
 
 .news-intro {
     margin-bottom: 28px;
-    max-width: 700px;
+    max-width: calc(100% - 20px);   /* bredare, lämnar plats för scrollbar */
     font-size: 1.15rem;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .test-intro p {
@@ -226,28 +226,32 @@ body {
 }
 
 /* ============================================================
-   NYHETS- & JOBBKORT
+   NYHETS- & JOBBKORT (grid med 3 kolumner)
    ============================================================ */
 .news-container {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .news-item {
     background: #ffffffdd;
     backdrop-filter: blur(2px);
-    border-radius: 20px;
-    padding: 24px 24px;
+    border-radius: 12px;          /* mindre rundade hörn, mer fyrkantigt */
+    padding: 20px;
     border: 1px solid #cfe2b0;
     box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
 }
 
 .news-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .news-item h3 a {
@@ -264,17 +268,18 @@ body {
 }
 
 .news-item p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: #3a4d38;
     margin: 0;
+    flex: 1;                      /* fyller ut utrymmet */
 }
 
 .news-item .lang-note {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-style: italic;
     color: #6b7a5c;
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 /* ============================================================
@@ -293,7 +298,13 @@ footer {
 /* ============================================================
    RESPONSIVITET (mindre skärmar)
    ============================================================ */
-@media (max-width: 700px) {
+@media (max-width: 850px) {
+    .news-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
     .main-header h1 {
         font-size: 2rem;
     }
@@ -302,15 +313,15 @@ footer {
         font-size: 0.9rem;
     }
     .tab-content-wrapper {
-        padding: 24px 16px;
+        padding: 24px 12px;
+    }
+    .news-container {
+        grid-template-columns: 1fr;
     }
     .welcome-message,
     .test-intro p,
     .news-intro {
         font-size: 1.05rem;
         padding: 20px 18px;
-    }
-    .news-item {
-        padding: 18px 16px;
     }
 }

@@ -1,19 +1,19 @@
 // ============================================================
 // 1. ÖVERSÄTTNINGAR – alla texter på tre språk
-//    Notera: HTML innehåller fallback-texter, men JS uppdaterar dem dynamiskt.
 // ============================================================
 const translations = {
     sv: {
         headerTitle: "🌲 Finska skogssidan för alla skogsmänniskor",
         tabBlanketter: "Blanketter",
-        tabJobb: "Jobb",
+        tabJobb: "Jobb och praktikplats",       // Ändrad
         tabKunskapstester: "Kunskapstester",
         tabNyheter: "Nyheter",
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         welcomeMsg: "Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.",
 
-        newsIntro: "Här har vi samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera via deras prenumerationslänkar.",
+        // Nyheter – ny text
+        newsIntro: "Här har jag samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera på dem och understöda dem.",
         skogscentralenTitle: "Skogscentralen",
         skogscentralenDesc: "Finlands nationella skogsmyndighet. Ansvarar för genomförandet av Finlands skogspolitik och erbjuder rådgivning, utbildning och finansieringsstöd för skogsägare.",
         tapioTitle: "Tapio",
@@ -26,17 +26,21 @@ const translations = {
         finlandsNaturLangNote: "",
         skogsstyrelsenTitle: "Skogsstyrelsen",
         skogsstyrelsenDesc: "Sveriges nationella skogsmyndighet. Arbetar för hållbart skogsbruk, rådgivning, tillsyn av Skogsvårdslagen och hanterar statliga stöd för skogsbruket.",
-        skogsstyrelsenLangNote: "Webbplatsen finns på svenska och finska.",
+        skogsstyrelsenLangNote: "Webbplatsen finns på svenska och engelska.",
 
         testIntroText: "Välkommen och testa dina skogskunskaper. Klicka in dig på sidan och välj ett ämne du vill testa dina kunskaper på. Det finns allt från indikationsväxter, skoglig matematik och vägar. Med andra ord, allt inom skogsbruk.",
         goToTests: "🌿 Gå till testerna",
 
-        jobbIntro: "Här hittar du både företag och webbplatser inom skogsbruk från Finland och Sverige, samt direktlänkar till deras rekryteringssidor.",
+        // Jobb – ny text
+        jobbIntro: "Här hittar du 3 hemsidor som publicerar arbeten inom skog och trä industrin. Nedanför så hittar du även de största skogsbolagen och länkar till deras karriär sidor. Du kan även hitta praktikplats hos dem. Lycka till",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.",
         metsalehtiJobLangNote: "Webbplatsen är endast på finska.",
         skogligaJobbTitle: "Skogliga jobb",
         skogligaJobbDesc: "Sveriges samlingsplats för lediga jobb inom skogsbranschen. Här hittar du allt från skogsmaskinförare till skogsinspektorer och specialister.",
+        // Ny portal
+        tabshollandTitle: "Tabsholland",
+        tabshollandDesc: "Rekryteringssida för träindustrin i Nederländerna. Här publiceras lediga jobb inom träförädling och produktion.",
 
         billerudTitle: "Billerud",
         billerudDesc: "Världsledande inom förnybara pappers- och förpackningsmaterial. Verksamt i Sverige.",
@@ -44,8 +48,6 @@ const translations = {
         biometriaDesc: "Kvalitetssäkrar virkesmätning och skoglig logistik. Erbjuder tjänster för digitalisering och automatisering av virkesflödet. Verksamt i Sverige.",
         holmenTitle: "Holmen",
         holmenDesc: "Skogsindustrikoncern med verksamhet inom skogsbruk, kartong, papper och trävaror. Verksamt i Sverige.",
-        kopparforsTitle: "Kopparfors Skogar",
-        kopparforsDesc: "Skogsförvaltningsbolag med fokus på hållbart skogsbruk och virkesaffärer. Verksamt i Sverige.",
         koskisenTitle: "Koskisen",
         koskisenDesc: "Internationellt träförädlingsföretag med över hundra års erfarenhet. Tillverkar sågade trävaror, plywood och spånskivor. Verksamt i Finland.",
         metsahallitusTitle: "Metsähallitus",
@@ -72,14 +74,14 @@ const translations = {
     fi: {
         headerTitle: "🌲 Suomen metsäsivusto kaikille metsäihmisille",
         tabBlanketter: "Lomakkeet",
-        tabJobb: "Työpaikat",
+        tabJobb: "Työpaikat ja harjoittelu",   // Ändrad
         tabKunskapstester: "Tietotestit",
         tabNyheter: "Uutiset",
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         welcomeMsg: "Tervetuloa tälle sivustolle, se on vielä rakenteilla, mutta katsele ympärillesi.",
 
-        newsIntro: "Tälle sivulle olemme koonneet tärkeimmät metsäalan verkkosivustot, jotka julkaisevat uutisia metsäalalta. Jos pidät sisällöstä, voit aloittaa tilauksen heidän tilauslinkkiensä kautta.",
+        newsIntro: "Tälle sivulle olen koonnut tärkeimmät metsäalan verkkosivustot, jotka julkaisevat uutisia metsäalalta. Jos pidät sisällöstä, voit aloittaa niiden tilaamisen ja tukea niitä.",
         skogscentralenTitle: "Metsäkeskus",
         skogscentralenDesc: "Suomen kansallinen metsäviranomainen, joka vastaa metsäpolitiikan toimeenpanosta ja tarjoaa neuvontaa, koulutusta ja rahoitustukea metsänomistajille.",
         tapioTitle: "Tapio",
@@ -92,17 +94,19 @@ const translations = {
         finlandsNaturLangNote: "Verkkosivusto on vain ruotsiksi.",
         skogsstyrelsenTitle: "Skogsstyrelsen",
         skogsstyrelsenDesc: "Ruotsin kansallinen metsäviranomainen. Edistää kestävää metsätaloutta, tarjoaa neuvontaa, valvoo metsälakia ja hallinnoi valtion tukia.",
-        skogsstyrelsenLangNote: "Verkkosivusto on ruotsiksi ja suomeksi.",
+        skogsstyrelsenLangNote: "Verkkosivusto on ruotsiksi ja englaniksi.",
 
         testIntroText: "Tervetuloa testaamaan metsätietouttasi. Verkkosivustollamme voit valita itseäsi kiinnostavan aiheen, jonka osaamista haluat testata. Valikoimasta löytyy aiheita kuten indikaattorikasvit, metsämatematiikka ja metsätiet – toisin sanoen kaikkea metsänhoitoon liittyvää.",
         goToTests: "🌿 Siirry testeihin",
 
-        jobbIntro: "Täältä löydät sekä metsäalan yrityksiä että verkkosivustoja Suomesta ja Ruotsista, sekä suorat linkit heidän rekrytointisivuilleen.",
+        jobbIntro: "Täältä löydät 3 verkkosivustoa, jotka julkaisevat työpaikkoja metsä- ja puuteollisuuden alalta. Alta löydät myös suurimmat metsäyhtiöt ja linkit niiden urasivuille. Voit löytää myös harjoittelupaikkoja. Onnea matkaan!",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa. Täällä julkaistaan avoimia työpaikkoja koko metsäsektorilta.",
         metsalehtiJobLangNote: "",
         skogligaJobbTitle: "Skogliga jobb",
         skogligaJobbDesc: "Ruotsin metsäalan työpaikkojen kohtaamispaikka. Täältä löydät kaiken metsäkoneenkuljettajista metsätarkastajiin ja asiantuntijoihin.",
+        tabshollandTitle: "Tabsholland",
+        tabshollandDesc: "Alankomaiden puuteollisuuden rekrytointisivusto. Täältä löytyy avoimia työpaikkoja puujalostuksen ja tuotannon alalla.",
 
         billerudTitle: "Billerud",
         billerudDesc: "Maailman johtava uusiutuvien paperi- ja pakkausmateriaalien valmistaja. Toimii Ruotsissa.",
@@ -110,8 +114,6 @@ const translations = {
         biometriaDesc: "Varmistaa puunmittauksen ja metsälogistiikan laadun. Tarjoaa palveluita puuvirran digitalisointiin ja automatisointiin. Toimii Ruotsissa.",
         holmenTitle: "Holmen",
         holmenDesc: "Metsäteollisuuskonserni, joka toimii metsätalouden, kartongin, paperin ja puutuotteiden alalla. Toimii Ruotsissa.",
-        kopparforsTitle: "Kopparfors Skogar",
-        kopparforsDesc: "Metsänhoitoyhtiö, joka keskittyy kestävään metsätalouteen ja puukauppaan. Toimii Ruotsissa.",
         koskisenTitle: "Koskisen",
         koskisenDesc: "Kansainvälinen puunjalostusyritys, jolla on yli sadan vuoden kokemus. Valmistaa sahatavaraa, vaneria ja lastulevyä. Toimii Suomessa.",
         metsahallitusTitle: "Metsähallitus",
@@ -138,14 +140,14 @@ const translations = {
     en: {
         headerTitle: "🌲 Finnish Forest Site for all forest people",
         tabBlanketter: "Forms",
-        tabJobb: "Jobs",
+        tabJobb: "Jobs and Internships",       // Ändrad
         tabKunskapstester: "Knowledge Tests",
         tabNyheter: "News",
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         welcomeMsg: "Welcome to this website, it is still under construction but feel free to look around.",
 
-        newsIntro: "Here we have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing via their subscription links.",
+        newsIntro: "Here I have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing to them and support them.",
         skogscentralenTitle: "Skogscentralen",
         skogscentralenDesc: "Finland's national forest authority. Responsible for implementing Finland's forest policy and offers advice, training and financial support for forest owners.",
         tapioTitle: "Tapio",
@@ -158,17 +160,19 @@ const translations = {
         finlandsNaturLangNote: "The website is in Swedish only.",
         skogsstyrelsenTitle: "Skogsstyrelsen",
         skogsstyrelsenDesc: "Sweden's national forest authority. Promotes sustainable forestry, provides advice, enforces the Forestry Act and handles state subsidies for forestry.",
-        skogsstyrelsenLangNote: "The website is available in Swedish and Finnish.",
+        skogsstyrelsenLangNote: "The website is available in Swedish and English.",
 
         testIntroText: "Welcome and test your forest knowledge. Enter the page and choose a topic you want to test your knowledge on. There is everything from indicator plants, forest mathematics to forest roads – in other words, everything within forestry.",
         goToTests: "🌿 Go to tests",
 
-        jobbIntro: "Here you will find both companies and websites within forestry from Finland and Sweden, along with direct links to their recruitment pages.",
+        jobbIntro: "Here you find 3 websites that publish jobs in the forest and wood industry. Below you will also find the largest forest companies and links to their career pages. You can also find internships with them. Good luck!",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland. Open positions across the entire forest sector are published here.",
         metsalehtiJobLangNote: "The website is in Finnish only.",
         skogligaJobbTitle: "Skogliga jobb",
         skogligaJobbDesc: "Sweden's hub for forestry jobs. Here you'll find everything from forest machine operators to forest inspectors and specialists.",
+        tabshollandTitle: "Tabsholland",
+        tabshollandDesc: "Recruitment site for the wood industry in the Netherlands. Here you can find job openings in wood processing and production.",
 
         billerudTitle: "Billerud",
         billerudDesc: "World-leading provider of renewable paper and packaging materials. Operates in Sweden.",
@@ -176,8 +180,6 @@ const translations = {
         biometriaDesc: "Quality assures timber measurement and forest logistics. Offers services for digitalising and automating the wood flow. Operates in Sweden.",
         holmenTitle: "Holmen",
         holmenDesc: "Forest industry group with operations in forestry, cardboard, paper and wood products. Operates in Sweden.",
-        kopparforsTitle: "Kopparfors Skogar",
-        kopparforsDesc: "Forest management company focused on sustainable forestry and timber trade. Operates in Sweden.",
         koskisenTitle: "Koskisen",
         koskisenDesc: "International wood processing company with over a hundred years of experience. Manufactures sawn timber, plywood and chipboard. Operates in Finland.",
         metsahallitusTitle: "Metsähallitus",
@@ -214,13 +216,12 @@ const goToTestsBtn = document.getElementById('goToTestsBtn');
 const allPanels = document.querySelectorAll('.tab-panel');
 
 // ============================================================
-// 3. UPPDATERA SPRÅK – slår upp översättningar och uppdaterar UI
+// 3. UPPDATERA SPRÅK
 // ============================================================
 function updateLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
 
-    // Alla element med data-translate-attribut
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (t[key] !== undefined) {
@@ -231,7 +232,6 @@ function updateLanguage(lang) {
     document.title = t.pageTitle;
     document.documentElement.lang = lang;
 
-    // Markera aktiv språkknapp
     langButtons.forEach(btn => {
         const btnLang = btn.getAttribute('data-lang');
         if (btnLang === lang) {
@@ -245,7 +245,7 @@ function updateLanguage(lang) {
 }
 
 // ============================================================
-// 4. FLIKBYTE – visar rätt panel och aktiverar flik-knapp
+// 4. FLIKBYTE
 // ============================================================
 function setActiveTab(tabId) {
     tabButtons.forEach(btn => {
@@ -269,8 +269,6 @@ function setActiveTab(tabId) {
 // ============================================================
 // 5. EVENT LISTENERS
 // ============================================================
-
-// Klick på tabbar
 tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabType = btn.getAttribute('data-tab');
@@ -280,7 +278,6 @@ tabButtons.forEach(btn => {
     });
 });
 
-// Klick på språkknappar
 langButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const lang = e.currentTarget.getAttribute('data-lang');
@@ -291,7 +288,6 @@ langButtons.forEach(btn => {
     });
 });
 
-// Navigering till testerna
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
         window.location.href = '/Testerna/testerna.html';
@@ -299,7 +295,7 @@ if (goToTestsBtn) {
 }
 
 // ============================================================
-// 6. INIT – startar sidan med rätt språk och flik
+// 6. INIT
 // ============================================================
 function initialize() {
     const savedLang = localStorage.getItem('preferredLanguage');
@@ -309,7 +305,7 @@ function initialize() {
         currentLang = 'sv';
     }
     updateLanguage(currentLang);
-    setActiveTab('start');   // Start-fliken visas först
+    setActiveTab('start');
 }
 
 initialize();
