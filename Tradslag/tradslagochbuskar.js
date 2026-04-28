@@ -383,7 +383,7 @@ function showResult() {
 // 11. EVENT LISTENERS
 // ============================================================
 document.getElementById('backToTestsBtn').addEventListener('click', () => {
-    window.location.href = 'tester.html';
+    window.location.href = '../Testerna/testerna.html';
 });
 
 startGameBtn.addEventListener('click', startGame);
