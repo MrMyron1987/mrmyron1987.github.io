@@ -14,24 +14,42 @@
     </header>
 
     <main class="quiz-area">
-        <div id="quizCard" class="question-card">
+        <!-- Introduktionssida (språkval) -->
+        <div id="introCard" class="intro-card">
+            <p id="introText"></p>
+            <div class="language-checkboxes" id="langCheckboxes">
+                <label class="lang-checkbox">
+                    <input type="checkbox" value="sv" checked> <span data-lang-label="sv"></span>
+                </label>
+                <label class="lang-checkbox">
+                    <input type="checkbox" value="fi" checked> <span data-lang-label="fi"></span>
+                </label>
+                <label class="lang-checkbox">
+                    <input type="checkbox" value="en" checked> <span data-lang-label="en"></span>
+                </label>
+                <label class="lang-checkbox">
+                    <input type="checkbox" value="la" checked> <span data-lang-label="la"></span>
+                </label>
+            </div>
+            <button id="startGameBtn" class="primary-btn"></button>
+        </div>
+
+        <!-- Frågekort (döljs initialt) -->
+        <div id="quizCard" class="question-card hidden">
             <div class="progress" id="progressIndicator"></div>
-            
             <div class="tree-display">
                 <span id="treeDisplayName"></span>
                 <span id="treeDisplayLanguage"></span>
             </div>
-            
             <div id="treeInputsArea" class="tree-inputs"></div>
-            
-            <!-- Feedbackruta skapas dynamiskt av JavaScript -->
-            
+            <!-- Feedbackruta skapas dynamiskt -->
             <div class="button-group">
                 <button id="treeCheckBtn" class="primary-btn">✅ Kontrollera</button>
                 <button id="treeNextBtn" class="primary-btn" disabled>➡️ Nästa</button>
             </div>
         </div>
 
+        <!-- Resultatkort -->
         <div id="resultCard" class="result-card hidden">
             <div class="result-stats" id="resultStats"></div>
             <button id="restartTreeBtn" class="primary-btn">🔄 Öva igen</button>
