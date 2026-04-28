@@ -423,7 +423,7 @@ if (goToTestsBtn) {
 
 if (goToDictionaryBtn) {
     goToDictionaryBtn.addEventListener('click', () => {
-        window.location.href = 'ordbok.html';
+        window.location.href = '/Ordbok/ordbok.html';
     });
 }
 
