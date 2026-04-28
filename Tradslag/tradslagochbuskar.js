@@ -400,7 +400,7 @@ document.getElementById('restartTreeBtn').addEventListener('click', () => {
 });
 
 document.getElementById('backFromResultBtn').addEventListener('click', () => {
-    window.location.href = '../Testerna/tester.html';
+    window.location.href = '../Testerna/testerna.html';
 });
 
 // Aktivera/avaktivera start-knapp baserat på antal val
