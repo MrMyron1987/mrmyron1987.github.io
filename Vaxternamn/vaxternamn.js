@@ -32,7 +32,10 @@ const uiTexts = {
         catMosses: 'Mossor',
         catLichens: 'Lavar',
         catFungi: 'Svampar',
-        catIndicatorTrees: 'Indikator träd'
+        catIndicatorTrees: 'Indikator träd',
+        // Intro
+        introText: 'Välkommen, välj vilka språk du vill öva på, du måste ha minst 2 språk valda.',
+        startBtn: '🚀 Starta spelet'
     },
     fi: {
         pageTitle: '🌿 Kasvien nimet',
@@ -64,7 +67,9 @@ const uiTexts = {
         catMosses: 'Sammalet',
         catLichens: 'Jäkälät',
         catFungi: 'Sienet',
-        catIndicatorTrees: 'Indikaattoripuut'
+        catIndicatorTrees: 'Indikaattoripuut',
+        introText: 'Tervetuloa, valitse kielet joita haluat harjoitella. Valitse vähintään 2 kieltä.',
+        startBtn: '🚀 Aloita peli'
     },
     en: {
         pageTitle: '🌿 Plant names',
@@ -96,12 +101,14 @@ const uiTexts = {
         catMosses: 'Mosses',
         catLichens: 'Lichens',
         catFungi: 'Fungi',
-        catIndicatorTrees: 'Indicator trees'
+        catIndicatorTrees: 'Indicator trees',
+        introText: 'Welcome, choose the languages you want to practice. You must select at least 2 languages.',
+        startBtn: '🚀 Start game'
     }
 };
 
 // ============================================================
-// 2. DATABAS – VÄXTER PER KATEGORI (oförändrad)
+// 2. DATABAS – VÄXTER PER KATEGORI
 // ============================================================
 const CATEGORY_DATA = {
     vascular: [
@@ -224,8 +231,9 @@ function getUIText(key, ...args) {
 }
 
 // ============================================================
-// 4. STATE FÖR ÖVNINGEN
+// 4. STATE
 // ============================================================
+let selectedLangs = [];                // språk valda i intro
 let currentCategoryData = [];
 let plantQuizList = [];
 let plantQuizIndex = 0;
@@ -236,6 +244,7 @@ let plantRequiredLangs = [];
 let plantAnsweredLocked = false;
 
 // DOM-element
+const introCard = document.getElementById('introCard');
 const categoryMenu = document.getElementById('categoryMenu');
 const quizCard = document.getElementById('quizCard');
 const resultCard = document.getElementById('resultCard');
@@ -247,10 +256,10 @@ const plantCheckBtn = document.getElementById('plantCheckBtn');
 const plantNextBtn = document.getElementById('plantNextBtn');
 const resultStats = document.getElementById('resultStats');
 const abortQuizBtn = document.getElementById('abortQuizBtn');
+const startGameBtn = document.getElementById('startGameBtn');
 
 // Dynamisk feedback
 let plantFeedback = null;
-
 function getPlantFeedbackElement() {
     if (!plantFeedback) {
         plantFeedback = document.createElement('div');
@@ -276,10 +285,44 @@ function updateUITexts() {
     document.getElementById('restartPlantBtn').textContent = uiTexts[lang].restartBtn;
     document.getElementById('backToCategoriesBtn').textContent = uiTexts[lang].backFromResult;
     abortQuizBtn.textContent = uiTexts[lang].abortBtn;
+
+    // Intro
+    document.getElementById('introText').textContent = uiTexts[lang].introText;
+    startGameBtn.textContent = uiTexts[lang].startBtn;
+
+    // Checkbox-labels
+    const langLabels = ['sv', 'fi', 'en', 'la'];
+    langLabels.forEach(code => {
+        const span = document.querySelector(`span[data-lang-label="${code}"]`);
+        if (span) span.textContent = uiTexts[lang]['lang' + code.charAt(0).toUpperCase() + code.slice(1)];
+    });
 }
 
 // ============================================================
-// 6. BYGG KATEGORIMENY
+// 6. STARTA SPEL (från intro)
+// ============================================================
+function startGame() {
+    const checkboxes = document.querySelectorAll('#langCheckboxes input[type="checkbox"]');
+    selectedLangs = [];
+    checkboxes.forEach(cb => {
+        if (cb.checked) selectedLangs.push(cb.value);
+    });
+
+    if (selectedLangs.length < 2) {
+        alert(getUIText('introText')); // påminn om minimiantal
+        return;
+    }
+
+    introCard.classList.add('hidden');
+    categoryMenu.classList.remove('hidden');
+    quizCard.classList.add('hidden');
+    resultCard.classList.add('hidden');
+
+    buildCategoryMenu();
+}
+
+// ============================================================
+// 7. BYGG KATEGORIMENY
 // ============================================================
 function buildCategoryMenu() {
     const lang = getCurrentLanguage();
@@ -295,7 +338,7 @@ function buildCategoryMenu() {
 }
 
 // ============================================================
-// 7. STARTA EN KATEGORI
+// 8. STARTA EN KATEGORI
 // ============================================================
 function startCategory(categoryKey) {
     currentCategoryData = CATEGORY_DATA[categoryKey];
@@ -303,59 +346,60 @@ function startCategory(categoryKey) {
     plantQuizIndex = 0;
     plantQuizCorrectCount = 0;
     plantAnsweredLocked = false;
-    
+
     categoryMenu.classList.add('hidden');
     quizCard.classList.remove('hidden');
     resultCard.classList.add('hidden');
-    
+
     updateUITexts();
     renderPlantQuestion();
 }
 
 // ============================================================
-// 8. RENDERA AKTUELL FRÅGA
+// 9. RENDERA FRÅGA (använder selectedLangs)
 // ============================================================
 function renderPlantQuestion() {
     if (plantQuizIndex >= plantQuizList.length) {
         showResult();
         return;
     }
-    
+
     const species = plantQuizList[plantQuizIndex];
     plantCurrentSpecies = species;
-    
-    const langs = ['sv', 'fi', 'en', 'la'];
-    const displayIdx = Math.floor(Math.random() * langs.length);
-    plantDisplayLang = langs[displayIdx];
+
+    // Slumpa display-språk bland valda
+    const displayIdx = Math.floor(Math.random() * selectedLangs.length);
+    plantDisplayLang = selectedLangs[displayIdx];
     const displayValue = species[plantDisplayLang];
-    
-    plantRequiredLangs = langs.filter(l => l !== plantDisplayLang);
-    
+
+    // Övriga valda språk är inputs
+    plantRequiredLangs = selectedLangs.filter(l => l !== plantDisplayLang);
+
     progressEl.textContent = getUIText('progress', plantQuizIndex + 1, plantQuizList.length);
-    
+
     plantDisplayName.textContent = displayValue;
     const lang = getCurrentLanguage();
     const langNames = uiTexts[lang];
     plantDisplayLanguage.textContent = `(${langNames['lang' + plantDisplayLang.charAt(0).toUpperCase() + plantDisplayLang.slice(1)]})`;
-    
+
     plantInputsArea.innerHTML = '';
     plantRequiredLangs.forEach(langCode => {
         const row = document.createElement('div');
         row.className = 'plant-input-row';
-        
+
         const label = document.createElement('label');
         label.textContent = langNames['lang' + langCode.charAt(0).toUpperCase() + langCode.slice(1)] + ':';
         row.appendChild(label);
-        
+
         const input = document.createElement('input');
         input.type = 'text';
         input.placeholder = langNames['placeholder' + langCode.charAt(0).toUpperCase() + langCode.slice(1)];
         input.dataset.lang = langCode;
         row.appendChild(input);
-        
+
         plantInputsArea.appendChild(row);
     });
-    
+
     const fb = getPlantFeedbackElement();
     fb.classList.add('hidden');
     fb.innerHTML = '';
@@ -366,36 +410,36 @@ function renderPlantQuestion() {
 }
 
 // ============================================================
-// 9. KONTROLLERA SVAR
+// 10. KONTROLLERA SVAR
 // ============================================================
 function checkPlantAnswer() {
     const fb = getPlantFeedbackElement();
-    
+
     if (plantAnsweredLocked) {
         fb.classList.remove('hidden');
         fb.innerHTML = getUIText('alreadyChecked');
         fb.className = 'feedback wrong';
         return;
     }
-    
+
     const inputs = plantInputsArea.querySelectorAll('input');
     let allCorrect = true;
     const wrongFields = [];
-    
+
     inputs.forEach(input => {
         const lang = input.dataset.lang;
         const userAnswer = input.value.trim();
         const correctAnswer = plantCurrentSpecies[lang];
-        
+
         if (userAnswer.toLowerCase() !== correctAnswer.toLowerCase()) {
             allCorrect = false;
             wrongFields.push({ lang, correct: correctAnswer });
         }
     });
-    
+
     plantAnsweredLocked = true;
     if (allCorrect) plantQuizCorrectCount++;
-    
+
     fb.classList.remove('hidden');
     const lang = getCurrentLanguage();
     if (allCorrect) {
@@ -410,14 +454,14 @@ function checkPlantAnswer() {
         fb.innerHTML = msg;
         fb.className = 'feedback wrong';
     }
-    
+
     inputs.forEach(input => input.disabled = true);
     plantCheckBtn.disabled = true;
     plantNextBtn.disabled = false;
 }
 
 // ============================================================
-// 10. NÄSTA FRÅGA
+// 11. NÄSTA FRÅGA
 // ============================================================
 function nextPlantQuestion() {
     const fb = getPlantFeedbackElement();
@@ -432,16 +476,16 @@ function nextPlantQuestion() {
 }
 
 // ============================================================
-// 11. VISA RESULTAT
+// 12. VISA RESULTAT
 // ============================================================
 function showResult() {
     quizCard.classList.add('hidden');
     resultCard.classList.remove('hidden');
-    
+
     const total = plantQuizList.length;
     const correct = plantQuizCorrectCount;
     const lang = getCurrentLanguage();
-    
+
     let message = getUIText('resultTitle', correct, total);
     if (correct === total) {
         message += `<br>${uiTexts[lang].perfect}`;
@@ -452,20 +496,23 @@ function showResult() {
 }
 
 // ============================================================
-// 12. ÅTERGÅ TILL KATEGORIMENYN
+// 13. ÅTERGÅ TILL KATEGORIMENYN
 // ============================================================
 function backToCategories() {
     quizCard.classList.add('hidden');
     resultCard.classList.add('hidden');
     categoryMenu.classList.remove('hidden');
+    buildCategoryMenu(); // uppdatera om språk bytts
 }
 
 // ============================================================
-// 13. EVENT LISTENERS
+// 14. EVENT LISTENERS
 // ============================================================
 document.getElementById('backToTestsBtn').addEventListener('click', () => {
     window.location.href = '../Testerna/testerna.html';
 });
+
+startGameBtn.addEventListener('click', startGame);
 
 plantCheckBtn.addEventListener('click', checkPlantAnswer);
 plantNextBtn.addEventListener('click', nextPlantQuestion);
@@ -480,11 +527,18 @@ document.getElementById('restartPlantBtn').addEventListener('click', () => {
 document.getElementById('backToCategoriesBtn').addEventListener('click', backToCategories);
 abortQuizBtn.addEventListener('click', backToCategories);
 
+// Aktivera start-knapp baserat på antal valda
+document.getElementById('langCheckboxes').addEventListener('change', () => {
+    const checked = document.querySelectorAll('#langCheckboxes input[type="checkbox"]:checked').length;
+    startGameBtn.disabled = checked < 2;
+});
+
 // ============================================================
-// 14. INIT
+// 15. INIT – visa intro
 // ============================================================
 updateUITexts();
-buildCategoryMenu();
-categoryMenu.classList.remove('hidden');
+introCard.classList.remove('hidden');
+categoryMenu.classList.add('hidden');
 quizCard.classList.add('hidden');
 resultCard.classList.add('hidden');
+startGameBtn.disabled = false; // alla är förkryssade från början
