@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finska skogssidan</title>
-    <!-- Google Fonts: Great Vibes för calligraphy-rubrik -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Startsida.css">
 </head>
 <body>
-
-<!-- ===================== HUVUDCONTAINER ===================== -->
 <div class="app-container">
-
     <!-- ===================== HEADER ===================== -->
     <header class="main-header">
-        <!-- Calligraphy-rubrik: Texten uppdateras via JS -->
-        <h1 data-translate="headerTitle">🌲 Finska skogssidan för alla skogsmänniskor</h1>
-        <!-- Språkknappar: SV, FIN, EN -->
+        <h1 data-translate="headerTitle"></h1>
         <div class="lang-bar">
             <button class="lang-btn" data-lang="sv">SV</button>
             <button class="lang-btn" data-lang="fi">FIN</button>
@@ -29,185 +23,85 @@
 
     <!-- ===================== FLIKMENY ===================== -->
     <nav class="tabs-nav">
-        <button class="tab active" data-tab="start" data-translate="tabStart">Start</button>
-        <button class="tab" data-tab="nyheter" data-translate="tabNyheter">Nyheter</button>
-        <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester">Kunskapstester</button>
-        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial">Studiematerial</button>
-        <button class="tab" data-tab="jobb" data-translate="tabJobb">Jobb</button>
-        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter">Blanketter</button>
+        <button class="tab active" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab" data-tab="nyheter" data-translate="tabNyheter"></button>
+        <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
+        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
+        <button class="tab" data-tab="jobb" data-translate="tabJobb"></button>
+        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
+        <button class="tab" data-tab="ordbok" data-translate="tabDictionary"></button>
     </nav>
 
     <!-- ===================== INNEHÅLLSPANELER ===================== -->
     <main class="tab-content-wrapper">
-
         <!-- ===== START ===== -->
         <div class="tab-panel active" id="panel-start">
-            <p class="welcome-message" data-translate="welcomeMsg">
-                Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.
-            </p>
+            <p class="welcome-message" data-translate="welcomeMsg"></p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h2 data-translate="infoBox1Title"></h2>
+                    <p data-translate="infoBox1Text"></p>
+                </div>
+                <div class="info-card">
+                    <h2 data-translate="infoBox2Title"></h2>
+                    <p data-translate="infoBox2Text"></p>
+                </div>
+                <div class="info-card">
+                    <h2 data-translate="infoBox3Title"></h2>
+                    <p data-translate="infoBox3Text"></p>
+                </div>
+            </div>
         </div>
 
         <!-- ===== NYHETER ===== -->
         <div class="tab-panel" id="panel-nyheter">
-            <p class="news-intro" data-translate="newsIntro">
-                Här har jag samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera på dem och understöda dem.
-            </p>
-            <div class="news-container">
-                <!-- Nyhetskort: Skogscentralen -->
-                <div class="news-item">
-                    <h3><a href="https://www.metsakeskus.fi/sv" target="_blank" data-translate="skogscentralenTitle">Skogscentralen</a></h3>
-                    <p data-translate="skogscentralenDesc">Finlands nationella skogsmyndighet. Ansvarar för genomförandet av Finlands skogspolitik och erbjuder rådgivning, utbildning och finansieringsstöd för skogsägare.</p>
-                </div>
-                <!-- Nyhetskort: Tapio -->
-                <div class="news-item">
-                    <h3><a href="https://tapio.fi/" target="_blank" data-translate="tapioTitle">Tapio</a></h3>
-                    <p data-translate="tapioDesc">En neutral, erfaren expertorganisation med över 110 års erfarenhet inom hållbart skogsbruk. Erbjuder konsulttjänster, skogsplanering och klimatanpassningstjänster.</p>
-                </div>
-                <!-- Nyhetskort: Metsälehti -->
-                <div class="news-item">
-                    <h3><a href="https://www.metsalehti.fi/" target="_blank" data-translate="metsalehtiTitle">Metsälehti</a></h3>
-                    <p data-translate="metsalehtiDesc">Finlands ledande skogstidskrift sedan 1933, med nyheter, reportage och debatt om skogsbruk och skogsägande.</p>
-                    <p class="lang-note" data-translate="metsalehtiLangNote"></p>
-                </div>
-                <!-- Nyhetskort: Finlands Natur -->
-                <div class="news-item">
-                    <h3><a href="https://finlandsnatur.fi/" target="_blank" data-translate="finlandsNaturTitle">Finlands Natur</a></h3>
-                    <p data-translate="finlandsNaturDesc">Den finlandssvenska naturtidningen som sedan 1941 erbjuder naturskildringar, miljönyheter och praktiska tips för en hållbar livsstil.</p>
-                    <p class="lang-note" data-translate="finlandsNaturLangNote"></p>
-                </div>
-                <!-- Nyhetskort: Skogsstyrelsen -->
-                <div class="news-item">
-                    <h3><a href="https://www.skogsstyrelsen.se/" target="_blank" data-translate="skogsstyrelsenTitle">Skogsstyrelsen</a></h3>
-                    <p data-translate="skogsstyrelsenDesc">Sveriges nationella skogsmyndighet. Arbetar för hållbart skogsbruk, rådgivning, tillsyn av Skogsvårdslagen och hanterar statliga stöd för skogsbruket.</p>
-                    <p class="lang-note" data-translate="skogsstyrelsenLangNote"></p>
-                </div>
-            </div>
+            <p class="news-intro" data-translate="newsIntro"></p>
+            <div class="news-container" id="newsContainer"></div>
         </div>
 
         <!-- ===== KUNSKAPSTESTER ===== -->
         <div class="tab-panel" id="panel-kunskapstester">
             <div class="test-intro">
-                <p data-translate="testIntroText">
-                    Välkommen och testa dina skogskunskaper...
-                </p>
+                <p data-translate="testIntroText"></p>
                 <div class="test-btn-wrapper">
-                    <button id="goToTestsBtn" class="primary-btn" data-translate="goToTests">🌿 Gå till testerna</button>
+                    <button id="goToTestsBtn" class="primary-btn" data-translate="goToTests"></button>
                 </div>
             </div>
         </div>
 
         <!-- ===== STUDIEMATERIAL ===== -->
         <div class="tab-panel" id="panel-studiematerial">
-            <h2 data-translate="tabStudiematerial">Studiematerial</h2>
-            <p>Här samlar vi studiematerial för skogsutbildningar.</p>
+            <h2 data-translate="tabStudiematerial"></h2>
+            <p data-translate="studiematerialText"></p>
         </div>
 
         <!-- ===== JOBB OCH PRAKTIKPLATS ===== -->
         <div class="tab-panel" id="panel-jobb">
-            <p class="news-intro" data-translate="jobbIntro">
-                Här hittar du 3 hemsidor som publicerar arbeten inom skog och trä industrin. Nedanför så hittar du även de största skogsbolagen och länkar till deras karriär sidor. Du kan även hitta praktikplats hos dem. Lycka till
-            </p>
-            <div class="news-container">
-                <!-- Jobbportal: Metsälehti Työpaikat -->
-                <div class="news-item">
-                    <h3><a href="https://www.metsalehti.fi/tyopaikat/" target="_blank" data-translate="metsalehtiJobTitle">Metsälehti – Työpaikat</a></h3>
-                    <p data-translate="metsalehtiJobDesc">Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.</p>
-                    <p class="lang-note" data-translate="metsalehtiJobLangNote"></p>
-                </div>
-                <!-- Jobbportal: Skogliga jobb -->
-                <div class="news-item">
-                    <h3><a href="https://www.skogligajobb.se/" target="_blank" data-translate="skogligaJobbTitle">Skogliga jobb</a></h3>
-                    <p data-translate="skogligaJobbDesc">Sveriges samlingsplats för lediga jobb inom skogsbranschen. Här hittar du allt från skogsmaskinförare till skogsinspektorer och specialister.</p>
-                </div>
-                <!-- Jobbportal: Tabsholland -->
-                <div class="news-item">
-                    <h3><a href="https://werkenbij.tabsholland.nl/jobs" target="_blank" data-translate="tabshollandTitle">Tabsholland</a></h3>
-                    <p data-translate="tabshollandDesc">Rekryteringssida för träindustrin i Nederländerna. Här publiceras lediga jobb inom träförädling och produktion.</p>
-                </div>
-                <!-- Företag: Billerud -->
-                <div class="news-item">
-                    <h3><a href="https://www.billerud.com/career" target="_blank" data-translate="billerudTitle">Billerud</a></h3>
-                    <p data-translate="billerudDesc">Världsledande inom förnybara pappers- och förpackningsmaterial. Verksamt i Sverige.</p>
-                </div>
-                <!-- Företag: Biometria -->
-                <div class="news-item">
-                    <h3><a href="https://www.biometria.se/" target="_blank" data-translate="biometriaTitle">Biometria</a></h3>
-                    <p data-translate="biometriaDesc">Kvalitetssäkrar virkesmätning och skoglig logistik. Erbjuder tjänster för digitalisering och automatisering av virkesflödet. Verksamt i Sverige.</p>
-                </div>
-                <!-- Företag: Holmen -->
-                <div class="news-item">
-                    <h3><a href="https://www.holmen.com/en/career/" target="_blank" data-translate="holmenTitle">Holmen</a></h3>
-                    <p data-translate="holmenDesc">Skogsindustrikoncern med verksamhet inom skogsbruk, kartong, papper och trävaror. Verksamt i Sverige.</p>
-                </div>
-                <!-- Företag: Koskisen -->
-                <div class="news-item">
-                    <h3><a href="https://koskisen.fi/en/career" target="_blank" data-translate="koskisenTitle">Koskisen</a></h3>
-                    <p data-translate="koskisenDesc">Internationellt träförädlingsföretag med över hundra års erfarenhet. Tillverkar sågade trävaror, plywood och spånskivor. Verksamt i Finland.</p>
-                </div>
-                <!-- Företag: Metsähallitus -->
-                <div class="news-item">
-                    <h3><a href="https://www.metsa.fi/en/careers-and-internships/" target="_blank" data-translate="metsahallitusTitle">Metsähallitus</a></h3>
-                    <p data-translate="metsahallitusDesc">Finlands statliga skogsförvaltning. Förvaltar och skyddar naturresurser samt erbjuder arbetstillfällen inom skogsbruk, naturvård och friluftsliv. Verksamt i Finland.</p>
-                </div>
-                <!-- Företag: Metsä Group -->
-                <div class="news-item">
-                    <h3><a href="https://www.metsagroup.com/careers/" target="_blank" data-translate="metsaGroupTitle">Metsä Group</a></h3>
-                    <p data-translate="metsaGroupDesc">Finsk skogsindustrikoncern med produktion av tissue, kartong, massa och träprodukter. Har verksamhet i både Finland och Sverige.</p>
-                </div>
-                <!-- Företag: Metsänhoitoyhdistys -->
-                <div class="news-item">
-                    <h3><a href="https://www.mhy.fi/avoimet-tyopaikat" target="_blank" data-translate="mhyTitle">Metsänhoitoyhdistys</a></h3>
-                    <p data-translate="mhyDesc">Skogsvårdsföreningarnas kedja med ca 50 föreningar och över 1000 skogsproffs runtom i Finland. Erbjuder varierande arbetsuppgifter inom skogsskötsel och rådgivning. Verksamt i Finland.</p>
-                </div>
-                <!-- Företag: Norra Skog -->
-                <div class="news-item">
-                    <h3><a href="https://karriar.norraskog.se/" target="_blank" data-translate="norraSkogTitle">Norra Skog</a></h3>
-                    <p data-translate="norraSkogDesc">Medlemsägd skogsägarförening i norra Sverige med ca 600 anställda. Verkar för skogsägarnas bästa och erbjuder varierande skogliga roller.</p>
-                </div>
-                <!-- Företag: SCA -->
-                <div class="news-item">
-                    <h3><a href="https://www.sca.com/sv/karriar/" target="_blank" data-translate="scaTitle">SCA</a></h3>
-                    <p data-translate="scaDesc">Svenskt skogsbolag med produktion av massa, trävaror, förnybar energi och förpackningspapper. Har över 250 olika yrkesroller. Verksamt i Sverige.</p>
-                </div>
-                <!-- Företag: Stora Enso -->
-                <div class="news-item">
-                    <h3><a href="https://www.storaenso.com/en/careers" target="_blank" data-translate="storaEnsoTitle">Stora Enso</a></h3>
-                    <p data-translate="storaEnsoDesc">En av världens äldsta och ledande aktörer inom förnybara material. Tillverkar förpackningar, biomaterial, träprodukter och papper. Verksamt i både Finland och Sverige.</p>
-                </div>
-                <!-- Företag: Sveaskog -->
-                <div class="news-item">
-                    <h3><a href="https://www.sveaskog.se/karriar/" target="_blank" data-translate="sveaskogTitle">Sveaskog</a></h3>
-                    <p data-translate="sveaskogDesc">Sveriges statliga skogsbolag. Förvaltar och brukar skogsmark, levererar timmer, massaved och biobränsle. Rymmer ca 100 olika roller. Verksamt i Sverige.</p>
-                </div>
-                <!-- Företag: UPM -->
-                <div class="news-item">
-                    <h3><a href="https://www.upm.com/careers/" target="_blank" data-translate="upmTitle">UPM</a></h3>
-                    <p data-translate="upmDesc">Finländsk skogsindustrikoncern med produktion av papper, massa, plywood, energi och biomaterial. Har verksamhet i både Finland och Sverige.</p>
-                </div>
-                <!-- Företag: Versowood -->
-                <div class="news-item">
-                    <h3><a href="https://www.versowood.com/en/career" target="_blank" data-translate="versowoodTitle">Versowood</a></h3>
-                    <p data-translate="versowoodDesc">Finlands största privatägda träförädlingskoncern med ca 900 anställda på 13 orter. Tillverkar sågade trävaror och limträ. Verksamt i Finland.</p>
-                </div>
-            </div>
+            <p class="news-intro" data-translate="jobbIntro"></p>
+            <div class="news-container" id="jobContainer"></div>
         </div>
 
         <!-- ===== BLANKETTER ===== -->
         <div class="tab-panel" id="panel-blanketter">
-            <h2 data-translate="tabBlanketter">Blanketter</h2>
-            <p>Här kommer blanketter att finnas.</p>
+            <h2 data-translate="tabBlanketter"></h2>
+            <p data-translate="blanketterText"></p>
         </div>
 
+        <!-- ===== ORDBOKEN ===== -->
+        <div class="tab-panel" id="panel-ordbok">
+            <p class="news-intro" data-translate="dictionaryIntro"></p>
+            <div class="dictionary-button-wrapper">
+                <p data-translate="dictionaryClickText"></p>
+                <button id="goToDictionaryBtn" class="primary-btn" data-translate="dictionaryButton"></button>
+            </div>
+        </div>
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
     <footer>
         <p>© Mats Lindholm</p>
     </footer>
-
 </div>
 
-<!-- ===================== JAVASCRIPT ===================== -->
-<script src="startsida.js"></script>
+<script src="Startsida.js"></script>
 </body>
 </html>
