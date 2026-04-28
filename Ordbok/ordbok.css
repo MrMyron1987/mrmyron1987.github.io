@@ -1,0 +1,234 @@
+:root {
+    --app-bg-r: 254;
+    --app-bg-g: 249;
+    --app-bg-b: 232;
+    --app-bg-opacity: 0.6;
+    --header-bg: #2c5e2e;
+    --header-text: #f9f1cf;
+    --header-border: #a6c89b;
+    --progress-bg: #d9e6c3;
+    --progress-text: #1e3a1e;
+    --input-bg: #fef9ef;
+    --input-border: #8fbc6e;
+    --input-focus-border: #2c6e2a;
+    --text-dark: #1e3a1e;
+    --footer-bg: #e0d5bc;
+    --footer-text: #4f5a3c;
+    --footer-border: #b1c99e;
+    --card-border: #cfe2b0;
+    --box-shadow-light: rgba(0, 20, 0, 0.08);
+    --box-shadow-medium: rgba(0, 20, 0, 0.2);
+
+    /* Tillbaka-knapp */
+    --back-btn-bg: #a0763a;
+    --back-btn-hover-bg: rgba(184, 134, 74, 0.6);
+    --back-btn-shadow: #6b4f2c;
+    --back-btn-border: #dbb47a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+    background: url('https://i.ibb.co/C5BxdNDh/kunskapstesterna.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(var(--app-bg-r), var(--app-bg-g), var(--app-bg-b), var(--app-bg-opacity));
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 28px;
+    border-bottom: 4px solid var(--header-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.main-header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Till startsidan-knapp */
+.back-btn {
+    background: var(--back-btn-bg);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 3px 0 var(--back-btn-shadow);
+    border: 1px solid var(--back-btn-border);
+}
+
+.back-btn:hover {
+    background: var(--back-btn-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--back-btn-shadow);
+}
+
+.tab-content-wrapper {
+    padding: 24px 20px 30px;
+    overflow-y: auto;
+    flex: 1 1 0;
+    border-top: 2px solid transparent;
+}
+
+.news-intro {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border: 1px solid #cfe2b0;
+    box-shadow: 0 8px 16px rgba(0, 20, 0, 0.2);
+    border-radius: 24px;
+    padding: 20px 18px;
+    color: #2c3e2b;
+    text-align: center;
+    max-width: calc(100% - 20px);
+    margin: 0 auto 24px auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.dictionary-search {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+}
+
+.dictionary-search input {
+    width: 100%;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    transition: 0.15s;
+}
+
+.dictionary-search input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(44,110,42,0.2);
+}
+
+.dictionary-table-wrapper {
+    overflow-y: auto;
+    max-height: calc(100vh - 280px);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+}
+
+.dictionary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    table-layout: fixed;                       /* förhindrar hoppande kolumner */
+}
+
+.dictionary-table th {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 8px 6px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Sätt fasta bredder så att kolumnerna är symmetriska */
+.dictionary-table th:nth-child(1),
+.dictionary-table td:nth-child(1) {
+    width: 33%;
+}
+.dictionary-table th:nth-child(2),
+.dictionary-table td:nth-child(2) {
+    width: 33%;
+}
+.dictionary-table th:nth-child(3),
+.dictionary-table td:nth-child(3) {
+    width: 34%;
+}
+
+.dictionary-table th .sort-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.dictionary-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #b1c99e;
+    vertical-align: top;
+    word-break: break-word;                    /* långa ord bryts */
+}
+
+.dictionary-table tbody tr {
+    cursor: pointer;
+}
+
+.dictionary-table tbody tr:hover {
+    background: #eaf1db;
+}
+
+/* Förklaringsrad – visas/döljs med JavaScript */
+.dictionary-table .term-definition {
+    display: none;                             /* dold från början, JS sätter inline‑style */
+    padding: 8px 12px;
+    background: #f9f9f9;
+    font-size: 0.75rem;
+    color: #3a4d38;
+    border-top: 1px dashed #b1c99e;
+}
+
+footer {
+    text-align: center;
+    padding: 12px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.8rem;
+    border-top: 2px solid var(--footer-border);
+    flex-shrink: 0;
+}
+
+@media (max-width: 550px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    .dictionary-table {
+        font-size: 0.7rem;
+    }
+}
