@@ -383,7 +383,7 @@ function showResult() {
 // 11. EVENT LISTENERS
 // ============================================================
 document.getElementById('backToTestsBtn').addEventListener('click', () => {
-    window.location.href = 'tradslagochbuskar.html';
+    window.location.href = '../Testerna/testerna.html';
 });
 
 startGameBtn.addEventListener('click', startGame);
@@ -400,7 +400,7 @@ document.getElementById('restartTreeBtn').addEventListener('click', () => {
 });
 
 document.getElementById('backFromResultBtn').addEventListener('click', () => {
-    window.location.href = 'tradslagochbuskar.html';
+    window.location.href = '../Testerna/testerna.html';
 });
 
 // Aktivera/avaktivera start-knapp baserat på antal val
