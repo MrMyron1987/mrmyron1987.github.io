@@ -7,12 +7,13 @@ const translations = {
         tabBlanketter: "Blanketter",
         tabJobb: "Jobb och praktikplats",
         tabKunskapstester: "Kunskapstester",
-        tabNyheter: "Nyheter",
+        tabNyheter: "Organisationer",
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
         welcomeMsg: "Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.",
 
+        // Organisationer (tidigare nyheter)
         newsIntro: "Här har jag samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera på dem och understöda dem.",
         skogscentralenTitle: "Skogscentralen",
         skogscentralenDesc: "Finlands nationella skogsmyndighet. Ansvarar för genomförandet av Finlands skogspolitik och erbjuder rådgivning, utbildning och finansieringsstöd för skogsägare.",
@@ -28,12 +29,31 @@ const translations = {
         skogsstyrelsenDesc: "Sveriges nationella skogsmyndighet. Arbetar för hållbart skogsbruk, rådgivning, tillsyn av Skogsvårdslagen och hanterar statliga stöd för skogsbruket.",
         skogsstyrelsenLangNote: "Webbplatsen finns på svenska och engelska.",
 
+        // Ny organisation
+        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
+        mmsaatioDesc: "Stiftelse som främjar finländsk jord- och skogsbruksforskning samt kunskapsspridning.",
+
         testIntroText: "Välkommen och testa dina skogskunskaper. Klicka in dig på sidan och välj ett ämne du vill testa dina kunskaper på. Det finns allt från indikationsväxter, skoglig matematik och vägar. Med andra ord, allt inom skogsbruk.",
         goToTests: "🌿 Gå till testerna",
 
-        studiematerialText: "Här samlar vi studiematerial för skogsutbildningar.",
-        blanketText: "Här kommer blanketter att finnas.",
+        // Studiematerial
+        studiematerialIntro: "Här hittar du PDF:er och webbsidor som kan hjälpa dig i dina studier.",
+        studyRecTitle: "Rekommendationer för skogsvård",
+        studyRecDesc: "Webbplats med riktlinjer för god skogsvård i Finland enligt de senaste forskningsrönen.",
+        studyMetsoTitle: "Metso",
+        studyMetsoDesc: "Handbok för METSO-applikation. Praktiska råd till skogsägare och skogsexperter.",
+        studyMetsoLang: "PDF:en är på finska.",
+        studyArvoTitle: "Värdekedjor inom skogsbioekonomi",
+        studyArvoDesc: "Utredning om skogsbioekonomins möjligheter och värdekedjor.",
+        studyArvoLang: "PDF:en är på finska.",
+        studyBokTitle: "Bokföring och lönsamhetsberäkning i skogsbruket",
+        studyBokDesc: "Handbok i ekonomisk planering för skogsägare, med fokus på bokföring och lönsamhet.",
+        studyBokLang: "PDF:en är på svenska.",
+        studyGranskTitle: "Granskningsinstruktion 2023",
+        studyGranskDesc: "Instruktion för fältgranskning av skogsvårdsåtgärder, utgiven av Finlands skogscentral.",
+        studyGranskLang: "PDF:en är på svenska.",
 
+        // Jobb
         jobbIntro: "Här hittar du 3 hemsidor som publicerar arbeten inom skog och trä industrin. Nedanför så hittar du även de största skogsbolagen och länkar till deras karriär sidor. Du kan även hitta praktikplats hos dem. Lycka till",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.",
@@ -83,6 +103,16 @@ const translations = {
         svenskakyrkanTitle: "Svenska kyrkan",
         svenskakyrkanDesc: "Svenska kyrkan är en av Sveriges största skogsägare.",
 
+        // Blanketter
+        blanketIntro: "Här hittar du checklistor och blanketter för egenkontroll och naturhänsyn.",
+        formOmaTitle: "Guide för egenkontroll av skogsvårdsarbeten",
+        formOmaDesc: "Tapios guide med checklistor och anvisningar för skogsägarens egenkontroll. Blanketterna är endast på finska.",
+        formAuditTitle: "Intern auditering",
+        formAuditDesc: "Verktyg för att granska och utveckla skogsorganisationers processer. Allt material är på finska.",
+        formCheckTitle: "Checklista för naturhänsyn",
+        formCheckDesc: "PDF-blankett från Skogscentralen för att följa upp naturvårdsåtgärder. Blanketten är på svenska.",
+        formCheckLang: "PDF:en är på svenska.",
+
         infoBox1Title: "Välkommen till Skogsriket",
         infoBox1Text: "Utforska våra skogstester, nyheter och jobb inom skogssektorn. Här hittar du allt för skogsproffs och entusiaster.",
         infoBox2Title: "Senaste nytt",
@@ -101,7 +131,7 @@ const translations = {
         tabBlanketter: "Lomakkeet",
         tabJobb: "Työpaikat ja harjoittelu",
         tabKunskapstester: "Tietotestit",
-        tabNyheter: "Uutiset",
+        tabNyheter: "Organisaatiot",
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
@@ -122,20 +152,36 @@ const translations = {
         skogsstyrelsenDesc: "Ruotsin kansallinen metsäviranomainen. Edistää kestävää metsätaloutta, tarjoaa neuvontaa, valvoo metsälakia ja hallinnoi valtion tukia.",
         skogsstyrelsenLangNote: "Verkkosivusto on ruotsiksi ja englanniksi.",
 
+        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
+        mmsaatioDesc: "Säätiö, joka edistää suomalaista maa- ja metsätaloustutkimusta sekä tiedon levittämistä.",
+
         testIntroText: "Tervetuloa testaamaan metsätietouttasi. Verkkosivustollamme voit valita itseäsi kiinnostavan aiheen, jonka osaamista haluat testata. Valikoimasta löytyy aiheita kuten indikaattorikasvit, metsämatematiikka ja metsätiet – toisin sanoen kaikkea metsänhoitoon liittyvää.",
         goToTests: "🌿 Siirry testeihin",
 
-        studiematerialText: "Tänne kokoamme opiskelumateriaaleja metsäalan koulutuksiin.",
-        blanketText: "Tänne tulee lomakkeita.",
+        studiematerialIntro: "Täältä löydät PDF-tiedostoja ja verkkosivuja, jotka auttavat opinnoissasi.",
+        studyRecTitle: "Metsänhoidon suositukset",
+        studyRecDesc: "Verkkosivusto, jossa ohjeita hyvään metsänhoitoon Suomessa uusimpien tutkimustulosten mukaan.",
+        studyMetsoTitle: "Metso",
+        studyMetsoDesc: "METSO-sovelluksen käsikirja. Käytännön neuvoja metsänomistajille ja metsäasiantuntijoille.",
+        studyMetsoLang: "PDF on suomeksi.",
+        studyArvoTitle: "Arvoketjut metsäbiotaloudessa",
+        studyArvoDesc: "Selvitys metsäbiotalouden mahdollisuuksista ja arvoketjuista.",
+        studyArvoLang: "PDF on suomeksi.",
+        studyBokTitle: "Kirjanpito ja kannattavuuslaskenta metsätaloudessa",
+        studyBokDesc: "Opas taloudelliseen suunnitteluun metsänomistajille.",
+        studyBokLang: "PDF on ruotsiksi.",
+        studyGranskTitle: "Tarkastusohje 2023",
+        studyGranskDesc: "Metsäkeskuksen ohje metsänhoitotöiden maastotarkastuksiin.",
+        studyGranskLang: "PDF on ruotsiksi.",
 
         jobbIntro: "Täältä löydät 3 verkkosivustoa, jotka julkaisevat työpaikkoja metsä- ja puuteollisuuden alalta. Alta löydät myös suurimmat metsäyhtiöt ja linkit niiden urasivuille. Voit löytää myös harjoittelupaikkoja. Onnea matkaan!",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
-        metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa. Täällä julkaistaan avoimia työpaikkoja koko metsäsektorilta.",
+        metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa.",
         metsalehtiJobLangNote: "",
         skogligaJobbTitle: "Skogliga jobb",
-        skogligaJobbDesc: "Ruotsin metsäalan työpaikkojen kohtaamispaikka. Täältä löydät kaiken metsäkoneenkuljettajista metsätarkastajiin ja asiantuntijoihin.",
+        skogligaJobbDesc: "Ruotsin metsäalan työpaikkojen kohtaamispaikka.",
         tabshollandTitle: "Tabsholland",
-        tabshollandDesc: "Alankomaiden puuteollisuuden rekrytointisivusto. Täältä löytyy avoimia työpaikkoja puujalostuksen ja tuotannon alalla.",
+        tabshollandDesc: "Alankomaiden puuteollisuuden rekrytointisivusto.",
 
         billerudTitle: "Billerud",
         billerudDesc: "Johtava uusiutuvien paperi- ja pakkausmateriaalien valmistaja. Toimii Ruotsissa.",
@@ -144,45 +190,54 @@ const translations = {
         holmenTitle: "Holmen",
         holmenDesc: "Metsäteollisuuskonserni, joka toimii metsätalouden, kartongin, paperin ja puutuotteiden alalla. Toimii Ruotsissa.",
         koskisenTitle: "Koskisen",
-        koskisenDesc: "Kansainvälinen puunjalostusyritys, jolla on yli sadan vuoden kokemus. Valmistaa sahatavaraa, vaneria ja lastulevyä. Toimii Suomessa.",
+        koskisenDesc: "Kansainvälinen puunjalostusyritys. Toimii Suomessa.",
         metsahallitusTitle: "Metsähallitus",
-        metsahallitusDesc: "Suomen valtion metsähallinto. Hoitaa ja suojelee luonnonvaroja sekä tarjoaa työpaikkoja metsätalouden, luonnonsuojelun ja ulkoilun parissa.",
+        metsahallitusDesc: "Suomen valtion metsähallinto.",
         metsaGroupTitle: "Metsä Group",
-        metsaGroupDesc: "Suomalainen metsäteollisuuskonserni, joka tuottaa tissue-paperia, kartonkia, massaa ja puutuotteita. Toimii sekä Suomessa että Ruotsissa.",
+        metsaGroupDesc: "Suomalainen metsäteollisuuskonserni.",
         mhyTitle: "Metsänhoitoyhdistys",
-        mhyDesc: "Metsänhoitoyhdistys, johon kuuluu noin 50 yhdistystä ja yli 1000 metsäammattilaista ympäri Suomea. Tarjoaa monipuolisia työtehtäviä metsänhoidon ja neuvonnan parissa.",
+        mhyDesc: "Metsänhoitoyhdistys, johon kuuluu noin 50 yhdistystä ja yli 1000 metsäammattilaista.",
         norraSkogTitle: "Norra Skog",
-        norraSkogDesc: "Jäsenten omistama metsänomistajayhdistys Pohjois-Ruotsissa, jolla on noin 600 työntekijää. Toimii metsänomistajien parhaaksi ja tarjoaa monipuolisia metsäalan rooleja. Toimii Ruotsissa.",
+        norraSkogDesc: "Jäsenten omistama metsänomistajayhdistys Pohjois-Ruotsissa.",
         scaTitle: "SCA",
-        scaDesc: "Ruotsalainen metsäyhtiö, joka tuottaa massaa, puutuotteita, uusiutuvaa energiaa ja pakkauspaperia. Toimii Ruotsissa.",
+        scaDesc: "Ruotsalainen metsäyhtiö.",
         storaEnsoTitle: "Stora Enso",
-        storaEnsoDesc: "Yksi maailman vanhimmista ja johtavista uusiutuvien materiaalien toimijoista. Valmistaa pakkauksia, biomateriaaleja, puutuotteita ja paperia. Toimii sekä Suomessa että Ruotsissa.",
+        storaEnsoDesc: "Yksi maailman vanhimmista ja johtavista uusiutuvien materiaalien toimijoista.",
         sveaskogTitle: "Sveaskog",
-        sveaskogDesc: "Hoitaa ja käyttää metsämaata, toimittaa puutavaraa, kuitupuuta ja biopolttoainetta. Toimii Ruotsissa.",
+        sveaskogDesc: "Hoitaa ja käyttää metsämaata, toimittaa puutavaraa.",
         upmTitle: "UPM",
-        upmDesc: "Suomalainen metsäteollisuuskonserni, joka tuottaa paperia, massaa, vaneria, energiaa ja biomateriaaleja. Toimii sekä Suomessa että Ruotsissa.",
+        upmDesc: "Suomalainen metsäteollisuuskonserni.",
         versowoodTitle: "Versowood",
-        versowoodDesc: "Suomen suurin yksityinen puunjalostuskonserni, jolla on noin 900 työntekijää 13 paikkakunnalla. Valmistaa sahatavaraa ja liimapuuta. Toimii Suomessa.",
+        versowoodDesc: "Suomen suurin yksityinen puunjalostuskonserni.",
 
         sodraTitle: "Södra",
-        sodraDesc: "Ruotsin suurin metsänomistajien osuuskunta, jossa on yli 50 000 jäsentä. Toimii Ruotsissa.",
-        sodraskogsTitle: "Södra Skogsreviret",
-        sodraskogsDesc: "Paikallinen metsäpiiri etelä Suomi, joka keskittyy metsäneuvontaan ja puunhankintaan.",
+        sodraDesc: "Ruotsin suurin metsänomistajien osuuskunta.",
+        sodraskogsTitle: "Södra skogsreviret",
+        sodraskogsDesc: "Paikallinen metsäpiiri etelä Suomessa.",
         osterbottenTitle: "Pohjanmaan metsäpiiri",
-        osterbottenDesc: "Alueellinen metsäpiiri Pohjanmaalla, Suomi. Vastaa metsäneuvonnasta ja suunnittelusta.",
+        osterbottenDesc: "Alueellinen metsäpiiri Pohjanmaalla.",
         skogssallskapetTitle: "Skogssällskapet",
-        skogssallskapetDesc: "Ruotsalainen metsäorganisaatio, joka tarjoaa palveluita metsänhoidossa, neuvonnassa ja kiinteistökehityksessä. Toimii sekä Suomessa että Ruotsissa.",
+        skogssallskapetDesc: "Ruotsalainen metsäorganisaatio.",
         mellanskogTitle: "Mellanskog",
-        mellanskogDesc: "Metsänomistajayhdistys Keski-Ruotsissa. Tarjoaa palveluita puun myynnissä, metsänhoidossa ja metsäkoneyrittäjyydessä. Toimii Ruotsissa.",
+        mellanskogDesc: "Metsänomistajayhdistys Keski-Ruotsissa.",
         svenskakyrkanTitle: "Ruotsin kirkko",
         svenskakyrkanDesc: "Ruotsin kirkko on yksi Ruotsin suurimmista metsänomistajista.",
 
+        blanketIntro: "Täältä löydät tarkistuslistoja ja lomakkeita omavalvontaan ja luonnonhoitoon.",
+        formOmaTitle: "Metsänhoitotöiden omavalvontaopas",
+        formOmaDesc: "Tapion opas, jossa tarkistuslistoja ja ohjeita metsänomistajan itsevalvontaan. Vain suomenkieliset lomakkeet.",
+        formAuditTitle: "Sisäinen auditointi",
+        formAuditDesc: "Työkaluja metsäorganisaatioiden prosessien tarkasteluun ja kehittämiseen. Materiaali suomeksi.",
+        formCheckTitle: "Luonnonhoitotoimenpiteiden tarkistuslista",
+        formCheckDesc: "Metsäkeskuksen ruotsinkielinen PDF-lomake luonnonhoitotoimenpiteiden seurantaan.",
+        formCheckLang: "PDF on ruotsiksi.",
+
         infoBox1Title: "Tervetuloa Metsävaltakuntaan",
-        infoBox1Text: "Tutustu metsätesteihin, uutisiin ja työpaikkoihin. Täältä löydät kaiken metsäammattilaisille ja –harrastajille.",
+        infoBox1Text: "Tutustu metsätesteihin, uutisiin ja työpaikkoihin.",
         infoBox2Title: "Viimeisimmät uutiset",
-        infoBox2Text: "Pysy ajan tasalla metsäteollisuuden tapahtumista ja tutkimuksista Suomessa ja Ruotsissa.",
+        infoBox2Text: "Pysy ajan tasalla metsäteollisuuden tapahtumista.",
         infoBox3Title: "Testaa tietosi",
-        infoBox3Text: "Valitse useista kategorioista kuten puulajit, kasvit, matematiikka ja tiet – ja haasta itsesi!",
+        infoBox3Text: "Valitse useista kategorioista ja haasta itsesi!",
 
         dictionaryIntro: "Täältä löydät kaikki metsäalan sanat ja niiden nimet",
         dictionaryClickText: "Napsauta painiketta päästäksesi metsäalan sanakirjaan",
@@ -195,7 +250,7 @@ const translations = {
         tabBlanketter: "Forms",
         tabJobb: "Jobs and Internships",
         tabKunskapstester: "Knowledge Tests",
-        tabNyheter: "News",
+        tabNyheter: "Organizations",
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
@@ -203,79 +258,105 @@ const translations = {
 
         newsIntro: "Here I have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing to them and support them.",
         skogscentralenTitle: "Skogscentralen",
-        skogscentralenDesc: "Finland's national forest authority. Responsible for implementing Finland's forest policy and offers advice, training and financial support for forest owners.",
+        skogscentralenDesc: "Finland's national forest authority. Responsible for implementing Finland's forest policy.",
         tapioTitle: "Tapio",
-        tapioDesc: "A neutral, experienced expert organisation with over 110 years of experience in sustainable forestry. Offers consulting, forest planning and climate adaptation services.",
+        tapioDesc: "A neutral, experienced expert organisation with over 110 years of experience in sustainable forestry.",
         metsalehtiTitle: "Metsälehti",
-        metsalehtiDesc: "Finland's leading forestry magazine since 1933, featuring news, reports and debate on forestry and forest ownership.",
+        metsalehtiDesc: "Finland's leading forestry magazine since 1933.",
         metsalehtiLangNote: "The website is in Finnish only.",
         finlandsNaturTitle: "Finlands Natur",
-        finlandsNaturDesc: "The Swedish-speaking Finnish nature magazine that since 1941 has offered nature stories, environmental news and practical tips for a sustainable lifestyle.",
+        finlandsNaturDesc: "The Swedish-speaking Finnish nature magazine.",
         finlandsNaturLangNote: "The website is in Swedish only.",
         skogsstyrelsenTitle: "Skogsstyrelsen",
-        skogsstyrelsenDesc: "Sweden's national forest authority. Promotes sustainable forestry, provides advice, enforces the Forestry Act and handles state subsidies for forestry.",
+        skogsstyrelsenDesc: "Sweden's national forest authority.",
         skogsstyrelsenLangNote: "The website is available in Swedish and English.",
 
-        testIntroText: "Welcome and test your forest knowledge. Enter the page and choose a topic you want to test your knowledge on. There is everything from indicator plants, forest mathematics to forest roads – in other words, everything within forestry.",
+        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
+        mmsaatioDesc: "Foundation that promotes Finnish agricultural and forestry research and knowledge dissemination.",
+
+        testIntroText: "Welcome and test your forest knowledge.",
         goToTests: "🌿 Go to tests",
 
-        studiematerialText: "Here we collect study materials for forestry education.",
-        blanketText: "Forms will be available here.",
+        studiematerialIntro: "Here you will find PDFs and websites to help you in your studies.",
+        studyRecTitle: "Forest Management Recommendations",
+        studyRecDesc: "Website with guidelines for good forest management in Finland based on the latest research.",
+        studyMetsoTitle: "Metso",
+        studyMetsoDesc: "Handbook for METSO application. Practical advice for forest owners and forest experts.",
+        studyMetsoLang: "PDF is in Finnish.",
+        studyArvoTitle: "Value chains in forest bioeconomy",
+        studyArvoDesc: "Report on the opportunities and value chains of forest bioeconomy.",
+        studyArvoLang: "PDF is in Finnish.",
+        studyBokTitle: "Accounting and profitability calculation in forestry",
+        studyBokDesc: "Guide to financial planning for forest owners.",
+        studyBokLang: "PDF is in Swedish.",
+        studyGranskTitle: "Inspection Instruction 2023",
+        studyGranskDesc: "Instruction for field inspection of silvicultural measures, published by the Finnish Forest Centre.",
+        studyGranskLang: "PDF is in Swedish.",
 
-        jobbIntro: "Here you find 3 websites that publish jobs in the forest and wood industry. Below you will also find the largest forest companies and links to their career pages. You can also find internships with them. Good luck!",
+        jobbIntro: "Here you find 3 websites that publish jobs in the forest and wood industry.",
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
-        metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland. Open positions across the entire forest sector are published here.",
+        metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland.",
         metsalehtiJobLangNote: "The website is in Finnish only.",
         skogligaJobbTitle: "Skogliga jobb",
-        skogligaJobbDesc: "Sweden's hub for forestry jobs. Here you'll find everything from forest machine operators to forest inspectors and specialists.",
+        skogligaJobbDesc: "Sweden's hub for forestry jobs.",
         tabshollandTitle: "Tabsholland",
-        tabshollandDesc: "Recruitment site for the wood industry in the Netherlands. Here you can find job openings in wood processing and production.",
+        tabshollandDesc: "Recruitment site for the wood industry in the Netherlands.",
 
         billerudTitle: "Billerud",
         billerudDesc: "Leading provider of renewable paper and packaging materials. Operates in Sweden.",
         biometriaTitle: "Biometria",
         biometriaDesc: "Quality assures timber measurement and forest logistics. Operates in Sweden.",
         holmenTitle: "Holmen",
-        holmenDesc: "Forest industry group with operations in forestry, cardboard, paper and wood products. Operates in Sweden.",
+        holmenDesc: "Forest industry group with operations in forestry, cardboard, paper and wood products.",
         koskisenTitle: "Koskisen",
-        koskisenDesc: "International wood processing company with over a hundred years of experience. Manufactures sawn timber, plywood and chipboard. Operates in Finland.",
+        koskisenDesc: "International wood processing company.",
         metsahallitusTitle: "Metsähallitus",
-        metsahallitusDesc: "Finland's state forest administration. Manages and protects natural resources and offers employment in forestry, nature conservation and outdoor recreation.",
+        metsahallitusDesc: "Finland's state forest administration.",
         metsaGroupTitle: "Metsä Group",
-        metsaGroupDesc: "Finnish forest industry group producing tissue, cardboard, pulp and wood products. Operates in both Finland and Sweden.",
+        metsaGroupDesc: "Finnish forest industry group producing tissue, cardboard, pulp and wood products.",
         mhyTitle: "Metsänhoitoyhdistys",
-        mhyDesc: "Forest management associations with about 50 associations and over 1,000 forest professionals across Finland. Offers diverse tasks in forest management and advisory services. Operates in Finland.",
+        mhyDesc: "Forest management associations across Finland.",
         norraSkogTitle: "Norra Skog",
-        norraSkogDesc: "Member-owned forest owners' association in northern Sweden with about 600 employees. Works for the best interests of forest owners and offers varied forestry roles. Operates in Sweden. ",
+        norraSkogDesc: "Member-owned forest owners' association in northern Sweden.",
         scaTitle: "SCA",
-        scaDesc: "Swedish forest company producing pulp, wood products, renewable energy and packaging paper. Operates in Sweden.",
+        scaDesc: "Swedish forest company producing pulp, wood products, renewable energy and packaging paper.",
         storaEnsoTitle: "Stora Enso",
-        storaEnsoDesc: "One of the world's oldest and leading renewable materials companies. Produces packaging, biomaterials, wood products and paper. Operates in both Finland and Sweden.",
+        storaEnsoDesc: "One of the world's oldest and leading renewable materials companies.",
         sveaskogTitle: "Sveaskog",
-        sveaskogDesc: "Manages and cultivates forest land, delivers timber, pulpwood and biofuel. Operates in Sweden.",
+        sveaskogDesc: "Manages and cultivates forest land, delivers timber, pulpwood and biofuel.",
         upmTitle: "UPM",
-        upmDesc: "Finnish forest industry group producing paper, pulp, plywood, energy and biomaterials. Operates in both Finland and Sweden.",
+        upmDesc: "Finnish forest industry group producing paper, pulp, plywood, energy and biomaterials.",
         versowoodTitle: "Versowood",
-        versowoodDesc: "Finland's largest privately owned wood processing group with about 900 employees in 13 locations. Manufactures sawn timber. Operates in Finland.",
+        versowoodDesc: "Finland's largest privately owned wood processing group.",
+
         sodraTitle: "Södra",
-        sodraDesc: "Sweden's largest forest owner association with over 50,000 members. Operates in Sweden.",
+        sodraDesc: "Sweden's largest forest owner association.",
         sodraskogsTitle: "Södra skogsreviret",
-        sodraskogsDesc: "Local forest district within south of Finland, focusing on forest advice and wood procurement.",
+        sodraskogsDesc: "Local forest district within south of Finland.",
         osterbottenTitle: "Ostrobothnia Forest District",
-        osterbottenDesc: "Regional forest district in Ostrobothnia, Finland. Responsible for forest advice.",
+        osterbottenDesc: "Regional forest district in Ostrobothnia, Finland.",
         skogssallskapetTitle: "Skogssällskapet",
-        skogssallskapetDesc: "Swedish forest organisation offering services in forest management, advice and property development. Operates in both Finland and Sweden.",
+        skogssallskapetDesc: "Swedish forest organisation.",
         mellanskogTitle: "Mellanskog",
-        mellanskogDesc: "Forest owner association in central Sweden. Offers services in timber sales, forest care and contracting. Operates in Sweden.",
+        mellanskogDesc: "Forest owner association in central Sweden.",
         svenskakyrkanTitle: "Church of Sweden",
         svenskakyrkanDesc: "The Church of Sweden is one of the largest forest owners in Sweden.",
 
+        blanketIntro: "Here you will find checklists and forms for self-monitoring and nature conservation.",
+        formOmaTitle: "Self-monitoring guide for forest management work",
+        formOmaDesc: "Tapio's guide with checklists and instructions for forest owner self-monitoring. Forms in Finnish only.",
+        formAuditTitle: "Internal auditing",
+        formAuditDesc: "Tools for reviewing and developing forest organisation processes. Material in Finnish only.",
+        formCheckTitle: "Checklist for nature conservation measures",
+        formCheckDesc: "PDF form from the Finnish Forest Centre for monitoring nature management actions. The form is in Swedish.",
+        formCheckLang: "PDF is in Swedish.",
+
         infoBox1Title: "Welcome to the Forest Realm",
-        infoBox1Text: "Explore our forest tests, news and jobs within the forestry sector. Here you'll find everything for forest professionals and enthusiasts.",
+        infoBox1Text: "Explore our forest tests, news and jobs within the forestry sector.",
         infoBox2Title: "Latest News",
-        infoBox2Text: "Stay updated with the latest events and findings from the forest industry in Finland and Sweden.",
+        infoBox2Text: "Stay updated with the latest events and findings from the forest industry.",
         infoBox3Title: "Test Your Knowledge",
-        infoBox3Text: "Choose from several categories such as tree species, plants, mathematics and roads – and challenge yourself!",
+        infoBox3Text: "Choose from several categories and challenge yourself!",
 
         dictionaryIntro: "Here you find all forestry words and their designations",
         dictionaryClickText: "Click the button to access the forestry dictionary",
@@ -286,39 +367,61 @@ const translations = {
 };
 
 // ============================================================
-// 2. DATA FÖR NYHETS- OCH JOBBKORT
+// 2. DATA FÖR KORTEN (Organisationer, Studiematerial, Blanketter)
 // ============================================================
 const newsCards = [
     { key: "skogscentralen", link: "https://www.metsakeskus.fi/sv", langNoteKey: null },
     { key: "tapio", link: "https://tapio.fi/", langNoteKey: null },
     { key: "metsalehti", link: "https://www.metsalehti.fi/", langNoteKey: "metsalehtiLangNote" },
     { key: "finlandsNatur", link: "https://finlandsnatur.fi/", langNoteKey: "finlandsNaturLangNote" },
-    { key: "skogsstyrelsen", link: "https://www.skogsstyrelsen.se/", langNoteKey: "skogsstyrelsenLangNote" }
+    { key: "skogsstyrelsen", link: "https://www.skogsstyrelsen.se/", langNoteKey: "skogsstyrelsenLangNote" },
+    { key: "mmsaatio", link: "https://www.mmsaatio.fi/", langNoteKey: null }
 ];
 
-const jobCards = [
-    { key: "metsalehtiJob", link: "https://www.metsalehti.fi/tyopaikat/", langNoteKey: "metsalehtiJobLangNote" },
-    { key: "skogligaJobb", link: "https://www.skogligajobb.se/", langNoteKey: null },
-    { key: "tabsholland", link: "https://werkenbij.tabsholland.nl/jobs", langNoteKey: null },
-    { key: "billerud", link: "https://www.billerud.com/career", langNoteKey: null },
-    { key: "biometria", link: "https://www.biometria.se/", langNoteKey: null },
-    { key: "holmen", link: "https://www.holmen.com/en/career/", langNoteKey: null },
-    { key: "koskisen", link: "https://koskisen.fi/konserni/tyopaikat/", langNoteKey: null },
-    { key: "metsahallitus", link: "https://www.metsa.fi/en/about-us/cooperation/job-opportunities/", langNoteKey: null },
-    { key: "metsaGroup", link: "https://www.metsagroup.com/careers/", langNoteKey: null },
-    { key: "mhy", link: "https://www.mhy.fi/avoimet-tyopaikat", langNoteKey: null },
-    { key: "norraSkog", link: "https://karriar.norraskog.se/", langNoteKey: null },
-    { key: "sca", link: "https://www.sca.com/sv/karriar/", langNoteKey: null },
-    { key: "storaEnso", link: "https://www.storaenso.com/en/careers", langNoteKey: null },
-    { key: "sveaskog", link: "https://www.sveaskog.se/karriar/", langNoteKey: null },
-    { key: "upm", link: "https://www.upm.com/careers/", langNoteKey: null },
-    { key: "versowood", link: "https://www.versowood.fi/fi/konserni/versowood-tyonantajana", langNoteKey: null },
-    { key: "sodra", link: "https://www.sodra.com/sv/se/karriar/", langNoteKey: null },
-    { key: "sodraskogs", link: "https://www.revir.org/", langNoteKey: null },
-    { key: "osterbotten", link: "https://www.mhy.fi/sv/osterbotten", langNoteKey: null },
-    { key: "skogssallskapet", link: "https://www.skogssallskapet.se/", langNoteKey: null },
-    { key: "mellanskog", link: "https://www.mellanskog.se/om-oss/jobba-hos-oss/", langNoteKey: null },
-    { key: "svenskakyrkan", link: "https://www.svenskakyrkan.se/karriar", langNoteKey: null }
+const studyCards = [
+    {
+        key: "studyRec",
+        link: "https://metsanhoidonsuositukset.fi",
+        langNoteKey: null
+    },
+    {
+        key: "studyMetso",
+        link: "https://metsonpolku.fi/documents/115183005/124281117/Metso_Tikka_2018_Suomi.pdf/afcc4af9-c8b0-d133-47f3-a9b077db9ffd/Metso_Tikka_2018_Suomi.pdf?t=1655465275803",
+        langNoteKey: "studyMetsoLang"
+    },
+    {
+        key: "studyArvo",
+        link: "https://julkaisut.valtioneuvosto.fi/server/api/core/bitstreams/35938706-0485-42d3-bff1-724f245e4c6b/content",
+        langNoteKey: "studyArvoLang"
+    },
+    {
+        key: "studyBok",
+        link: "https://share.google/vN4YfB8GjvWnsLjii",
+        langNoteKey: "studyBokLang"
+    },
+    {
+        key: "studyGransk",
+        link: "https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf",
+        langNoteKey: "studyGranskLang"
+    }
+];
+
+const formCards = [
+    {
+        key: "formOma",
+        link: "https://tapio.fi/oppaat-ja-tyovalineet/metsanhoitotoiden-omavalvontaopas/",
+        langNoteKey: null  // inget extra språknotis, info finns i desc
+    },
+    {
+        key: "formAudit",
+        link: "https://kestavametsa.fi/sisainen-auditointi/",
+        langNoteKey: null
+    },
+    {
+        key: "formCheck",
+        link: "https://www.metsakeskus.fi/sites/default/files/document/lomake-luonnonhoitotoimenpiteiden-tarkistuslista-sv.pdf",
+        langNoteKey: "formCheckLang"
+    }
 ];
 
 // ============================================================
@@ -356,6 +459,7 @@ function setActiveTab(tabId) {
     });
 }
 
+// Hjälpfunktion för att skapa kort
 function createCard(data, lang) {
     const t = translations[lang];
     const div = document.createElement('div');
@@ -379,13 +483,59 @@ function createCard(data, lang) {
     return div;
 }
 
-function renderNews() {
-    const container = document.getElementById('newsContainer');
+// Renderingsfunktioner för varje sektion
+function renderSection(containerId, cards) {
+    const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = '';
-    newsCards.forEach(card => container.appendChild(createCard(card, currentLang)));
+    cards.forEach(card => container.appendChild(createCard(card, currentLang)));
 }
 
+function renderNews() { renderSection('newsContainer', newsCards); }
+function renderStudy() { renderSection('studyContainer', studyCards); }
+function renderForms() { renderSection('formContainer', formCards); }
+function renderJobs() { renderSection('jobContainer', jobCards); }
+// Lyssnare för flikar
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tabType = btn.getAttribute('data-tab');
+        if (!tabType || tabType === 'sprak') return;
+        setActiveTab(tabType);
+        // Rendera innehållet för den aktiva fliken
+        if (tabType === 'nyheter') renderNews();
+        else if (tabType === 'jobb') renderJobs();
+        else if (tabType === 'studiematerial') renderStudy();
+        else if (tabType === 'blanketter') renderForms();
+    });
+});
+
+// (fortsätter från tidigare)
+const jobCards = [
+    { key: "metsalehtiJob", link: "https://www.metsalehti.fi/tyopaikat/", langNoteKey: "metsalehtiJobLangNote" },
+    { key: "skogligaJobb", link: "https://www.skogligajobb.se/", langNoteKey: null },
+    { key: "tabsholland", link: "https://werkenbij.tabsholland.nl/jobs", langNoteKey: null },
+    { key: "billerud", link: "https://www.billerud.com/career", langNoteKey: null },
+    { key: "biometria", link: "https://www.biometria.se/", langNoteKey: null },
+    { key: "holmen", link: "https://www.holmen.com/en/career/", langNoteKey: null },
+    { key: "koskisen", link: "https://koskisen.fi/konserni/tyopaikat/", langNoteKey: null },
+    { key: "metsahallitus", link: "https://www.metsa.fi/en/about-us/cooperation/job-opportunities/", langNoteKey: null },
+    { key: "metsaGroup", link: "https://www.metsagroup.com/careers/", langNoteKey: null },
+    { key: "mhy", link: "https://www.mhy.fi/avoimet-tyopaikat", langNoteKey: null },
+    { key: "norraSkog", link: "https://karriar.norraskog.se/", langNoteKey: null },
+    { key: "sca", link: "https://www.sca.com/sv/karriar/", langNoteKey: null },
+    { key: "storaEnso", link: "https://www.storaenso.com/en/careers", langNoteKey: null },
+    { key: "sveaskog", link: "https://www.sveaskog.se/karriar/", langNoteKey: null },
+    { key: "upm", link: "https://www.upm.com/careers/", langNoteKey: null },
+    { key: "versowood", link: "https://www.versowood.fi/fi/konserni/versowood-tyonantajana", langNoteKey: null },
+    { key: "sodra", link: "https://www.sodra.com/sv/se/karriar/", langNoteKey: null },
+    { key: "sodraskogs", link: "https://www.revir.org/", langNoteKey: null },
+    { key: "osterbotten", link: "https://www.mhy.fi/sv/osterbotten", langNoteKey: null },
+    { key: "skogssallskapet", link: "https://www.skogssallskapet.se/", langNoteKey: null },
+    { key: "mellanskog", link: "https://www.mellanskog.se/om-oss/jobba-hos-oss/", langNoteKey: null },
+    { key: "svenskakyrkan", link: "https://www.svenskakyrkan.se/karriar", langNoteKey: null }
+];
+
+// Renderingsfunktion för jobb använder nu den globala jobCards
 function renderJobs() {
     const container = document.getElementById('jobContainer');
     if (!container) return;
@@ -393,34 +543,28 @@ function renderJobs() {
     jobCards.forEach(card => container.appendChild(createCard(card, currentLang)));
 }
 
-// Lyssnare
-tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tabType = btn.getAttribute('data-tab');
-        if (tabType && tabType !== 'sprak') setActiveTab(tabType);
-        if (tabType === 'nyheter') renderNews();
-        if (tabType === 'jobb') renderJobs();
-    });
-});
-
+// Lyssnare för språkknappar
 langButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const lang = e.currentTarget.getAttribute('data-lang');
         if (lang && translations[lang]) {
             currentLang = lang;
             updateLanguage(lang);
-            renderNews();
-            renderJobs();
+            // Rendera alla synliga paneler för att uppdatera språket
+            if (document.getElementById('panel-nyheter').classList.contains('active')) renderNews();
+            if (document.getElementById('panel-jobb').classList.contains('active')) renderJobs();
+            if (document.getElementById('panel-studiematerial').classList.contains('active')) renderStudy();
+            if (document.getElementById('panel-blanketter').classList.contains('active')) renderForms();
         }
     });
 });
 
+// Navigering
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
         window.location.href = '/Testerna/testerna.html';
     });
 }
-
 if (goToDictionaryBtn) {
     goToDictionaryBtn.addEventListener('click', () => {
         window.location.href = '/Ordbok/ordbok.html';
