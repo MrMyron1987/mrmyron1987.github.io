@@ -358,7 +358,7 @@ if (goToDictionaryBtn) {
 }
 if (goToJobBtn) {
     goToJobBtn.addEventListener('click', () => {
-        window.location.href = 'jobb.html';      // anpassa vid behov
+        window.location.href = '/jobb/jobb.html';      // anpassa vid behov
     });
 }
 
