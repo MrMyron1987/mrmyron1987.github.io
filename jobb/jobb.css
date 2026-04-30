@@ -1,0 +1,183 @@
+:root {
+    --app-bg-r: 254;
+    --app-bg-g: 249;
+    --app-bg-b: 232;
+    --app-bg-opacity: 0.6;
+    --header-bg: #2c5e2e;
+    --header-text: #f9f1cf;
+    --header-border: #a6c89b;
+    --text-dark: #1e3a1e;
+    --footer-bg: #e0d5bc;
+    --footer-text: #4f5a3c;
+    --footer-border: #b1c99e;
+    --card-border: #cfe2b0;
+
+    /* Tillbaka-knapp */
+    --back-btn-bg: #a0763a;
+    --back-btn-hover-bg: rgba(184, 134, 74, 0.6);
+    --back-btn-shadow: #6b4f2c;
+    --back-btn-border: #dbb47a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+    background: url('https://i.ibb.co/TMx49qyK/skogsarbete.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(var(--app-bg-r), var(--app-bg-g), var(--app-bg-b), var(--app-bg-opacity));
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 28px;
+    border-bottom: 4px solid var(--header-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.main-header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Till startsidan-knapp */
+.back-btn {
+    background: var(--back-btn-bg);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 0 3px 0 var(--back-btn-shadow);
+    border: 1px solid var(--back-btn-border);
+}
+
+.back-btn:hover {
+    background: var(--back-btn-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--back-btn-shadow);
+}
+
+.tab-content-wrapper {
+    padding: 24px 20px 30px;
+    overflow-y: auto;
+    flex: 1 1 0;
+    border-top: 2px solid transparent;
+}
+
+/* ============================================================
+   KORT (3 kolumner)
+   ============================================================ */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.news-item {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.news-item h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.news-item h3 a {
+    color: #1e4a1e;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid #7aac6e;
+}
+
+.news-item h3 a:hover {
+    color: #2e6730;
+    border-bottom-color: #2e6730;
+}
+
+.news-item p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #3a4d38;
+    margin: 0;
+    flex: 1;
+}
+
+.news-item .lang-note {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #6b7a5c;
+    margin-top: 6px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.8rem;
+    border-top: 2px solid var(--footer-border);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVITET
+   ============================================================ */
+@media (max-width: 850px) {
+    .news-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+}
