@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finska skogssidan</title>
+    <title>Skolor – Finska skogssidan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Startsida.css">
+    <link rel="stylesheet" href="skola.css">
 </head>
 <body>
 <div class="app-container">
+    <!-- ===================== HEADER ===================== -->
     <header class="main-header">
         <h1 data-translate="headerTitle"></h1>
         <div class="lang-bar">
@@ -20,35 +21,22 @@
         </div>
     </header>
 
+    <!-- ===================== FLIKMENY ===================== -->
     <nav class="tabs-nav">
-        <button class="tab active" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab" data-tab="start" data-translate="tabStart"></button>
         <button class="tab" data-tab="nyheter" data-translate="tabNyheter"></button>
         <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
         <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
         <button class="tab" data-tab="jobb" data-translate="tabJobb"></button>
         <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
         <button class="tab" data-tab="ordbok" data-translate="tabDictionary"></button>
-        <button class="tab" data-tab="skolor" data-translate="tabSchools"></button>
+        <button class="tab active" data-tab="skolor" data-translate="tabSchools"></button>
     </nav>
 
+    <!-- ===================== INNEHÅLL ===================== -->
     <main class="tab-content-wrapper">
-        <div class="tab-panel active" id="panel-start">
-            <p class="welcome-message" data-translate="welcomeMsg"></p>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h2 data-translate="infoBox1Title"></h2>
-                    <p data-translate="infoBox1Text"></p>
-                </div>
-                <div class="info-card">
-                    <h2 data-translate="infoBox2Title"></h2>
-                    <p data-translate="infoBox2Text"></p>
-                </div>
-                <div class="info-card">
-                    <h2 data-translate="infoBox3Title"></h2>
-                    <p data-translate="infoBox3Text"></p>
-                </div>
-            </div>
-        </div>
+        <p class="news-intro" data-translate="schoolsIntro"></p>
+        <div class="news-container" id="schoolsContainer"></div>
     </main>
 
     <footer>
@@ -56,6 +44,6 @@
     </footer>
 </div>
 
-<script src="startsida.js"></script>
+<script src="skola.js"></script>
 </body>
 </html>

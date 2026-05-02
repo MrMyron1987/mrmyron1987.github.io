@@ -11,6 +11,7 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
         welcomeMsg: "Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.",
 
         infoBox1Title: "Välkommen till Skogsriket",
@@ -31,6 +32,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
         welcomeMsg: "Tervetuloa tälle sivustolle, se on vielä rakenteilla, mutta katsele ympärillesi.",
 
         infoBox1Title: "Tervetuloa Metsävaltakuntaan",
@@ -51,6 +53,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
         welcomeMsg: "Welcome to this website, it is still under construction but feel free to look around.",
 
         infoBox1Title: "Welcome to the Forest Realm",
@@ -123,6 +126,10 @@ tabButtons.forEach(btn => {
         }
         if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+            return;
+        }
+        if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
             return;
         }
         setActiveTab(tabType);
