@@ -49,10 +49,6 @@ const translations = {
         studyGranskDesc: "Instruktion för fältgranskning av skogsvårdsåtgärder, utgiven av Finlands skogscentral.",
         studyGranskLang: "PDF:en är på svenska.",
 
-        // Jobb-panelen blir en knapp
-        jobbIntro: "Här hittar du 3 hemsidor som publicerar arbeten inom skog och trä industrin. Nedanför så hittar du även de största skogsbolagen och länkar till deras karriär sidor. Du kan även hitta praktikplats hos dem. Lycka till",
-        goToJobBtn: "💼 Öppna jobbsidan",
-
         blanketIntro: "Här hittar du checklistor och blanketter för egenkontroll och naturhänsyn.",
         formOmaTitle: "Guide för egenkontroll av skogsvårdsarbeten",
         formOmaDesc: "Tapios guide med checklistor och anvisningar för skogsägarens egenkontroll. Blanketterna är endast på finska.",
@@ -121,9 +117,6 @@ const translations = {
         studyGranskTitle: "Tarkastusohje 2023",
         studyGranskDesc: "Metsäkeskuksen ohje metsänhoitotöiden maastotarkastuksiin.",
         studyGranskLang: "PDF on ruotsiksi.",
-
-        jobbIntro: "Täältä löydät 3 verkkosivustoa, jotka julkaisevat työpaikkoja metsä- ja puuteollisuuden alalta. Alta löydät myös suurimmat metsäyhtiöt ja linkit niiden urasivuille. Voit löytää myös harjoittelupaikkoja. Onnea matkaan!",
-        goToJobBtn: "💼 Avaa työsivu",
 
         blanketIntro: "Täältä löydät tarkistuslistoja ja lomakkeita omavalvontaan ja luonnonhoitoon.",
         formOmaTitle: "Metsänhoitotöiden omavalvontaopas",
@@ -194,9 +187,6 @@ const translations = {
         studyGranskDesc: "Instruction for field inspection of silvicultural measures, published by the Finnish Forest Centre.",
         studyGranskLang: "PDF is in Swedish.",
 
-        jobbIntro: "Here you find 3 websites that publish jobs in the forest and wood industry. Below you will also find the largest forest companies and links to their career pages. You can also find internships with them. Good luck!",
-        goToJobBtn: "💼 Open job page",
-
         blanketIntro: "Here you will find checklists and forms for self-monitoring and nature conservation.",
         formOmaTitle: "Self-monitoring guide for forest management work",
         formOmaDesc: "Tapio's guide with checklists and instructions for forest owner self-monitoring. Forms in Finnish only.",
@@ -254,7 +244,6 @@ const tabButtons = document.querySelectorAll('.tab');
 const langButtons = document.querySelectorAll('.lang-btn');
 const goToTestsBtn = document.getElementById('goToTestsBtn');
 const goToDictionaryBtn = document.getElementById('goToDictionaryBtn');
-const goToJobBtn = document.getElementById('goToJobBtn');
 const allPanels = document.querySelectorAll('.tab-panel');
 let currentLang = 'sv';
 
@@ -324,6 +313,11 @@ tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabType = btn.getAttribute('data-tab');
         if (!tabType || tabType === 'sprak') return;
+        if (tabType === 'jobb') {
+            // Navigera till jobb-sidan istället för att visa panel
+            window.location.href = 'jobb.html';
+            return;
+        }
         setActiveTab(tabType);
         if (tabType === 'nyheter') renderNews();
         else if (tabType === 'studiematerial') renderStudy();
@@ -354,11 +348,6 @@ if (goToTestsBtn) {
 if (goToDictionaryBtn) {
     goToDictionaryBtn.addEventListener('click', () => {
         window.location.href = '/Ordbok/ordbok.html';
-    });
-}
-if (goToJobBtn) {
-    goToJobBtn.addEventListener('click', () => {
-        window.location.href = '/jobb/jobb.html';      // anpassa vid behov
     });
 }
 

@@ -1,24 +1,6 @@
-:root {
-    --app-bg-r: 254;
-    --app-bg-g: 249;
-    --app-bg-b: 232;
-    --app-bg-opacity: 0.6;
-    --header-bg: #2c5e2e;
-    --header-text: #f9f1cf;
-    --header-border: #a6c89b;
-    --text-dark: #1e3a1e;
-    --footer-bg: #e0d5bc;
-    --footer-text: #4f5a3c;
-    --footer-border: #b1c99e;
-    --card-border: #cfe2b0;
-
-    /* Tillbaka-knapp */
-    --back-btn-bg: #a0763a;
-    --back-btn-hover-bg: rgba(184, 134, 74, 0.6);
-    --back-btn-shadow: #6b4f2c;
-    --back-btn-border: #dbb47a;
-}
-
+/* ============================================================
+   GLOBALA REGLER
+   ============================================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +9,7 @@
 
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
-    background: url('https://i.ibb.co/TMx49qyK/skogsarbete.png') no-repeat center center fixed;
+    background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
@@ -37,20 +19,26 @@ body {
     overflow: hidden;
 }
 
+/* ============================================================
+   HUVUDCONTAINER
+   ============================================================ */
 .app-container {
     max-width: 1200px;
     width: 100%;
     height: 100vh;
-    background-color: rgba(var(--app-bg-r), var(--app-bg-g), var(--app-bg-b), var(--app-bg-opacity));
+    background-color: rgba(254, 249, 232, 0.4);
     display: flex;
     flex-direction: column;
 }
 
+/* ============================================================
+   HEADER
+   ============================================================ */
 .main-header {
-    background: var(--header-bg);
-    color: var(--header-text);
+    background: #2c5e2e;
+    color: #f9f1cf;
     padding: 20px 28px;
-    border-bottom: 4px solid var(--header-border);
+    border-bottom: 4px solid #a6c89b;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,28 +55,91 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Till startsidan-knapp */
-.back-btn {
-    background: var(--back-btn-bg);
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 40px;
-    color: white;
+/* ============================================================
+   SPRÅKKNAPPAR
+   ============================================================ */
+.lang-bar {
+    display: flex;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #e2f0d5;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
     cursor: pointer;
     transition: 0.15s;
-    box-shadow: 0 3px 0 var(--back-btn-shadow);
-    border: 1px solid var(--back-btn-border);
+    backdrop-filter: blur(4px);
+    line-height: 1.2;
 }
 
-.back-btn:hover {
-    background: var(--back-btn-hover-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 0 var(--back-btn-shadow);
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
 }
 
+.lang-btn.active {
+    background: #f9f1cf;
+    color: #1e4a1e;
+    border-color: #f9f1cf;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   FLIKMENY – 50% mindre
+   ============================================================ */
+.tabs-nav {
+    background: rgba(212, 201, 168, 0.8);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 0 6px;
+    border-bottom: 3px solid #5f7a4c;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.tab {
+    background: rgba(200, 184, 146, 0.2);
+    border: 2px solid #5f7a4c;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 12px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: #2c3e2b;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 2px;
+    position: relative;
+    top: 3px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05) inset;
+}
+
+.tab:hover {
+    background: rgba(217, 207, 160, 0.7);
+}
+
+.tab.active {
+    background: rgba(254, 249, 232, 0.85);
+    border-bottom: 2px solid rgba(254, 249, 232, 0.85);
+    margin-bottom: -3px;
+    padding-bottom: 8px;
+    z-index: 3;
+    top: 0;
+    box-shadow: none;
+    color: #1e3a1e;
+}
+
+/* ============================================================
+   INNEHÅLLSOMRÅDE
+   ============================================================ */
 .tab-content-wrapper {
+    background: #fef9e8 (217, 207, 160, 0.8);
     padding: 24px 20px 30px;
     overflow-y: auto;
     flex: 1 1 0;
@@ -111,7 +162,7 @@ body {
     backdrop-filter: blur(2px);
     border-radius: 12px;
     padding: 16px;
-    border: 1px solid var(--card-border);
+    border: 1px solid #cfe2b0;
     box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
     display: flex;
     flex-direction: column;
@@ -157,10 +208,10 @@ body {
 footer {
     text-align: center;
     padding: 12px;
-    background: var(--footer-bg);
-    color: var(--footer-text);
+    background: #e0d5bc;
+    color: #4f5a3c;
     font-size: 0.8rem;
-    border-top: 2px solid var(--footer-border);
+    border-top: 2px solid #b1c99e;
     flex-shrink: 0;
 }
 
@@ -176,6 +227,13 @@ footer {
 @media (max-width: 550px) {
     .main-header h1 {
         font-size: 1.8rem;
+    }
+    .tab {
+        padding: 4px 8px;
+        font-size: 0.5rem;
+    }
+    .tab-content-wrapper {
+        padding: 16px 8px;
     }
     .news-container {
         grid-template-columns: 1fr;

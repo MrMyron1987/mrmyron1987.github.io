@@ -1,10 +1,16 @@
 // ============================================================
-// 1. ÖVERSÄTTNINGAR (Endast header, knapp och jobbkort)
+// 1. ÖVERSÄTTNINGAR (Alla tabbar + jobbkorten)
 // ============================================================
 const translations = {
     sv: {
-        headerTitle: "Jobb och praktikplatser",
-        backBtn: "⬅ Till startsidan",
+        headerTitle: "🌲 Finska skogssidan för alla skogsmänniskor",
+        tabBlanketter: "Blanketter",
+        tabJobb: "Jobb och praktikplats",
+        tabKunskapstester: "Kunskapstester",
+        tabNyheter: "Organisationer",
+        tabStart: "Start",
+        tabStudiematerial: "Studiematerial",
+        tabDictionary: "Ordboken",
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.",
@@ -55,8 +61,14 @@ const translations = {
         svenskakyrkanDesc: "Svenska kyrkan är en av Sveriges största skogsägare. Skogsförvaltningen söker regelbundet skogliga tjänstemän och praktikanter."
     },
     fi: {
-        headerTitle: "Työpaikat ja harjoittelu",
-        backBtn: "⬅ Etusivulle",
+        headerTitle: "🌲 Suomen metsäsivusto kaikille metsäihmisille",
+        tabBlanketter: "Lomakkeet",
+        tabJobb: "Työpaikat ja harjoittelu",
+        tabKunskapstester: "Tietotestit",
+        tabNyheter: "Organisaatiot",
+        tabStart: "Etusivu",
+        tabStudiematerial: "Opiskelumateriaali",
+        tabDictionary: "Sanakirja",
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa. Täällä julkaistaan avoimia työpaikkoja koko metsäsektorilta.",
@@ -107,8 +119,14 @@ const translations = {
         svenskakyrkanDesc: "Ruotsin kirkko on yksi Ruotsin suurimmista metsänomistajista. Metsäosasto etsii säännöllisesti metsäalan ammattilaisia ja harjoittelijoita."
     },
     en: {
-        headerTitle: "Jobs and Internships",
-        backBtn: "⬅ Home",
+        headerTitle: "🌲 Finnish Forest Site for all forest people",
+        tabBlanketter: "Forms",
+        tabJobb: "Jobs and Internships",
+        tabKunskapstester: "Knowledge Tests",
+        tabNyheter: "Organizations",
+        tabStart: "Home",
+        tabStudiematerial: "Study Material",
+        tabDictionary: "Dictionary",
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland. Open positions across the entire forest sector are published here.",
@@ -191,6 +209,8 @@ const jobCards = [
 // ============================================================
 // 3. DOM & INIT
 // ============================================================
+const langButtons = document.querySelectorAll('.lang-btn');
+const tabButtons = document.querySelectorAll('.tab');
 let currentLang = localStorage.getItem('preferredLanguage') || 'sv';
 
 function updateLanguage(lang) {
@@ -200,8 +220,12 @@ function updateLanguage(lang) {
         const key = el.getAttribute('data-translate');
         if (t[key] !== undefined) el.textContent = t[key];
     });
-    document.title = t.headerTitle || "Jobb och praktikplatser";
+    document.title = t.headerTitle + " – " + t.tabJobb;
     document.documentElement.lang = lang;
+    langButtons.forEach(btn => {
+        const bl = btn.getAttribute('data-lang');
+        btn.classList.toggle('active', bl === lang);
+    });
     localStorage.setItem('preferredLanguage', lang);
     renderJobs();
 }
@@ -237,9 +261,36 @@ function renderJobs() {
     jobCards.forEach(card => container.appendChild(createCard(card, currentLang)));
 }
 
-// Tillbaka till startsidan
-document.getElementById('backToStartBtn').addEventListener('click', () => {
-    window.location.href = '../Startsidan/startsida.html';   // anpassa vid behov
+// Fliknavigering (till andra sidor)
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tabType = btn.getAttribute('data-tab');
+        if (tabType === 'start') {
+            window.location.href = 'index.html';
+        } else if (tabType === 'nyheter') {
+            window.location.href = 'nyheter.html';
+        } else if (tabType === 'kunskapstester') {
+            window.location.href = 'kunskapstester.html';
+        } else if (tabType === 'studiematerial') {
+            window.location.href = 'studiematerial.html';
+        } else if (tabType === 'blanketter') {
+            window.location.href = 'blanketter.html';
+        } else if (tabType === 'ordbok') {
+            window.location.href = 'ordbok.html';
+        }
+        // 'jobb' är den aktiva sidan, gör inget
+    });
+});
+
+// Språkknappar
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const lang = e.currentTarget.getAttribute('data-lang');
+        if (lang && translations[lang]) {
+            currentLang = lang;
+            updateLanguage(lang);
+        }
+    });
 });
 
 // Init

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobb och praktikplatser</title>
+    <title>Finska skogssidan – Jobb och praktikplats</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -14,13 +14,26 @@
     <!-- ===================== HEADER ===================== -->
     <header class="main-header">
         <h1 data-translate="headerTitle"></h1>
-        <!-- Till startsidan-knapp -->
-        <button id="backToStartBtn" class="back-btn" data-translate="backBtn"></button>
+        <div class="lang-bar">
+            <button class="lang-btn" data-lang="sv">SV</button>
+            <button class="lang-btn" data-lang="fi">FIN</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </header>
+
+    <!-- ===================== FLIKMENY ===================== -->
+    <nav class="tabs-nav">
+        <button class="tab" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab" data-tab="nyheter" data-translate="tabNyheter"></button>
+        <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
+        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
+        <button class="tab active" data-tab="jobb" data-translate="tabJobb"></button>
+        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
+        <button class="tab" data-tab="ordbok" data-translate="tabDictionary"></button>
+    </nav>
 
     <!-- ===================== INNEHÅLL ===================== -->
     <main class="tab-content-wrapper">
-        <!-- Jobbkorten visas här -->
         <div class="news-container" id="jobContainer"></div>
     </main>
 
