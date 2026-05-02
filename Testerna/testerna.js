@@ -94,43 +94,43 @@ const testCards = [
         key: "Inspection",
         nameKey: "catInspection",
         descKey: "descInspection",
-        link: "/Granskningsinstruktioner/granskning.html"
+        link: "../Granskningsinstruktioner/granskning.html"
     },
     {
         key: "Coefficient",
         nameKey: "catCoefficient",
         descKey: "descCoefficient",
-        link: "/Kofficient/kofficient.html"
+        link: "../Kofficient/kofficient.html"
     },
     {
         key: "Relascope",
         nameKey: "catRelascope",
         descKey: "descRelascope",
-        link: "/Relaskop/relaskop.html"
+        link: "../Relaskop/relaskop.html"
     },
     {
         key: "SiteTypes",
         nameKey: "catSiteTypes",
         descKey: "descSiteTypes",
-        link: "/Standorter/standorter.html"
+        link: "../Standorter/standorter.html"
     },
     {
         key: "TreeNames",
         nameKey: "catTreeNames",
         descKey: "descTreeNames",
-        link: "/Tradslag/tradslag.html"
+        link: "../Tradslag/tradslagochbuskar.html"
     },
     {
         key: "Roads",
         nameKey: "catRoads",
         descKey: "descRoads",
-        link: "/vagarna/vagar.html"
+        link: "../vagarna/vagar.html"
     },
     {
         key: "PlantNames",
         nameKey: "catPlantNames",
         descKey: "descPlantNames",
-        link: "/Vaxternamn/vaxternamn.html"
+        link: "../Vaxternamn/vaxternamn.html"
     }
 ];
 
