@@ -100,7 +100,7 @@ const testCards = [
         key: "Coefficient",
         nameKey: "catCoefficient",
         descKey: "descCoefficient",
-        link: "Kofficient/kofficient.html"
+        link: "/Kofficient/kofficient.html"
     },
     {
         key: "Relascope",
@@ -124,7 +124,7 @@ const testCards = [
         key: "Roads",
         nameKey: "catRoads",
         descKey: "descRoads",
-        link: "/vagarna/vag.html"
+        link: "/vagarna/vagar.html"
     },
     {
         key: "PlantNames",
