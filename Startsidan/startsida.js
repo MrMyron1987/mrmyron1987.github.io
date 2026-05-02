@@ -315,7 +315,7 @@ tabButtons.forEach(btn => {
         if (!tabType || tabType === 'sprak') return;
         if (tabType === 'jobb') {
             // Navigera till jobb-sidan istället för att visa panel
-            window.location.href = 'jobb.html';
+            window.location.href = '/jobb/jobb.html';
             return;
         }
         setActiveTab(tabType);
