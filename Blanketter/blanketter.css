@@ -1,0 +1,259 @@
+/* ============================================================
+   GLOBALA REGLER
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
+    background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ============================================================
+   HUVUDCONTAINER
+   ============================================================ */
+.app-container {
+    max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(254, 249, 232, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.main-header {
+    background: #2c5e2e;
+    color: #f9f1cf;
+    padding: 20px 28px;
+    border-bottom: 4px solid #a6c89b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.main-header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   SPRÅKKNAPPAR
+   ============================================================ */
+.lang-bar {
+    display: flex;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #e2f0d5;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.15s;
+    backdrop-filter: blur(4px);
+    line-height: 1.2;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.lang-btn.active {
+    background: #f9f1cf;
+    color: #1e4a1e;
+    border-color: #f9f1cf;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   FLIKMENY – 50% mindre
+   ============================================================ */
+.tabs-nav {
+    background: rgba(212, 201, 168, 0.8);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 0 6px;
+    border-bottom: 3px solid #5f7a4c;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.tab {
+    background: rgba(200, 184, 146, 0.2);
+    border: 2px solid #5f7a4c;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 12px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: #2c3e2b;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 2px;
+    position: relative;
+    top: 3px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05) inset;
+}
+
+.tab:hover {
+    background: rgba(217, 207, 160, 0.7);
+}
+
+.tab.active {
+    background: rgba(254, 249, 232, 0.85);
+    border-bottom: 2px solid rgba(254, 249, 232, 0.85);
+    margin-bottom: -3px;
+    padding-bottom: 8px;
+    z-index: 3;
+    top: 0;
+    box-shadow: none;
+    color: #1e3a1e;
+}
+
+/* ============================================================
+   INNEHÅLLSOMRÅDE
+   ============================================================ */
+.tab-content-wrapper {
+    background: #fef9e8 (217, 207, 160, 0.8);
+    padding: 24px 20px 30px;
+    overflow-y: auto;
+    flex: 1 1 0;
+    border-top: 2px solid transparent;
+}
+
+/* ============================================================
+   INTROTEXT
+   ============================================================ */
+.news-intro {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border: 1px solid #cfe2b0;
+    box-shadow: 0 8px 16px rgba(0, 20, 0, 0.2);
+    border-radius: 24px;
+    padding: 20px 18px;
+    color: #2c3e2b;
+    text-align: center;
+    max-width: calc(100% - 20px);
+    margin: 0 auto 24px auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   KORT (3 kolumner)
+   ============================================================ */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.news-item {
+    background: #ffffffdd;
+    backdrop-filter: blur(2px);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #cfe2b0;
+    box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.news-item h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.news-item h3 a {
+    color: #1e4a1e;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid #7aac6e;
+}
+
+.news-item h3 a:hover {
+    color: #2e6730;
+    border-bottom-color: #2e6730;
+}
+
+.news-item p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #3a4d38;
+    margin: 0;
+    flex: 1;
+}
+
+.news-item .lang-note {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #6b7a5c;
+    margin-top: 6px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #e0d5bc;
+    color: #4f5a3c;
+    font-size: 0.8rem;
+    border-top: 2px solid #b1c99e;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVITET
+   ============================================================ */
+@media (max-width: 850px) {
+    .news-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    .tab {
+        padding: 4px 8px;
+        font-size: 0.5rem;
+    }
+    .tab-content-wrapper {
+        padding: 16px 8px;
+    }
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+}

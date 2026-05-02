@@ -161,7 +161,7 @@ const translations = {
 };
 
 // ============================================================
-// 2. DATA FÖR KORTEN (Studiematerial, Blanketter)
+// 2. DATA FÖR KORTEN (Studiematerial)
 // ============================================================
 const studyCards = [
     { key: "studyRec", link: "https://metsanhoidonsuositukset.fi", langNoteKey: null },
@@ -169,12 +169,6 @@ const studyCards = [
     { key: "studyArvo", link: "https://julkaisut.valtioneuvosto.fi/server/api/core/bitstreams/35938706-0485-42d3-bff1-724f245e4c6b/content", langNoteKey: "studyArvoLang" },
     { key: "studyBok", link: "https://share.google/vN4YfB8GjvWnsLjii", langNoteKey: "studyBokLang" },
     { key: "studyGransk", link: "https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf", langNoteKey: "studyGranskLang" }
-];
-
-const formCards = [
-    { key: "formOma", link: "https://tapio.fi/oppaat-ja-tyovalineet/metsanhoitotoiden-omavalvontaopas/", langNoteKey: null },
-    { key: "formAudit", link: "https://kestavametsa.fi/sisainen-auditointi/", langNoteKey: null },
-    { key: "formCheck", link: "https://www.metsakeskus.fi/sites/default/files/document/lomake-luonnonhoitotoimenpiteiden-tarkistuslista-sv.pdf", langNoteKey: "formCheckLang" }
 ];
 
 // ============================================================
@@ -242,7 +236,6 @@ function renderSection(containerId, cards) {
 }
 
 function renderStudy()  { renderSection('studyContainer', studyCards); }
-function renderForms()  { renderSection('formContainer', formCards); }
 
 tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -260,9 +253,12 @@ tabButtons.forEach(btn => {
             window.location.href = '/Testerna/testerna.html';
             return;
         }
+        if (tabType === 'blanketter') {
+            window.location.href = '/Blanketter/blanketter.html';
+            return;
+        }
         setActiveTab(tabType);
         if (tabType === 'studiematerial') renderStudy();
-        else if (tabType === 'blanketter') renderForms();
     });
 });
 
@@ -273,7 +269,6 @@ langButtons.forEach(btn => {
             currentLang = lang;
             updateLanguage(lang);
             if (document.getElementById('panel-studiematerial').classList.contains('active')) renderStudy();
-            if (document.getElementById('panel-blanketter').classList.contains('active')) renderForms();
         }
     });
 });
