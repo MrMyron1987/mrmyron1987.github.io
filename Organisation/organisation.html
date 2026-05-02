@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organisationer – Finska skogssidan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="organisation.css">
+</head>
+<body>
+<div class="app-container">
+    <!-- ===================== HEADER ===================== -->
+    <header class="main-header">
+        <h1 data-translate="headerTitle"></h1>
+        <div class="lang-bar">
+            <button class="lang-btn" data-lang="sv">SV</button>
+            <button class="lang-btn" data-lang="fi">FIN</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </header>
+
+    <!-- ===================== FLIKMENY ===================== -->
+    <nav class="tabs-nav">
+        <button class="tab" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab active" data-tab="nyheter" data-translate="tabNyheter"></button>
+        <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
+        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
+        <button class="tab" data-tab="jobb" data-translate="tabJobb"></button>
+        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
+        <button class="tab" data-tab="ordbok" data-translate="tabDictionary"></button>
+    </nav>
+
+    <!-- ===================== INNEHÅLL ===================== -->
+    <main class="tab-content-wrapper">
+        <p class="news-intro" data-translate="newsIntro"></p>
+        <div class="news-container" id="newsContainer"></div>
+    </main>
+
+    <footer>
+        <p>© Mats Lindholm</p>
+    </footer>
+</div>
+
+<script src="organisation.js"></script>
+</body>
+</html>

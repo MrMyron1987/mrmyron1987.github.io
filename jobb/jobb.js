@@ -266,17 +266,17 @@ tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabType = btn.getAttribute('data-tab');
         if (tabType === 'start') {
-            window.location.href = 'index.html';
+            window.location.href = '/Startsidan/startsidan.html';
         } else if (tabType === 'nyheter') {
-            window.location.href = 'nyheter.html';
+            window.location.href = '/Organisation/organisation.html';
         } else if (tabType === 'kunskapstester') {
-            window.location.href = 'kunskapstester.html';
+            window.location.href = '/Testerna/testerna.html';
         } else if (tabType === 'studiematerial') {
-            window.location.href = 'studiematerial.html';
+            window.location.href = '/Studera/studera.html';
         } else if (tabType === 'blanketter') {
-            window.location.href = 'blanketter.html';
+            window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
-            window.location.href = 'ordbok.html';
+            window.location.href = '/Ordbok/ordbok.html';
         }
         // 'jobb' är den aktiva sidan, gör inget
     });

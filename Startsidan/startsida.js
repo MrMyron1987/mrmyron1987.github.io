@@ -1,5 +1,5 @@
 // ============================================================
-// 1. ÖVERSÄTTNINGAR – ALL TEXT
+// 1. ÖVERSÄTTNINGAR – ALL TEXT (Organisationer borttagna)
 // ============================================================
 const translations = {
     sv: {
@@ -12,23 +12,6 @@ const translations = {
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
         welcomeMsg: "Välkommen till denna hemsida, Den är än under konstruktion men titta gärna omkring.",
-
-        newsIntro: "Här har jag samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera på dem och understöda dem.",
-        skogscentralenTitle: "Skogscentralen",
-        skogscentralenDesc: "Finlands nationella skogsmyndighet. Ansvarar för genomförandet av Finlands skogspolitik och erbjuder rådgivning, utbildning och finansieringsstöd för skogsägare.",
-        tapioTitle: "Tapio",
-        tapioDesc: "En neutral, erfaren expertorganisation med över 110 års erfarenhet inom hållbart skogsbruk. Erbjuder konsulttjänster, skogsplanering och klimatanpassningstjänster.",
-        metsalehtiTitle: "Metsälehti",
-        metsalehtiDesc: "Finlands ledande skogstidskrift sedan 1933, med nyheter, reportage och debatt om skogsbruk och skogsägande.",
-        metsalehtiLangNote: "Webbplatsen är endast på finska.",
-        finlandsNaturTitle: "Finlands Natur",
-        finlandsNaturDesc: "Den finlandssvenska naturtidningen som sedan 1941 erbjuder naturskildringar, miljönyheter och praktiska tips för en hållbar livsstil.",
-        finlandsNaturLangNote: "",
-        skogsstyrelsenTitle: "Skogsstyrelsen",
-        skogsstyrelsenDesc: "Sveriges nationella skogsmyndighet. Arbetar för hållbart skogsbruk, rådgivning, tillsyn av Skogsvårdslagen och hanterar statliga stöd för skogsbruket.",
-        skogsstyrelsenLangNote: "Webbplatsen finns på svenska och engelska.",
-        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
-        mmsaatioDesc: "Stiftelse som främjar finländsk jord- och skogsbruksforskning samt kunskapsspridning.",
 
         testIntroText: "Välkommen och testa dina skogskunskaper. Klicka in dig på sidan och välj ett ämne du vill testa dina kunskaper på. Det finns allt från indikationsväxter, skoglig matematik och vägar. Med andra ord, allt inom skogsbruk.",
         goToTests: "🌿 Gå till testerna",
@@ -82,23 +65,6 @@ const translations = {
         tabDictionary: "Sanakirja",
         welcomeMsg: "Tervetuloa tälle sivustolle, se on vielä rakenteilla, mutta katsele ympärillesi.",
 
-        newsIntro: "Tälle sivulle olen koonnut tärkeimmät metsäalan verkkosivustot, jotka julkaisevat uutisia metsäalalta. Jos pidät sisällöstä, voit aloittaa niiden tilaamisen ja tukea niitä.",
-        skogscentralenTitle: "Metsäkeskus",
-        skogscentralenDesc: "Suomen kansallinen metsäviranomainen, joka vastaa metsäpolitiikan toimeenpanosta ja tarjoaa neuvontaa, koulutusta ja rahoitustukea metsänomistajille.",
-        tapioTitle: "Tapio",
-        tapioDesc: "Neutraali, kokenut asiantuntijaorganisaatio, jolla on yli 110 vuoden kokemus kestävästä metsätaloudesta. Tarjoaa konsultointia, metsäsuunnittelua ja ilmastonmuutokseen sopeutumisen palveluita.",
-        metsalehtiTitle: "Metsälehti",
-        metsalehtiDesc: "Suomen johtava metsäalan lehti vuodesta 1933, tarjoten uutisia, raportteja ja keskustelua metsätaloudesta ja metsänomistuksesta.",
-        metsalehtiLangNote: "",
-        finlandsNaturTitle: "Finlands Natur",
-        finlandsNaturDesc: "Suomenruotsalainen luontolehti, joka vuodesta 1941 lähtien on tarjonnut luontokertomuksia, ympäristöuutisia ja käytännön vinkkejä kestävään elämäntapaan.",
-        finlandsNaturLangNote: "Verkkosivusto on vain ruotsiksi.",
-        skogsstyrelsenTitle: "Skogsstyrelsen",
-        skogsstyrelsenDesc: "Ruotsin kansallinen metsäviranomainen. Edistää kestävää metsätaloutta, tarjoaa neuvontaa, valvoo metsälakia ja hallinnoi valtion tukia.",
-        skogsstyrelsenLangNote: "Verkkosivusto on ruotsiksi ja englanniksi.",
-        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
-        mmsaatioDesc: "Säätiö, joka edistää suomalaista maa- ja metsätaloustutkimusta sekä tiedon levittämistä.",
-
         testIntroText: "Tervetuloa testaamaan metsätietouttasi. Verkkosivustollamme voit valita itseäsi kiinnostavan aiheen, jonka osaamista haluat testata. Valikoimasta löytyy aiheita kuten indikaattorikasvit, metsämatematiikka ja metsätiet – toisin sanoen kaikkea metsänhoitoon liittyvää.",
         goToTests: "🌿 Siirry testeihin",
 
@@ -151,23 +117,6 @@ const translations = {
         tabDictionary: "Dictionary",
         welcomeMsg: "Welcome to this website, it is still under construction but feel free to look around.",
 
-        newsIntro: "Here I have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing to them and support them.",
-        skogscentralenTitle: "Skogscentralen",
-        skogscentralenDesc: "Finland's national forest authority. Responsible for implementing Finland's forest policy and offers advice, training and financial support for forest owners.",
-        tapioTitle: "Tapio",
-        tapioDesc: "A neutral, experienced expert organisation with over 110 years of experience in sustainable forestry. Offers consulting, forest planning and climate adaptation services.",
-        metsalehtiTitle: "Metsälehti",
-        metsalehtiDesc: "Finland's leading forestry magazine since 1933, featuring news, reports and debate on forestry and forest ownership.",
-        metsalehtiLangNote: "The website is in Finnish only.",
-        finlandsNaturTitle: "Finlands Natur",
-        finlandsNaturDesc: "The Swedish-speaking Finnish nature magazine that since 1941 has offered nature stories, environmental news and practical tips for a sustainable lifestyle.",
-        finlandsNaturLangNote: "The website is in Swedish only.",
-        skogsstyrelsenTitle: "Skogsstyrelsen",
-        skogsstyrelsenDesc: "Sweden's national forest authority. Promotes sustainable forestry, provides advice, enforces the Forestry Act and handles state subsidies for forestry.",
-        skogsstyrelsenLangNote: "The website is available in Swedish and English.",
-        mmsaatioTitle: "Maa- ja metsätaloussäätiö",
-        mmsaatioDesc: "Foundation that promotes Finnish agricultural and forestry research and knowledge dissemination.",
-
         testIntroText: "Welcome and test your forest knowledge. Enter the page and choose a topic you want to test your knowledge on. There is everything from indicator plants, forest mathematics to forest roads – in other words, everything within forestry.",
         goToTests: "🌿 Go to tests",
 
@@ -212,17 +161,8 @@ const translations = {
 };
 
 // ============================================================
-// 2. DATA FÖR KORTEN (Organisationer, Studiematerial, Blanketter)
+// 2. DATA FÖR KORTEN (Studiematerial, Blanketter)
 // ============================================================
-const newsCards = [
-    { key: "skogscentralen", link: "https://www.metsakeskus.fi/sv", langNoteKey: null },
-    { key: "tapio", link: "https://tapio.fi/", langNoteKey: null },
-    { key: "metsalehti", link: "https://www.metsalehti.fi/", langNoteKey: "metsalehtiLangNote" },
-    { key: "finlandsNatur", link: "https://finlandsnatur.fi/", langNoteKey: "finlandsNaturLangNote" },
-    { key: "skogsstyrelsen", link: "https://www.skogsstyrelsen.se/", langNoteKey: "skogsstyrelsenLangNote" },
-    { key: "mmsaatio", link: "https://www.mmsaatio.fi/", langNoteKey: null }
-];
-
 const studyCards = [
     { key: "studyRec", link: "https://metsanhoidonsuositukset.fi", langNoteKey: null },
     { key: "studyMetso", link: "https://metsonpolku.fi/documents/115183005/124281117/Metso_Tikka_2018_Suomi.pdf/afcc4af9-c8b0-d133-47f3-a9b077db9ffd/Metso_Tikka_2018_Suomi.pdf?t=1655465275803", langNoteKey: "studyMetsoLang" },
@@ -272,7 +212,6 @@ function setActiveTab(tabId) {
     });
 }
 
-// Hjälpfunktion för att skapa kort
 function createCard(data, lang) {
     const t = translations[lang];
     const div = document.createElement('div');
@@ -296,7 +235,6 @@ function createCard(data, lang) {
     return div;
 }
 
-// Renderingsfunktioner
 function renderSection(containerId, cards) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -304,42 +242,39 @@ function renderSection(containerId, cards) {
     cards.forEach(card => container.appendChild(createCard(card, currentLang)));
 }
 
-function renderNews()   { renderSection('newsContainer', newsCards); }
 function renderStudy()  { renderSection('studyContainer', studyCards); }
 function renderForms()  { renderSection('formContainer', formCards); }
 
-// Lyssnare för flikar
 tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabType = btn.getAttribute('data-tab');
         if (!tabType || tabType === 'sprak') return;
         if (tabType === 'jobb') {
-            // Navigera till jobb-sidan istället för att visa panel
             window.location.href = '/jobb/jobb.html';
             return;
         }
+        if (tabType === 'nyheter') {
+            window.location.href = '/Organisation/organisation.html';
+            return;
+        }
         setActiveTab(tabType);
-        if (tabType === 'nyheter') renderNews();
-        else if (tabType === 'studiematerial') renderStudy();
+        if (tabType === 'studiematerial') renderStudy();
         else if (tabType === 'blanketter') renderForms();
     });
 });
 
-// Lyssnare för språkknappar
 langButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const lang = e.currentTarget.getAttribute('data-lang');
         if (lang && translations[lang]) {
             currentLang = lang;
             updateLanguage(lang);
-            if (document.getElementById('panel-nyheter').classList.contains('active')) renderNews();
             if (document.getElementById('panel-studiematerial').classList.contains('active')) renderStudy();
             if (document.getElementById('panel-blanketter').classList.contains('active')) renderForms();
         }
     });
 });
 
-// Knappar till andra sidor
 if (goToTestsBtn) {
     goToTestsBtn.addEventListener('click', () => {
         window.location.href = '/Testerna/testerna.html';
@@ -351,7 +286,6 @@ if (goToDictionaryBtn) {
     });
 }
 
-// Init
 function initialize() {
     const savedLang = localStorage.getItem('preferredLanguage') || 'sv';
     currentLang = savedLang;
