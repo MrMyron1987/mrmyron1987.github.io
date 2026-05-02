@@ -1,210 +1,219 @@
 // ============================================================
-// 1. ÖVERSÄTTNINGAR – KNAPPTEXTER & BESKRIVNINGAR
+// 1. ÖVERSÄTTNINGAR (Alla tabbar + testkategorier)
 // ============================================================
-const categoryTranslations = {
-    "Trädslag och buskars namn": {
-        sv: "Namnge träd och buskar",
-        fi: "Nimeä puut ja pensaat",
-        en: "Name trees and shrubs"
+const translations = {
+    sv: {
+        headerTitle: "🌲 Finska skogssidan för alla skogsmänniskor",
+        tabBlanketter: "Blanketter",
+        tabJobb: "Jobb och praktikplats",
+        tabKunskapstester: "Kunskapstester",
+        tabNyheter: "Organisationer",
+        tabStart: "Start",
+        tabStudiematerial: "Studiematerial",
+        tabDictionary: "Ordboken",
+
+        catTreeNames: "Namnge träd och buskar",
+        catSiteTypes: "Ståndortstyper på mineraljordar",
+        catPlantNames: "Namnge indikatorväxter",
+        catCoefficient: "Koefficient räkning",
+        catRoads: "Vägar",
+        catRelascope: "Relaskoptabell",
+        catInspection: "Frågor kring granskning",
+
+        descInspection: 'I detta test följer vi <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Skogscentralens granskningsinstruktioner</a> och ställer frågor kring dem. Testet innehåller bland annat flervalsfrågor om skogsbrukets kvalitetskrav och naturvård. Klicka på knappen nedan för att starta direkt.',
+        descCoefficient: "Här testar du dina matematiska kunskaper i koefficientberäkning för provytor med radierna 3,99 och 5,64 meter. Du får räkna ut olika omvandlingstal. Klicka på knappen för att starta testet.",
+        descRelascope: "Här kan du testa dina kunskaper i grundyta med hjälp av Tapios relaskoptabell. Tabellen finns tillgänglig direkt på denna sida så att du enkelt kan använda den under testets gång. Klicka på knappen när du är redo.",
+        descSiteTypes: "Testa dina kunskaper i att identifiera ståndortstyper och att koppla rätt indikatorväxter till rätt växtplats. Du får se typiska arter för både friska och torra marker och välja rätt marktyp. Klicka på knappen nedan för att börja testet.",
+        descTreeNames: "Här kan du testa dina språkliga kunskaper om träd och buskar. Fyra språk – finska, svenska, engelska och latin, blandas för en riktig utmaning. Se hur många du kan namnge korrekt! Tryck på knappen för att börja.",
+        descRoads: 'Här testar du dina kunskaper om skogsbilvägar. All information bygger på <a href="https://metsanhoidonsuositukset.fi/sv" target="_blank">Rekommendationer för skogsvård</a>. Du får frågor om vägdimensionering, bärighet och underhåll. Klicka på knappen för att påbörja testet.',
+        descPlantNames: "I detta test kombinerar du dina kunskaper på fyra språk för att namnge Finlands olika indikatorväxter inom grupperna kärlväxter, ris, mossor, lavar, svampar och träd. Språken är finska, svenska, engelska och latin. Testa hur många du klarar! Klicka på knappen nedan."
     },
-    "Ståndortstyper på mineraljorder": {
-        sv: "Ståndortstyper på mineraljordar",
-        fi: "Kivennäismaiden kasvupaikkatyypit",
-        en: "Site types on mineral soils"
+    fi: {
+        headerTitle: "🌲 Suomen metsäsivusto kaikille metsäihmisille",
+        tabBlanketter: "Lomakkeet",
+        tabJobb: "Työpaikat ja harjoittelu",
+        tabKunskapstester: "Tietotestit",
+        tabNyheter: "Organisaatiot",
+        tabStart: "Etusivu",
+        tabStudiematerial: "Opiskelumateriaali",
+        tabDictionary: "Sanakirja",
+
+        catTreeNames: "Nimeä puut ja pensaat",
+        catSiteTypes: "Kivennäismaiden kasvupaikkatyypit",
+        catPlantNames: "Nimeä ilmentäjälajit",
+        catCoefficient: "Muuntokertoimella",
+        catRoads: "Tiet",
+        catRelascope: "Relaskooppitaulukko",
+        catInspection: "Tarkastusohjekysymykset",
+
+        descInspection: 'Tässä testissä noudatamme <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Metsäkeskuksen tarkastusohjeita</a> ja esitämme niihin liittyviä kysymyksiä. Testi sisältää monivalintakysymyksiä metsänhoidon laatuvaatimuksista ja luonnonhoidosta. Aloita napsauttamalla alta.',
+        descCoefficient: "Tässä testaat matemaattisia taitojasi muuntokertoimen laskennassa 3,99 ja 5,64 metrin koealoilla. Saat laskea erilaisia muuntolukuja. Aloita napsauttamalla alla olevaa painiketta.",
+        descRelascope: "Täällä voit testata osaamistasi pohjapinta-alassa käyttäen Tapion relaskooppitaulukkoa. Taulukko on saatavilla suoraan tällä sivulla, jotta voit hyödyntää sitä testin aikana. Napsauta painiketta, kun olet valmis.",
+        descSiteTypes: "Testaa taitosi tunnistaa kasvupaikkatyyppejä ja yhdistää oikeat ilmentäjälajit oikeaan kasvupaikkaan. Näet tyypillisiä lajeja tuoreilta ja kuivilta mailta ja valitset oikean maatyypin. Aloita napsauttamalla alta.",
+        descTreeNames: "Täällä voit testata kielitaitoasi puiden ja pensaiden nimissä. Neljä kieltä – suomi, ruotsi, englanti ja latina, on sekoitettu todellisen haasteen saavuttamiseksi. Katso kuinka monta osaat nimetä oikein! Aloita painikkeesta.",
+        descRoads: 'Testaa taitosi metsäautoteiden suhteen. Kaikki tieto perustuu <a href="https://metsanhoidonsuositukset.fi/fi" target="_blank">Metsänhoidon suosituksiin</a>. Saat kysymyksiä tien mitoituksesta, kantavuudesta ja kunnossapidosta. Aloita painikkeesta.',
+        descPlantNames: "Tässä testissä yhdistät taitosi neljällä kielellä nimetäksesi Suomen eri ilmentäjälajeja putkilokasvien, varpujen, sammalten, jäkälien, sienten ja puiden ryhmistä. Kielet ovat suomi, ruotsi, englanti ja latina. Katso kuinka monta osaat! Napsauta alla olevaa painiketta."
     },
-    "Växter namn": {
-        sv: "Namnge indikatorväxter",
-        fi: "Nimeä ilmentäjälajit",
-        en: "Name indicator plants"
-    },
-    "Koefficient räkning": {
-        sv: "Koefficient räkning",
-        fi: "Muuntokertoimella",
-        en: "Coefficient calculations"
-    },
-    "Vägar": {
-        sv: "Vägar",
-        fi: "Tiet",
-        en: "Forest roads"
-    },
-    "Relaskoptabell": {
-        sv: "Relaskoptabell",
-        fi: "Relaskooppitaulukko",
-        en: "Relascope table"
-    },
-    "Granskningsinstruktioner frågor": {
-        sv: "Frågor kring granskning",
-        fi: "Tarkastusohjekysymykset",
-        en: "Inspection questions"
+    en: {
+        headerTitle: "🌲 Finnish Forest Site for all forest people",
+        tabBlanketter: "Forms",
+        tabJobb: "Jobs and Internships",
+        tabKunskapstester: "Knowledge Tests",
+        tabNyheter: "Organizations",
+        tabStart: "Home",
+        tabStudiematerial: "Study Material",
+        tabDictionary: "Dictionary",
+
+        catTreeNames: "Name trees and shrubs",
+        catSiteTypes: "Site types on mineral soils",
+        catPlantNames: "Name indicator plants",
+        catCoefficient: "Coefficient calculations",
+        catRoads: "Forest roads",
+        catRelascope: "Relascope table",
+        catInspection: "Inspection questions",
+
+        descInspection: 'This test follows <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Swedish inspection guidelines</a> and <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Finnish inspection guidelines</a>. It includes multiple-choice questions on quality requirements and nature conservation. Please note there is no English version. Click the button below to begin.',
+        descCoefficient: "Here you can test your mathematical skills with coefficient calculations for sample plots of 3.99 and 5.64 meters. You will compute various conversion factors. Press the button to begin the test.",
+        descRelascope: "Here you can test your skills in basal area using Tapio's relascope table. The table is available right here on the page so you can use it during the test. Click the button when you're ready.",
+        descSiteTypes: "Test your knowledge of site type identification and matching the correct indicator species to the correct habitat. You'll encounter species typical of mesic and dry sites and pick the right soil type. Click the button below to start.",
+        descTreeNames: "Test your linguistic skills with tree and shrub names in four languages – Finnish, Swedish, English, and Latin, all mixed together for a real challenge. See how many you can name correctly! Press the button to get started.",
+        descRoads: 'Test your knowledge of forest roads. All information is based on <a href="https://metsanhoidonsuositukset.fi/en" target="_blank">Forest management recommendations</a>. You\'ll answer questions about road dimensions, bearing capacity, and maintenance. Press the button to start.',
+        descPlantNames: "In this test, you combine your skills in four languages to name Finland's various indicator plants within the groups vascular plants, dwarf shrubs, mosses, lichens, fungi, and trees. Languages: Finnish, Swedish, English, and Latin. See how many you can manage! Click the button below."
     }
 };
 
-const categoryDescriptions = {
-    "Granskningsinstruktioner frågor": {
-        sv: 'I detta test följer vi <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Skogscentralens granskningsinstruktioner</a> och ställer frågor kring dem. Testet innehåller bland annat flervalsfrågor om skogsbrukets kvalitetskrav och naturvård. Klicka på knappen nedan för att starta direkt.',
-        fi: 'Tässä testissä noudatamme <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Metsäkeskuksen tarkastusohjeita</a> ja esitämme niihin liittyviä kysymyksiä. Testi sisältää monivalintakysymyksiä metsänhoidon laatuvaatimuksista ja luonnonhoidosta. Aloita napsauttamalla alta.',
-        en: 'This test follows <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Swedish inspection guidelines</a> and <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje.pdf" target="_blank">Finnish inspection guidelines</a>. It includes multiple-choice questions on quality requirements and nature conservation. Please note there is no English version. Click the button below to begin.'
+// ============================================================
+// 2. DATA FÖR TESTKATEGORIER
+// ============================================================
+const testCards = [
+    {
+        key: "Inspection",
+        nameKey: "catInspection",
+        descKey: "descInspection",
+        link: "granskning.html"
     },
-    "Koefficient räkning": {
-        sv: "Här testar du dina matematiska kunskaper i koefficientberäkning för provytor med radierna 3,99 och 5,64 meter. Du får räkna ut olika omvandlingstal. Klicka på knappen för att starta testet.",
-        fi: "Tässä testaat matemaattisia taitojasi muuntokertoimen laskennassa 3,99 ja 5,64 metrin koealoilla. Saat laskea erilaisia muuntolukuja. Aloita napsauttamalla alla olevaa painiketta.",
-        en: "Here you can test your mathematical skills with coefficient calculations for sample plots of 3.99 and 5.64 meters. You will compute various conversion factors. Press the button to begin the test."
+    {
+        key: "Coefficient",
+        nameKey: "catCoefficient",
+        descKey: "descCoefficient",
+        link: "koefficient.html"
     },
-    "Relaskoptabell": {
-        sv: "Här kan du testa dina kunskaper i grundyta med hjälp av Tapios relaskoptabell. Tabellen finns tillgänglig direkt på denna sida så att du enkelt kan använda den under testets gång. Klicka på knappen när du är redo.",
-        fi: "Täällä voit testata osaamistasi pohjapinta-alassa käyttäen Tapion relaskooppitaulukkoa. Taulukko on saatavilla suoraan tällä sivulla, jotta voit hyödyntää sitä testin aikana. Napsauta painiketta, kun olet valmis.",
-        en: "Here you can test your skills in basal area using Tapio's relascope table. The table is available right here on the page so you can use it during the test. Click the button when you're ready."
+    {
+        key: "Relascope",
+        nameKey: "catRelascope",
+        descKey: "descRelascope",
+        link: "relaskop.html"
     },
-    "Ståndortstyper på mineraljorder": {
-        sv: "Testa dina kunskaper i att identifiera ståndortstyper och att koppla rätt indikatorväxter till rätt växtplats. Du får se typiska arter för både friska och torra marker och välja rätt marktyp. Klicka på knappen nedan för att börja testet.",
-        fi: "Testaa taitosi tunnistaa kasvupaikkatyyppejä ja yhdistää oikeat ilmentäjälajit oikeaan kasvupaikkaan. Näet tyypillisiä lajeja tuoreilta ja kuivilta mailta ja valitset oikean maatyypin. Aloita napsauttamalla alta.",
-        en: "Test your knowledge of site type identification and matching the correct indicator species to the correct habitat. You'll encounter species typical of mesic and dry sites and pick the right soil type. Click the button below to start."
+    {
+        key: "SiteTypes",
+        nameKey: "catSiteTypes",
+        descKey: "descSiteTypes",
+        link: "standorter.html"
     },
-    "Trädslag och buskars namn": {
-        sv: "Här kan du testa dina språkliga kunskaper om träd och buskar. Fyra språk – finska, svenska, engelska och latin, blandas för en riktig utmaning. Se hur många du kan namnge korrekt! Tryck på knappen för att börja.",
-        fi: "Täällä voit testata kielitaitoasi puiden ja pensaiden nimissä. Neljä kieltä – suomi, ruotsi, englanti ja latina, on sekoitettu todellisen haasteen saavuttamiseksi. Katso kuinka monta osaat nimetä oikein! Aloita painikkeesta.",
-        en: "Test your linguistic skills with tree and shrub names in four languages – Finnish, Swedish, English, and Latin, all mixed together for a real challenge. See how many you can name correctly! Press the button to get started."
+    {
+        key: "TreeNames",
+        nameKey: "catTreeNames",
+        descKey: "descTreeNames",
+        link: "tradslag.html"
     },
-    "Vägar": {
-        sv: 'Här testar du dina kunskaper om skogsbilvägar. All information bygger på <a href="https://metsanhoidonsuositukset.fi/sv" target="_blank">Rekommendationer för skogsvård</a>. Du får frågor om vägdimensionering, bärighet och underhåll. Klicka på knappen för att påbörja testet.',
-        fi: 'Testaa taitosi metsäautoteiden suhteen. Kaikki tieto perustuu <a href="https://metsanhoidonsuositukset.fi/fi" target="_blank">Metsänhoidon suosituksiin</a>. Saat kysymyksiä tien mitoituksesta, kantavuudesta ja kunnossapidosta. Aloita painikkeesta.',
-        en: 'Test your knowledge of forest roads. All information is based on <a href="https://metsanhoidonsuositukset.fi/en" target="_blank">Forest management recommendations</a>. You\'ll answer questions about road dimensions, bearing capacity, and maintenance. Press the button to start.'
+    {
+        key: "Roads",
+        nameKey: "catRoads",
+        descKey: "descRoads",
+        link: "vag.html"
     },
-    "Växter namn": {
-        sv: "I detta test kombinerar du dina kunskaper på fyra språk för att namnge Finlands olika indikatorväxter inom grupperna kärlväxter, ris, mossor, lavar, svampar och träd. Språken är finska, svenska, engelska och latin. Testa hur många du klarar! Klicka på knappen nedan.",
-        fi: "Tässä testissä yhdistät taitosi neljällä kielellä nimetäksesi Suomen eri ilmentäjälajeja putkilokasvien, varpujen, sammalten, jäkälien, sienten ja puiden ryhmistä. Kielet ovat suomi, ruotsi, englanti ja latina. Katso kuinka monta osaat! Napsauta alla olevaa painiketta.",
-        en: "In this test, you combine your skills in four languages to name Finland's various indicator plants within the groups vascular plants, dwarf shrubs, mosses, lichens, fungi, and trees. Languages: Finnish, Swedish, English, and Latin. See how many you can manage! Click the button below."
+    {
+        key: "PlantNames",
+        nameKey: "catPlantNames",
+        descKey: "descPlantNames",
+        link: "vaxternamn.html"
     }
-};
-
-const allCategoryKeys = [
-    "Trädslag och buskars namn",
-    "Ståndortstyper på mineraljorder",
-    "Växter namn",
-    "Koefficient räkning",
-    "Vägar",
-    "Relaskoptabell",
-    "Granskningsinstruktioner frågor"
 ];
 
 // ============================================================
-// 2. HJÄLPFUNKTIONER
+// 3. DOM & INIT
 // ============================================================
-function getCurrentLanguage() {
-    const saved = localStorage.getItem('preferredLanguage');
-    return (saved && ['sv', 'fi', 'en'].includes(saved)) ? saved : 'sv';
-}
+const langButtons = document.querySelectorAll('.lang-btn');
+const tabButtons = document.querySelectorAll('.tab');
+let currentLang = localStorage.getItem('preferredLanguage') || 'sv';
 
-function translateCategory(key, lang) {
-    return categoryTranslations[key]?.[lang] || key;
-}
-
-function getDescription(key, lang) {
-    return categoryDescriptions[key]?.[lang] || "";
-}
-
-// ============================================================
-// 3. RENDERA GRID
-// ============================================================
-function renderCategoryList() {
-    const lang = getCurrentLanguage();
-    const list = document.getElementById('categoriesList');
-    
-    const items = allCategoryKeys.map(key => ({
-        key: key,
-        display: translateCategory(key, lang)
-    }));
-    items.sort((a, b) => a.display.localeCompare(b.display, lang));
-
-    list.innerHTML = '';
-    
-    items.forEach(item => {
-        const descText = getDescription(item.key, lang);
-
-        const card = document.createElement('div');
-        card.className = 'test-item';
-
-        // Beskrivning först
-        if (descText) {
-            const desc = document.createElement('p');
-            desc.className = 'cat-desc';
-            desc.innerHTML = descText;
-            card.appendChild(desc);
-        }
-
-        // Knapp sist
-        const btn = document.createElement('button');
-        btn.className = 'cat-btn';
-        btn.textContent = item.display;
-        btn.addEventListener('click', () => onCategorySelected(item.key));
-        card.appendChild(btn);
-
-        list.appendChild(card);
+function updateLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (t[key] !== undefined) el.textContent = t[key];
     });
-
-    updateUILanguage(lang);
-}
-
-function updateUILanguage(lang) {
-    // Sidtitel
-    const titles = {
-        sv: 'Välj test – Skogskunskap',
-        fi: 'Valitse testi – Metsätieto',
-        en: 'Select test – Forestry knowledge'
-    };
-    document.title = titles[lang] || titles.sv;
-
-    // Header-rubrik
-    const headers = {
-        sv: '🌲 Välj ett test',
-        fi: '🌲 Valitse testi',
-        en: '🌲 Select a test'
-    };
-    document.querySelector('.main-header h1').textContent = headers[lang] || headers.sv;
-
-    // Tillbaka-knapp
-    const backTexts = {
-        sv: '🏠 Till startsidan',
-        fi: '🏠 Etusivulle',
-        en: '🏠 Back to start'
-    };
-    document.getElementById('backToStartBtn').textContent = backTexts[lang] || backTexts.sv;
-
+    document.title = t.headerTitle + " – " + t.tabKunskapstester;
     document.documentElement.lang = lang;
+    langButtons.forEach(btn => {
+        const bl = btn.getAttribute('data-lang');
+        btn.classList.toggle('active', bl === lang);
+    });
+    localStorage.setItem('preferredLanguage', lang);
+    renderTests();
 }
 
-// ============================================================
-// 4. HANTERING AV KATEGORIVAL
-// ============================================================
-function onCategorySelected(categoryKey) {
-    const lang = getCurrentLanguage();
-    console.log(`Vald kategori: ${categoryKey}, språk: ${lang}`);
+// Hjälpfunktion för att skapa testkort
+function createTestCard(card, lang) {
+    const t = translations[lang];
+    const div = document.createElement('div');
+    div.className = 'test-item';
 
-    if (categoryKey === 'Trädslag och buskars namn') {
-        window.location.href = '../Tradslag/tradslagochbuskar.html';
-    } else if (categoryKey === 'Ståndortstyper på mineraljorder') {
-        window.location.href = '../Standorter/standorter.html';
-    } else if (categoryKey === 'Växter namn') {
-        window.location.href = '../Vaxternamn/vaxternamn.html';
-    } else if (categoryKey === 'Koefficient räkning') {
-        window.location.href = '../Kofficient/kofficient.html';
-    } else if (categoryKey === 'Vägar') {
-        window.location.href = '../vagarna/vagar.html';
-    } else if (categoryKey === 'Relaskoptabell') {
-        window.location.href = '../Relaskop/relaskop.html';
-    } else if (categoryKey === 'Granskningsinstruktioner frågor') {
-        window.location.href = '../Granskningsinstruktioner/granskning.html';
-    }
+    const desc = document.createElement('p');
+    desc.className = 'cat-desc';
+    desc.innerHTML = t[card.descKey] || '';
+    div.appendChild(desc);
+
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.textContent = t[card.nameKey] || card.key;
+    btn.addEventListener('click', () => {
+        window.location.href = card.link;
+    });
+    div.appendChild(btn);
+
+    return div;
 }
 
-// ============================================================
-// 5. ÅTERGÅ TILL STARTSIDAN
-// ============================================================
-document.getElementById('backToStartBtn').addEventListener('click', () => {
-    window.location.href = '../Startsidan/startsida.html';
+function renderTests() {
+    const container = document.getElementById('categoriesList');
+    if (!container) return;
+    container.innerHTML = '';
+    testCards.forEach(card => container.appendChild(createTestCard(card, currentLang)));
+}
+
+// Fliknavigering – till andra sidor
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tabType = btn.getAttribute('data-tab');
+        if (tabType === 'start') {
+            window.location.href = '/Startsidan/startsida.html';
+        } else if (tabType === 'jobb') {
+            window.location.href = '/jobb/jobb.html';
+        } else if (tabType === 'nyheter') {
+            window.location.href = '/Organisation/organisation.html';
+        } else if (tabType === 'studiematerial') {
+            window.location.href = '/Studiematerial/studiematerial.html';
+        } else if (tabType === 'blanketter') {
+            window.location.href = '/Blanketter/blanketter.html';
+        } else if (tabType === 'ordbok') {
+            window.location.href = '/Ordbok/ordbok.html';
+        }
+        // 'kunskapstester' är den aktiva sidan
+    });
 });
 
-// ============================================================
-// 6. INIT
-// ============================================================
-renderCategoryList();
+// Språkknappar
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const lang = e.currentTarget.getAttribute('data-lang');
+        if (lang && translations[lang]) {
+            currentLang = lang;
+            updateLanguage(lang);
+        }
+    });
+});
+
+// Init
+updateLanguage(currentLang);

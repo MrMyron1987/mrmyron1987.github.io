@@ -3,31 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Välj test – Skogskunskap</title>
-    <!-- Google Fonts: Great Vibes för calligraphy-rubrik -->
+    <title>Kunskapstester – Finska skogssidan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="testerna.css">
 </head>
 <body>
-
 <div class="app-container">
-
     <!-- ===================== HEADER ===================== -->
     <header class="main-header">
-        <h1 data-translate="pageHeader">🌲 Välj ett test</h1>
-        <button id="backToStartBtn" class="back-home-btn" data-translate="backBtn">🏠 Till startsidan</button>
+        <h1 data-translate="headerTitle"></h1>
+        <div class="lang-bar">
+            <button class="lang-btn" data-lang="sv">SV</button>
+            <button class="lang-btn" data-lang="fi">FIN</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </header>
 
+    <!-- ===================== FLIKMENY ===================== -->
+    <nav class="tabs-nav">
+        <button class="tab" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab" data-tab="nyheter" data-translate="tabNyheter"></button>
+        <button class="tab active" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
+        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
+        <button class="tab" data-tab="jobb" data-translate="tabJobb"></button>
+        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
+        <button class="tab" data-tab="ordbok" data-translate="tabDictionary"></button>
+    </nav>
+
     <!-- ===================== INNEHÅLL ===================== -->
-    <main class="categories-content">
-        <div id="categoriesList" class="categories-grid">
-            <!-- Dynamiskt ifyllt av JS -->
+    <main class="tab-content-wrapper">
+        <div class="categories-content">
+            <div id="categoriesList" class="categories-grid"></div>
         </div>
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
     <footer>
         <p>© Mats Lindholm</p>
     </footer>

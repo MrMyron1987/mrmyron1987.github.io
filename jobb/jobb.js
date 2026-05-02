@@ -266,7 +266,7 @@ tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tabType = btn.getAttribute('data-tab');
         if (tabType === 'start') {
-            window.location.href = '/Startsidan/startsidan.html';
+            window.location.href = '/Startsidan/startsida.html';
         } else if (tabType === 'nyheter') {
             window.location.href = '/Organisation/organisation.html';
         } else if (tabType === 'kunskapstester') {

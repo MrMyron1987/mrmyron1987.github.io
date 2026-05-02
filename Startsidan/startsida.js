@@ -182,7 +182,6 @@ const formCards = [
 // ============================================================
 const tabButtons = document.querySelectorAll('.tab');
 const langButtons = document.querySelectorAll('.lang-btn');
-const goToTestsBtn = document.getElementById('goToTestsBtn');
 const goToDictionaryBtn = document.getElementById('goToDictionaryBtn');
 const allPanels = document.querySelectorAll('.tab-panel');
 let currentLang = 'sv';
@@ -257,6 +256,10 @@ tabButtons.forEach(btn => {
             window.location.href = '/Organisation/organisation.html';
             return;
         }
+        if (tabType === 'kunskapstester') {
+            window.location.href = '/Testerna/testerna.html';
+            return;
+        }
         setActiveTab(tabType);
         if (tabType === 'studiematerial') renderStudy();
         else if (tabType === 'blanketter') renderForms();
@@ -275,11 +278,6 @@ langButtons.forEach(btn => {
     });
 });
 
-if (goToTestsBtn) {
-    goToTestsBtn.addEventListener('click', () => {
-        window.location.href = '/Testerna/testerna.html';
-    });
-}
 if (goToDictionaryBtn) {
     goToDictionaryBtn.addEventListener('click', () => {
         window.location.href = '/Ordbok/ordbok.html';

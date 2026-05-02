@@ -9,25 +9,24 @@
 
 body {
     font-family: 'Segoe UI', system-ui, 'Helvetica Neue', sans-serif;
-    /* Fast bakgrundsbild för testerna */
-    background: url('https://i.ibb.co/C5BxdNDh/kunskapstesterna.png') no-repeat center center fixed;
+    background: url('https://i.ibb.co/HDtjcTkw/bakgrundbild-hemsidan.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
-    overflow: hidden;               /* ingen scrollning på hela sidan */
+    overflow: hidden;
 }
 
 /* ============================================================
-   HUVUDCONTAINER – samma storlek och transparens som startsidan
+   HUVUDCONTAINER
    ============================================================ */
 .app-container {
-    max-width: 1200px;              /* bredare, precis som startsidan */
+    max-width: 1200px;
     width: 100%;
-    height: 100vh;                  /* från topp till botten */
-    background-color: rgba(254, 249, 232, 0.4);  /* beige med 40 % genomskinlighet */
+    height: 100vh;
+    background-color: rgba(254, 249, 232, 0.4);
     display: flex;
     flex-direction: column;
 }
@@ -43,8 +42,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
     flex-shrink: 0;
 }
 
@@ -59,7 +56,7 @@ body {
 }
 
 /* ============================================================
-   SPRÅKKNAPPAR (SV / FIN / EN)
+   SPRÅKKNAPPAR
    ============================================================ */
 .lang-bar {
     display: flex;
@@ -92,40 +89,70 @@ body {
 }
 
 /* ============================================================
-   BACK-KNAPP
+   FLIKMENY – 50% mindre
    ============================================================ */
-.back-home-btn {
-    background: #a0763a;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 40px;
-    color: white;
-    cursor: pointer;
-    transition: 0.15s;
-    box-shadow: 0 3px 0 #6b4f2c;
-    border: 1px solid #dbb47a;
+.tabs-nav {
+    background: rgba(212, 201, 168, 0.8);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 0 6px;
+    border-bottom: 3px solid #5f7a4c;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
 }
 
-.back-home-btn:hover {
-    background: #b8864a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 0 #6b4f2c;
+.tab {
+    background: rgba(200, 184, 146, 0.2);
+    border: 2px solid #5f7a4c;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 12px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: #2c3e2b;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 2px;
+    position: relative;
+    top: 3px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05) inset;
+}
+
+.tab:hover {
+    background: rgba(217, 207, 160, 0.7);
+}
+
+.tab.active {
+    background: rgba(254, 249, 232, 0.85);
+    border-bottom: 2px solid rgba(254, 249, 232, 0.85);
+    margin-bottom: -3px;
+    padding-bottom: 8px;
+    z-index: 3;
+    top: 0;
+    box-shadow: none;
+    color: #1e3a1e;
 }
 
 /* ============================================================
-   INNEHÅLLSOMRÅDE – egen scrollbar
+   INNEHÅLLSOMRÅDE
+   ============================================================ */
+.tab-content-wrapper {
+    background: #fef9e8 (217, 207, 160, 0.8);
+    padding: 24px 20px 30px;
+    overflow-y: auto;
+    flex: 1 1 0;
+    border-top: 2px solid transparent;
+}
+
+/* ============================================================
+   TESTKORT (3 kolumner)
    ============================================================ */
 .categories-content {
-    padding: 32px 28px 40px;
-    overflow-y: auto;              /* scrollning inuti boxen, inte på hela sidan */
-    flex: 1 1 0;
+    padding: 0;
 }
 
-/* ============================================================
-   GRID MED 3 LIKA STORA KOLUMNER
-   ============================================================ */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -133,9 +160,6 @@ body {
     max-width: 100%;
 }
 
-/* ============================================================
-   TESTKORT (anpassade till grid)
-   ============================================================ */
 .test-item {
     background: #ffffffdd;
     backdrop-filter: blur(2px);
@@ -145,7 +169,7 @@ body {
     box-shadow: 0 6px 14px rgba(0, 20, 0, 0.06);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  /* knappen hamnar längst ner */
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -168,7 +192,6 @@ body {
     color: #2e6730;
 }
 
-/* Primärknapp – mindre, dynamisk bredd */
 .cat-btn {
     background: #2e6730;
     border: none;
@@ -188,7 +211,7 @@ body {
     display: inline-block;
     width: auto;
     max-width: 100%;
-    margin-top: auto;              /* knuffas till botten */
+    margin-top: auto;
 }
 
 .cat-btn:hover {
@@ -207,10 +230,10 @@ body {
    ============================================================ */
 footer {
     text-align: center;
-    padding: 16px;
+    padding: 12px;
     background: #e0d5bc;
     color: #4f5a3c;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-top: 2px solid #b1c99e;
     flex-shrink: 0;
 }
@@ -219,21 +242,16 @@ footer {
    RESPONSIVITET
    ============================================================ */
 @media (max-width: 900px) {
-    /* Två kolumner på medelstora skärmar */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .categories-grid {
-        grid-template-columns: 1fr;  /* en kolumn på små skärmar */
-    }
     .main-header h1 {
         font-size: 1.8rem;
+    }
+    .categories-grid {
+        grid-template-columns: 1fr;
     }
 }
