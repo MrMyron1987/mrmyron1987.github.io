@@ -11,6 +11,7 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
 
         // Introtext för blanketterna
         blanketIntro: "Här hittar du checklistor och blanketter för egenkontroll och naturhänsyn.",
@@ -31,6 +32,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
 
         blanketIntro: "Täältä löydät tarkistuslistoja ja lomakkeita omavalvontaan ja luonnonhoitoon.",
         formOmaTitle: "Metsänhoitotöiden omavalvontaopas",
@@ -50,6 +52,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
 
         blanketIntro: "Here you will find checklists and forms for self-monitoring and nature conservation.",
         formOmaTitle: "Self-monitoring guide for forest management work",
@@ -142,6 +145,8 @@ tabButtons.forEach(btn => {
             window.location.href = '/Studiematerial/studiematerial.html';
         } else if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+        } else if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
         }
         // 'blanketter' är den aktiva sidan
     });

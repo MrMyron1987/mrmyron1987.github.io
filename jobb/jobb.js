@@ -11,6 +11,8 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
+
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehtis jobbportal för skogsbranschen i Finland. Här publiceras lediga tjänster inom hela skogssektorn.",
@@ -69,6 +71,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehden työpaikkaportaali metsäalalle Suomessa. Täällä julkaistaan avoimia työpaikkoja koko metsäsektorilta.",
@@ -127,6 +130,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
 
         metsalehtiJobTitle: "Metsälehti – Työpaikat",
         metsalehtiJobDesc: "Metsälehti's job portal for the forestry sector in Finland. Open positions across the entire forest sector are published here.",
@@ -277,6 +281,8 @@ tabButtons.forEach(btn => {
             window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+        } else if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
         }
         // 'jobb' är den aktiva sidan, gör inget
     });

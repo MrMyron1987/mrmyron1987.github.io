@@ -11,6 +11,7 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
 
         // Introtext för organisationer
         newsIntro: "Här har jag samlat de främsta skogliga webbplatserna som publicerar nyheter inom skogsbranschen. Gillar du innehållet kan du börja prenumerera på dem och understöda dem.",
@@ -39,6 +40,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
 
         newsIntro: "Tälle sivulle olen koonnut tärkeimmät metsäalan verkkosivustot, jotka julkaisevat uutisia metsäalalta. Jos pidät sisällöstä, voit aloittaa niiden tilaamisen ja tukea niitä.",
         skogscentralenTitle: "Metsäkeskus",
@@ -66,6 +68,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
 
         newsIntro: "Here I have gathered the leading forestry websites that publish news within the forest industry. If you like the content, you can start subscribing to them and support them.",
         skogscentralenTitle: "Skogscentralen",
@@ -169,6 +172,8 @@ tabButtons.forEach(btn => {
             window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+        } else if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
         }
         // 'nyheter' är den aktiva sidan, gör inget
     });

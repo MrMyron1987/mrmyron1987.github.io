@@ -11,6 +11,7 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
 
         studiematerialIntro: "Här hittar du PDF:er och webbsidor som kan hjälpa dig i dina studier.",
         studyRecTitle: "Rekommendationer för skogsvård",
@@ -37,6 +38,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
 
         studiematerialIntro: "Täältä löydät PDF-tiedostoja ja verkkosivuja, jotka auttavat opinnoissasi.",
         studyRecTitle: "Metsänhoidon suositukset",
@@ -63,6 +65,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
 
         studiematerialIntro: "Here you will find PDFs and websites to help you in your studies.",
         studyRecTitle: "Forest Management Recommendations",
@@ -164,6 +167,8 @@ tabButtons.forEach(btn => {
             window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+        } else if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
         }
         // 'studiematerial' är den aktiva sidan
     });

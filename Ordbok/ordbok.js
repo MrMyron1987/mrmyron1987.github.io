@@ -17,7 +17,8 @@ const translations = {
         tabStudiematerial: "Studiematerial",
         tabJobb: "Jobb och praktikplats",
         tabBlanketter: "Blanketter",
-        tabDictionary: "Ordboken"
+        tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
     },
     fi: {
         headerTitle: "🌲 Metsäsanakirja",
@@ -33,7 +34,8 @@ const translations = {
         tabStudiematerial: "Opiskelumateriaali",
         tabJobb: "Työpaikat ja harjoittelu",
         tabBlanketter: "Lomakkeet",
-        tabDictionary: "Sanakirja"
+        tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
     },
     en: {
         headerTitle: "🌲 Forest Dictionary",
@@ -49,7 +51,8 @@ const translations = {
         tabStudiematerial: "Study Material",
         tabJobb: "Jobs and Internships",
         tabBlanketter: "Forms",
-        tabDictionary: "Dictionary"
+        tabDictionary: "Dictionary",
+        tabSchools: "Schools",
     }
 };
 
@@ -2432,6 +2435,8 @@ tabButtons.forEach(btn => {
         else if (tabType === 'studiematerial') window.location.href = '/Studiematerial/studiematerial.html';
         else if (tabType === 'jobb') window.location.href = '/jobb/jobb.html';
         else if (tabType === 'blanketter') window.location.href = '/Blanketter/blanketter.html';
+        else if (tabType === 'skolor') {window.location.href = '/Skola/skola.html';
+        }
         // 'ordbok' är aktiv
     });
 });

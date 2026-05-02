@@ -11,6 +11,7 @@ const translations = {
         tabStart: "Start",
         tabStudiematerial: "Studiematerial",
         tabDictionary: "Ordboken",
+        tabSchools: "Skolor",
 
         catTreeNames: "Namnge träd och buskar",
         catSiteTypes: "Ståndortstyper på mineraljordar",
@@ -19,6 +20,7 @@ const translations = {
         catRoads: "Vägar",
         catRelascope: "Relaskoptabell",
         catInspection: "Frågor kring granskning",
+
 
         descInspection: 'I detta test följer vi <a href="https://www.metsakeskus.fi/sites/default/files/document/tarkastusohje-sv.pdf" target="_blank">Skogscentralens granskningsinstruktioner</a> och ställer frågor kring dem. Testet innehåller bland annat flervalsfrågor om skogsbrukets kvalitetskrav och naturvård. Klicka på knappen nedan för att starta direkt.',
         descCoefficient: "Här testar du dina matematiska kunskaper i koefficientberäkning för provytor med radierna 3,99 och 5,64 meter. Du får räkna ut olika omvandlingstal. Klicka på knappen för att starta testet.",
@@ -37,6 +39,7 @@ const translations = {
         tabStart: "Etusivu",
         tabStudiematerial: "Opiskelumateriaali",
         tabDictionary: "Sanakirja",
+        tabSchools: "Koulut",
 
         catTreeNames: "Nimeä puut ja pensaat",
         catSiteTypes: "Kivennäismaiden kasvupaikkatyypit",
@@ -63,6 +66,7 @@ const translations = {
         tabStart: "Home",
         tabStudiematerial: "Study Material",
         tabDictionary: "Dictionary",
+        tabSchools: "Schools",
 
         catTreeNames: "Name trees and shrubs",
         catSiteTypes: "Site types on mineral soils",
@@ -199,6 +203,8 @@ tabButtons.forEach(btn => {
             window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
             window.location.href = '/Ordbok/ordbok.html';
+        } else if (tabType === 'skolor') {
+            window.location.href = '/Skola/skola.html';
         }
         // 'kunskapstester' är den aktiva sidan
     });
