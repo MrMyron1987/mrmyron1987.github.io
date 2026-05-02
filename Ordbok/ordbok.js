@@ -1,5 +1,5 @@
 // ============================================================
-// 1. ÖVERSÄTTNINGAR
+// 1. ÖVERSÄTTNINGAR (inkl. fliknamn)
 // ============================================================
 const translations = {
     sv: {
@@ -7,30 +7,49 @@ const translations = {
         introText: "Här hittar du skogliga ord och deras benämningar på finska, svenska och engelska.",
         colFinnish: "Finska",
         colSwedish: "Svenska",
-        colEnglish : "Engelska", 
+        colEnglish: "Engelska",
         searchPlaceholder: "Sök ord...",
         pageTitle: "Skogsordboken",
-        backBtn: '⬅ Till startsidan'
+        // Fliköversättningar
+        tabStart: "Start",
+        tabNyheter: "Organisationer",
+        tabKunskapstester: "Kunskapstester",
+        tabStudiematerial: "Studiematerial",
+        tabJobb: "Jobb och praktikplats",
+        tabBlanketter: "Blanketter",
+        tabDictionary: "Ordboken"
     },
     fi: {
         headerTitle: "🌲 Metsäsanakirja",
         introText: "Täältä löydät metsäalan sanoja ja niiden nimityksiä suomeksi, ruotsiksi ja englanniksi.",
         colFinnish: "Suomi",
         colSwedish: "Ruotsi",
-        colEnglish : "Englanti", 
+        colEnglish: "Englanti",
         searchPlaceholder: "Etsi sana...",
         pageTitle: "Metsäsanakirja",
-        backBtn: '⬅ Etusivulle'
+        tabStart: "Etusivu",
+        tabNyheter: "Organisaatiot",
+        tabKunskapstester: "Tietotestit",
+        tabStudiematerial: "Opiskelumateriaali",
+        tabJobb: "Työpaikat ja harjoittelu",
+        tabBlanketter: "Lomakkeet",
+        tabDictionary: "Sanakirja"
     },
     en: {
         headerTitle: "🌲 Forest Dictionary",
-        introText: "Here you find forestry words and their designations in Finnish, Swedish and English.", 
+        introText: "Here you find forestry words and their designations in Finnish, Swedish and English.",
         colFinnish: "Finnish",
         colSwedish: "Swedish",
-        colEnglish : "English ", 
+        colEnglish: "English",
         searchPlaceholder: "Search word...",
         pageTitle: "Forest Dictionary",
-        backBtn: '⬅ Home'
+        tabStart: "Home",
+        tabNyheter: "Organizations",
+        tabKunskapstester: "Knowledge Tests",
+        tabStudiematerial: "Study Material",
+        tabJobb: "Jobs and Internships",
+        tabBlanketter: "Forms",
+        tabDictionary: "Dictionary"
     }
 };
 
@@ -2342,22 +2361,25 @@ const dictionaryData = [
 // ============================================================
 // 3. DOM & INIT
 // ============================================================
+const langButtons = document.querySelectorAll('.lang-btn');
+const tabButtons = document.querySelectorAll('.tab');
 let currentLang = localStorage.getItem('preferredLanguage') || 'sv';
 
 function updateLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
-
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (t[key] !== undefined) el.textContent = t[key];
     });
-
     const searchInput = document.getElementById('dictSearch');
     if (searchInput) searchInput.placeholder = t.searchPlaceholder;
     document.title = t.pageTitle;
     document.documentElement.lang = lang;
-
+    langButtons.forEach(btn => {
+        const bl = btn.getAttribute('data-lang');
+        btn.classList.toggle('active', bl === lang);
+    });
     localStorage.setItem('preferredLanguage', lang);
     renderDictionary();
 }
@@ -2387,38 +2409,56 @@ function renderDictionary() {
         row.addEventListener('click', () => {
             const existing = row.nextSibling;
             if (existing && existing.classList.contains('term-definition')) {
-                // Klicka igen → toggla synlighet
                 existing.style.display = existing.style.display === 'none' ? 'table-row' : 'none';
             } else {
                 const defRow = document.createElement('tr');
                 defRow.className = 'term-definition';
                 defRow.innerHTML = `<td colspan="3">${item.desc}</td>`;
-                defRow.style.display = 'table-row';   // inline style, överröstar CSS
+                defRow.style.display = 'table-row';
                 row.after(defRow);
             }
         });
         tbody.appendChild(row);
     });
 }
-// Event listeners
-document.getElementById('backToStartBtn').addEventListener('click', () => {
-    window.location.href = '../Startsidan/startsida.html';
+
+// Fliknavigering
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tabType = btn.getAttribute('data-tab');
+        if (tabType === 'start') window.location.href = '/Startsidan/startsida.html';
+        else if (tabType === 'nyheter') window.location.href = '/Organisation/organisation.html';
+        else if (tabType === 'kunskapstester') window.location.href = '/Testerna/testerna.html';
+        else if (tabType === 'studiematerial') window.location.href = '/Studiematerial/studiematerial.html';
+        else if (tabType === 'jobb') window.location.href = '/jobb/jobb.html';
+        else if (tabType === 'blanketter') window.location.href = '/Blanketter/blanketter.html';
+        // 'ordbok' är aktiv
+    });
 });
 
+// Sökfält
 document.getElementById('dictSearch').addEventListener('input', renderDictionary);
 
+// Sorteringsknappar
 document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const col = btn.getAttribute('data-col');
-        if (dictSortCol === col) {
-            dictSortAsc = !dictSortAsc;
-        } else {
-            dictSortCol = col;
-            dictSortAsc = true;
-        }
+        if (dictSortCol === col) dictSortAsc = !dictSortAsc;
+        else { dictSortCol = col; dictSortAsc = true; }
         renderDictionary();
     });
 });
 
-// Starta sidan
+// Språkknappar
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const lang = e.currentTarget.getAttribute('data-lang');
+        if (lang && translations[lang]) {
+            currentLang = lang;
+            updateLanguage(lang);
+        }
+    });
+});
+
+// Starta
 updateLanguage(currentLang);

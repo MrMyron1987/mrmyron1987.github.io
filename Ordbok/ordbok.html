@@ -14,9 +14,23 @@
     <!-- ===================== HEADER ===================== -->
     <header class="main-header">
         <h1 data-translate="headerTitle"></h1>
-        <!-- Till startsidan-knapp -->
-        <button id="backToStartBtn" class="back-btn" data-translate="backBtn"></button>
+        <div class="lang-bar">
+            <button class="lang-btn" data-lang="sv">SV</button>
+            <button class="lang-btn" data-lang="fi">FIN</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </header>
+
+    <!-- ===================== FLIKMENY ===================== -->
+    <nav class="tabs-nav">
+        <button class="tab" data-tab="start" data-translate="tabStart"></button>
+        <button class="tab" data-tab="nyheter" data-translate="tabNyheter"></button>
+        <button class="tab" data-tab="kunskapstester" data-translate="tabKunskapstester"></button>
+        <button class="tab" data-tab="studiematerial" data-translate="tabStudiematerial"></button>
+        <button class="tab" data-tab="jobb" data-translate="tabJobb"></button>
+        <button class="tab" data-tab="blanketter" data-translate="tabBlanketter"></button>
+        <button class="tab active" data-tab="ordbok" data-translate="tabDictionary"></button>
+    </nav>
 
     <!-- ===================== INNEHÅLL ===================== -->
     <main class="tab-content-wrapper">

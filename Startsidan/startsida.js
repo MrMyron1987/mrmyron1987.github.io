@@ -20,10 +20,6 @@ const translations = {
         infoBox3Title: "Testa dina kunskaper",
         infoBox3Text: "Välj bland flera kategorier som trädslag, växter, matematik och vägar – och utmana dig själv!",
 
-        dictionaryIntro: "Här hittar du alla skogliga ord och dess benämningar",
-        dictionaryClickText: "Klicka på knappen för att komma till den skogliga ordboken",
-        dictionaryButton: "📖 Öppna ordboken",
-
         pageTitle: "Finska skogssidan – Start"
     },
     fi: {
@@ -43,10 +39,6 @@ const translations = {
         infoBox2Text: "Pysy ajan tasalla metsäteollisuuden tapahtumista ja tutkimuksista Suomessa ja Ruotsissa.",
         infoBox3Title: "Testaa tietosi",
         infoBox3Text: "Valitse useista kategorioista kuten puulajit, kasvit, matematiikka ja tiet – ja haasta itsesi!",
-
-        dictionaryIntro: "Täältä löydät kaikki metsäalan sanat ja niiden nimet",
-        dictionaryClickText: "Napsauta painiketta päästäksesi metsäalan sanakirjaan",
-        dictionaryButton: "📖 Avaa sanakirja",
 
         pageTitle: "Suomen metsäsivusto – Etusivu"
     },
@@ -68,10 +60,6 @@ const translations = {
         infoBox3Title: "Test Your Knowledge",
         infoBox3Text: "Choose from several categories such as tree species, plants, mathematics and roads – and challenge yourself!",
 
-        dictionaryIntro: "Here you find all forestry words and their designations",
-        dictionaryClickText: "Click the button to access the forestry dictionary",
-        dictionaryButton: "📖 Open dictionary",
-
         pageTitle: "Finnish Forest Site – Home"
     }
 };
@@ -81,7 +69,6 @@ const translations = {
 // ============================================================
 const tabButtons = document.querySelectorAll('.tab');
 const langButtons = document.querySelectorAll('.lang-btn');
-const goToDictionaryBtn = document.getElementById('goToDictionaryBtn');
 const allPanels = document.querySelectorAll('.tab-panel');
 let currentLang = 'sv';
 
@@ -134,6 +121,10 @@ tabButtons.forEach(btn => {
             window.location.href = '/Studiematerial/studiematerial.html';
             return;
         }
+        if (tabType === 'ordbok') {
+            window.location.href = '/Ordbok/ordbok.html';
+            return;
+        }
         setActiveTab(tabType);
     });
 });
@@ -147,12 +138,6 @@ langButtons.forEach(btn => {
         }
     });
 });
-
-if (goToDictionaryBtn) {
-    goToDictionaryBtn.addEventListener('click', () => {
-        window.location.href = '/Ordbok/ordbok.html';
-    });
-}
 
 function initialize() {
     const savedLang = localStorage.getItem('preferredLanguage') || 'sv';
