@@ -272,7 +272,7 @@ tabButtons.forEach(btn => {
         } else if (tabType === 'kunskapstester') {
             window.location.href = '/Testerna/testerna.html';
         } else if (tabType === 'studiematerial') {
-            window.location.href = '/Studera/studera.html';
+            window.location.href = '/Studiematerial/studiematerial.html';
         } else if (tabType === 'blanketter') {
             window.location.href = '/Blanketter/blanketter.html';
         } else if (tabType === 'ordbok') {
